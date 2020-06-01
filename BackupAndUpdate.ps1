@@ -6,7 +6,7 @@
     [int] $UpdateFromDays = 5 
    )
 
-    [bool] $doBackup = $false 
+    [bool] $doBackup = $true 
     [string] $dbname = 'Cyberscope123'
     [string] $pathToDbScripts = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\'
 
@@ -36,6 +36,8 @@
         Write-Host $_.Script 
         Invoke-Sqlcmd  -Database $dbname -InputFile $_.Script   -Password P@ssword1  -Username CSAdmin  
      }  
+      Invoke-Sqlcmd  -Database Cyberscope123 -Query "SELECT TOP 50   NAME, CONVERT(VARCHAR(20), CREATE_DATE) UPDATED FROM sys.all_objects  ORDER BY CREATE_DATE DESC"  | Out-GridView
+
 } 
 function Invoke-ExtractObjectFromScript {
     [CmdletBinding()] 
@@ -43,9 +45,9 @@ function Invoke-ExtractObjectFromScript {
         [string] $Path = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\Views\aa_temp.sql'
     )
     $sql = (Get-Content $Path).Replace("[dbo].", "").Replace("dbo.", "").Replace("[", "").Replace("]", "") 
-    $sql | Select-String '(DROP [PROCEDURE|VIEW|TRIGGER|FUNCTION]+ )([A-Za-z0-9\-\\_]+)' -AllMatches | `
+    $sql | Select-String '(DROP\s*[PROCEDURE|VIEW|TRIGGER|FUNCTION]+)\s*([A-Za-z0-9\-\\_]+)' -AllMatches | Select -First 1 |  `
     % {$_.matches.groups[2].value}` 
    
 }
 
-Invoke-UpdateDB -UpdateFromDays 35
+Invoke-UpdateDB -UpdateFromDays 5
