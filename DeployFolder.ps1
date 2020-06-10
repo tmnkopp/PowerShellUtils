@@ -1,15 +1,21 @@
-﻿$exclusions = @("web.config")
- 
-Remove-Item -Path 'C:\inetpub\wwwroot\CS2\*' -Recurse   -Force   
-Copy-Item -Path 'C:\inetpub\wwwroot\CS2_Release\*' -Exclude $exclusions  -Destination 'C:\inetpub\wwwroot\CS2\' -Recurse -Force 
+﻿
+
+$src = 'C:\inetpub\wwwroot\CyberScopeBranch_Release\'; 
+$dest = 'C:\inetpub\wwwroot\CyberScopeBranch\';
+$exclusions = @("", $dest + "tempup*", $dest + "tempdown*");
+
+# Remove-Item -Path $dest -Exclude $exclusions -Recurse -Force -WhatIf  
+
+Get-ChildItem -Path $dest -Recurse -exclude 'web.config' | `
+Select -ExpandProperty FullName | `
+Where {$_ -notlike $dest + "tempup*" -and $_ -notlike $dest + "tempdown*"} | ` 
+sort length -Descending | `
+Remove-Item -Recurse -force  -WhatIf  
+
+# Remove-Item -Path $root + 'C:\inetpub\wwwroot\CS2\*' -Recurse   -Force   
+# Copy-Item -Path 'C:\inetpub\wwwroot\CS2_Release\*' -Exclude $exclusions  -Destination 'C:\inetpub\wwwroot\CS2\' -Recurse -Force 
   
-Copy-Item -Path 'C:\inetpub\wwwroot\CyberScopeBranch\WEB.config' -Destination 'C:\inetpub\wwwroot\CS2\'   -Force 
-Copy-Item -Path 'C:\inetpub\wwwroot\CyberScopeBranch\tempup\' -Destination 'C:\inetpub\wwwroot\CS2\tempup\'  -Recurse   -Force  
-Copy-Item -Path 'C:\inetpub\wwwroot\CyberScopeBranch\tempdown\' -Destination 'C:\inetpub\wwwroot\CS2\tempdown\'  -Recurse    -Force  
-
-[string] $replaceScript = '<script src="~/Scripts/server.js"></script>';
-[string] $replace = Get-Content 'C:\inetpub\wwwroot\CS2_Release\HeaderOnly.Master'  | Select-String '(<title>.*</title>)' -AllMatches | Select -First 1 | `
-    % {$_.matches.groups[0].value}` 
-(Get-Content 'C:\inetpub\wwwroot\CS2\HeaderOnly.Master').Replace( $replace , "`n$replace`n$replaceScript`n") | Set-Content 'C:\inetpub\wwwroot\CS2\HeaderOnly.Master' 
-
-#<title>DHS Cyberscope</title>
+# Copy-Item -Path 'C:\inetpub\wwwroot\CyberScopeBranch\Web.config' -Destination 'C:\inetpub\wwwroot\CS2\'   -Force 
+# Copy-Item -Path 'C:\inetpub\wwwroot\CyberScopeBranch\tempup\' -Destination 'C:\inetpub\wwwroot\CS2\tempup\'  -Recurse   -Force  
+# Copy-Item -Path 'C:\inetpub\wwwroot\CyberScopeBranch\tempdown\' -Destination 'C:\inetpub\wwwroot\CS2\tempdown\'  -Recurse    -Force  
+ 

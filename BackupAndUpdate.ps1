@@ -6,7 +6,7 @@
     [int] $UpdateFromDays = 5 
    )
 
-    [bool] $doBackup = $true 
+    [bool] $doBackup = $true
     [string] $dbname = 'Cyberscope123'
     [string] $pathToDbScripts = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\'
 
@@ -25,8 +25,8 @@
         $scriptitem = New-Object PsObject -Property @{        
             Script = $_.FullName;   
             DBObject = $dbobject;    
-            ScriptUpdated = $_.LastWriteTime;  
-            DBUpdated = $rec.CREATE_DATE ;  
+            ScriptUpdated = [DateTime]$_.LastWriteTime;  
+            DBUpdated =  $rec.CREATE_DATE ;  
             DateDiff= $rec.CREATE_DATE -lt  $_.LastWriteTime  ;
         }
         [void]$FileCollection.Add($scriptitem)  
