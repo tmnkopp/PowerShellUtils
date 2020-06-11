@@ -3,11 +3,11 @@ git add .; git commit -m "refactor compiler";git push;
 
 
 cd 'C:\Users\Tim\Documents\SQL Server Management Studio\SQL_PROJECTS\SQL_PROJECTS'
-git add .; git commit -m "prepop update";git push;
+git add .; git commit -m "prepop update 2";git push;
 
 
 cd 'D:\PS'
-git add .; git commit -m "added datetime for git command ";git push;
+git add .; git commit -m "added SVN for git command ";git push;
 
 
 

@@ -1,4 +1,11 @@
-﻿ function Invoke-UpdateDB 
+﻿cd D:\dev\CyberScope\CyberScopeBranch\CSwebdev 
+svn  status
+svn --help proplist
+svn  update 
+
+Invoke-UpdateDB -UpdateFromDays 5
+ 
+ function Invoke-UpdateDB 
  {  
   [CmdletBinding()]
    param ( 
@@ -49,5 +56,3 @@ function Invoke-ExtractObjectFromScript {
     % {$_.matches.groups[2].value}` 
    
 }
-
-Invoke-UpdateDB -UpdateFromDays 5
