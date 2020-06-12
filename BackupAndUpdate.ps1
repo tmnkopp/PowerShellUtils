@@ -1,7 +1,10 @@
 ﻿cd D:\dev\CyberScope\CyberScopeBranch\CSwebdev 
 svn  status
-svn --help proplist
+svn    log -l 5 -v
 svn  update 
+svn  status
+##svn --help log
+
 
 Invoke-UpdateDB -UpdateFromDays 5
  

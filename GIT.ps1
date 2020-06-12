@@ -7,7 +7,7 @@ git add .; git commit -m "prepop update 2";git push;
 
 
 cd 'D:\PS'
-git add .; git commit -m "added SVN for git command ";git push;
+git add .; git commit -m "updated SVN command to update ";git push;
 
 
 
