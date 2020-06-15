@@ -1,6 +1,6 @@
 ﻿cd D:\dev\CyberScope\CyberScopeBranch\CSwebdev 
 svn  status
-svn    log -l 5 -v
+svn    log -l 2 -v
 svn  update 
 svn  status
 ##svn --help log
