@@ -1,11 +1,10 @@
-﻿cd D:\dev\CyberScope\CyberScopeBranch\CSwebdev 
-svn  status
-svn    log -l 2 -v
+﻿##cd D:\dev\CyberScope\CyberScopeBranch\CSwebdev 
+##svn  status
+##svn  update 
+##   svn    log -l 2 -v 
+##   svn --help commit
+cd D:\dev\CyberScope\CyberScopeBranch\CSwebdev 
 svn  update 
-svn  status
-##svn --help log
-
-
 Invoke-UpdateDB -UpdateFromDays 5
  
  function Invoke-UpdateDB 

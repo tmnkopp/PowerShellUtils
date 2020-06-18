@@ -1,11 +1,20 @@
-﻿cd D:\dev\CyberScope\CyberScopeBranch\CSwebdev 
-svn  update
-svn --help update
+﻿cd D:\dev\CyberBalance\trunk\projects\
+svn status -u
+svn log -l 4
 
-#Get-Item *3.4.1*.js | foreach{ svn rm --keep-local $_   } -WhatIf
-#Get-Item *3.4.1*[.js|.map] | foreach{ svn rm --keep-local $_   } -WhatIf
+cd D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope\
+svn status -u
+svn  commit '' -m "CS-7485 updated  CIO C4 2020"
  
-#svn cleanup --remove-unversioned  -WhatIf
+cd D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\
+svn status -q  
+svn  commit 'DB_Update7.26_CIOQ42020.sql' -m "CS-7485 updated  CIO C4 2020"
+
+
+
+svn --help  status
+
+ 
 
 
 

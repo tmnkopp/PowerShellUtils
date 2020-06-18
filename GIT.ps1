@@ -3,7 +3,7 @@ git add .; git commit -m "refactor compiler";git push;
 
 
 cd 'C:\Users\Tim\Documents\SQL Server Management Studio\SQL_PROJECTS\SQL_PROJECTS'
-git add .; git commit -m "prepop update 2";git push;
+git add .; git commit -m "getOrgSubmission.sql add";git push;
 
 
 cd 'D:\PS'
