@@ -1,5 +1,5 @@
 ﻿cd C:\users\tim\source\repos\somuing
-git add .; git commit -m "refactor compiler";git push;
+git add .; git commit -m "refactor ux";git push;
 
 cd C:\users\tim\source\repos\Compiler
 git add .; git commit -m "refactor projects";git push;
