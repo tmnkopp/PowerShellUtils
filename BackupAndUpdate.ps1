@@ -3,9 +3,8 @@
 ##svn  update 
 ##   svn    log -l 2 -v 
 ##   svn --help commit
-cd D:\dev\CyberScope\CyberScopeBranch\CSwebdev 
-svn  update 
-Invoke-UpdateDB -UpdateFromDays 5
+
+Invoke-UpdateDB -UpdateFromDays 2
  
  function Invoke-UpdateDB 
  {  

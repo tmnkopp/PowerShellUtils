@@ -1,13 +1,16 @@
 ﻿cd C:\users\tim\source\repos\somuing
 git add .; git commit -m "refactor compiler";git push;
 
+cd C:\users\tim\source\repos\SledgeOMatic
+git add .; git commit -m "refactor procs";git push;
+
 
 cd 'C:\Users\Tim\Documents\SQL Server Management Studio\SQL_PROJECTS\SQL_PROJECTS'
 git add .; git commit -m "getOrgSubmission.sql add";git push;
 
 
 cd 'D:\PS'
-git add .; git commit -m "updated SVN commands   ";git push;
+git add .; git commit -m "updated SVN commit commands   ";git push;
 
 
 
