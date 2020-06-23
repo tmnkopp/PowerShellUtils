@@ -1,8 +1,8 @@
 ﻿cd C:\users\tim\source\repos\somuing
 git add .; git commit -m "refactor compiler";git push;
 
-cd C:\users\tim\source\repos\SledgeOMatic
-git add .; git commit -m "refactor procs";git push;
+cd C:\users\tim\source\repos\Compiler
+git add .; git commit -m "refactor projects";git push;
 
 
 cd 'C:\Users\Tim\Documents\SQL Server Management Studio\SQL_PROJECTS\SQL_PROJECTS'
