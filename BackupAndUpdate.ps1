@@ -4,8 +4,18 @@
 ##   svn    log -l 2 -v 
 ##   svn --help commit
 
-Invoke-UpdateDB -UpdateFromDays 2
+
+
  
+Invoke-BackupDB
+  function Invoke-BackupDB 
+ { 
+    [string] $dbname = 'Cyberscope123'
+    Get-SqlDatabase -ServerInstance localhost -NAME $dbname | Backup-SqlDatabase -Incremental    
+ }
+
+
+  ##Invoke-UpdateDB -UpdateFromDays 5
  function Invoke-UpdateDB 
  {  
   [CmdletBinding()]
@@ -14,7 +24,7 @@ Invoke-UpdateDB -UpdateFromDays 2
     [int] $UpdateFromDays = 5 
    )
 
-    [bool] $doBackup = $true
+    [bool] $doBackup = $false
     [string] $dbname = 'Cyberscope123'
     [string] $pathToDbScripts = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\'
 
