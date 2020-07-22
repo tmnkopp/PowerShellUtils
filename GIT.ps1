@@ -1,12 +1,12 @@
 ﻿cd C:\users\tim\source\repos\somuing
-git add .; git commit -m "refactor ux";git push;
+git add .; git commit -m "refac ui";git push;
 
 cd C:\users\tim\source\repos\Compiler
-git add .; git commit -m "refactor projects";git push;
+git add .; git commit -m "refac  project datacall";git push;
 
 
 cd 'C:\Users\Tim\Documents\SQL Server Management Studio\SQL_PROJECTS\SQL_PROJECTS'
-git add .; git commit -m "getOrgSubmission.sql add";git push;
+git add .; git commit -m "add and remove sql for new dataquery";git push;
 
 
 cd 'D:\PS'
