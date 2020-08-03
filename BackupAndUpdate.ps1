@@ -1,23 +1,21 @@
-﻿##cd D:\dev\CyberScope\CyberScopeBranch\CSwebdev 
-##svn  status
-##svn  update 
+﻿## cd D:\dev\CyberScope\CyberScopeBranch\CSwebdev 
+## svn  status
+## svn  update 
 ##   svn    log -l 2 -v 
 ##   svn --help commit
-
-
-
+## Get-Help Backup-SqlDatabase
  
 Invoke-BackupDB
-  function Invoke-BackupDB 
- { 
+function Invoke-BackupDB 
+{ 
     [string] $dbname = 'Cyberscope123'
     Get-SqlDatabase -ServerInstance localhost -NAME $dbname | Backup-SqlDatabase -Incremental    
- }
+}
 
 
-  ##Invoke-UpdateDB -UpdateFromDays 5
- function Invoke-UpdateDB 
- {  
+ Invoke-UpdateDB -UpdateFromDays 5
+function Invoke-UpdateDB 
+{  
   [CmdletBinding()]
    param ( 
     [Parameter(Mandatory = $true, Position = 0)] 
