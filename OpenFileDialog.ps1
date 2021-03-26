@@ -15,3 +15,4 @@
     $OpenFileDialog.ShowDialog() | Out-Null   
     $OpenFileDialog.filename 
 }
+Invoke-UdfOpenFileDialog

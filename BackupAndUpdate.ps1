@@ -1,19 +1,12 @@
-﻿## cd D:\dev\CyberScope\CyberScopeBranch\CSwebdev 
-## svn  status
-## svn  update 
-##   svn    log -l 2 -v 
-##   svn --help commit
+﻿
 ## Get-Help Backup-SqlDatabase
- 
-Invoke-BackupDB
+## Invoke-BackupDB
 function Invoke-BackupDB 
 { 
-    [string] $dbname = 'Cyberscope123'
+    [string] $dbname = 'CyberScope123'
     Get-SqlDatabase -ServerInstance localhost -NAME $dbname | Backup-SqlDatabase -Incremental    
 }
-
-
- Invoke-UpdateDB -UpdateFromDays 5
+ 
 function Invoke-UpdateDB 
 {  
   [CmdletBinding()]
@@ -64,4 +57,34 @@ function Invoke-ExtractObjectFromScript {
     $sql | Select-String '(DROP\s*[PROCEDURE|VIEW|TRIGGER|FUNCTION]+)\s*([A-Za-z0-9\-\\_]+)' -AllMatches | Select -First 1 |  `
     % {$_.matches.groups[2].value}` 
    
+} 
+function SVN-UPDATE 
+{ 
+      [CmdletBinding()]
+       param ( 
+        [Parameter(Mandatory = $false, Position = 0)] 
+        [bool] $showlog = $false 
+       )
+
+    cd   D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database 
+    svn  update
+    # svn  status
+    Invoke-UpdateDB -UpdateFromDays 5
+
+    if([bool]$showlog){
+        svn log -l 2 -v   
+    }   
+    cd   D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code 
+    svn  update
+    svn  status
+    cd   D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code
+    dotnet build
+    # & $env:bom cmd -t rtime
+
 }
+SVN-UPDATE 
+
+
+
+
+
