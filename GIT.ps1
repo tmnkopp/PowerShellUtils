@@ -4,7 +4,8 @@ git remote set-url origin   https://github.com/tmnkopp/PowerShellUtils.git
 git push --set-upstream origin master
 git remote -v
 git status
-git add .; git commit -m "added ps for git commands";git push;
+
+cd 'D:\PS'; git add .; git commit -m "added ps for git commands";git push;
  
 cd C:\users\tim\source\repos\JiraPortal
 git add .; git commit -m "migrated assm formatting";git push; 
