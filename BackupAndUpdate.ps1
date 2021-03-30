@@ -41,7 +41,7 @@ function Invoke-UpdateDB
         [void]$FileCollection.Add($scriptitem)  
         $dbobject =''
     } 
-    $FileCollection  | Out-GridView -PassThru  |  ForEach-Object {    
+    $FileCollection | Sort-Object -Property ScriptUpdated -de | Out-GridView -PassThru  |  ForEach-Object {    
         Write-Host $_.Script 
         Invoke-Sqlcmd  -Database $dbname -InputFile $_.Script   -Password P@ssword1  -Username CSAdmin  
      }  
@@ -63,26 +63,33 @@ function SVN-UPDATE
       [CmdletBinding()]
        param ( 
         [Parameter(Mandatory = $false, Position = 0)] 
-        [bool] $showlog = $false 
+        [bool] $showlog = $false ,
+        [Parameter(Mandatory = $false, Position = 1)] 
+        [bool] $withrtime = $false 
        )
 
     cd   D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database 
-    svn  update
-    # svn  status
+    svn  update 
     Invoke-UpdateDB -UpdateFromDays 5
 
     if([bool]$showlog){
         svn log -l 2 -v   
     }   
+    if([bool]$withrtime){
+        $exe = [System.Environment]::GetEnvironmentVariable('bom', 'User')  
+        & $exe  cmd -t rtime
+    }   
+
     cd   D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code 
     svn  update
     svn  status
     cd   D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code
     dotnet build
-    # & $env:bom cmd -t rtime
+
+
 
 }
-SVN-UPDATE 
+SVN-UPDATE -showlog $true -withrtime $true
 
 
 
