@@ -6,6 +6,11 @@ git remote -v
 git status
 
 cd 'D:\PS'; git add .; git commit -m "added ps for git commands";git push;
+
+
+cd C:\users\tim\source\repos\SledgeOMatic;
+git add .; git commit -m "unit test compiler"; git push;
+
  
 cd C:\users\tim\source\repos\JiraPortal
 git add .; git commit -m "migrated assm formatting";git push; 
@@ -23,8 +28,7 @@ git add .; git commit -m "inc support for assm codegen";git push;
 cd C:\users\tim\source\repos\SOM-API
 git add .; git commit -m "added code gen supporting model";git push;
 
-cd C:\users\tim\source\repos\SledgeOMatic;
-git add .; git commit -m "refactored compiler"; git push;
+
 
 cd 'C:\Users\Tim\source\repos\Py\snippets'
 git remote set-url origin   https://github.com/tmnkopp/PythonBoiler.git

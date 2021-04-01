@@ -19,19 +19,7 @@ if( $HasFiles )
     Copy-Item   -Path ($temp + "web.config*") -Destination (  $moveto + '\code\CyberScope\' ) -recurse  -force  
     Copy-Item   -Path ($temp + "FolderProfile.pubxml") -Destination ( $moveto + '\code\CyberScope\My Project\PublishProfiles\') -recurse  -force  
 }
-
-
-
-
-#  $outFile='d:\data\logs\VersionManager.txt'  
-#  Set-Content -Path $outFile -Value $files
-#  $output =  start-process 'C:\\Users\\Tim\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe' $outFile    
  
-
-# $webconf = $movefrom + "web.config" 
-# $content = Get-Content -Path $webconf 
-# $content = $content.Replace("AspNetCoreModule""","AspNetCoreModuleV2""")
-# Set-Content -Path $webconf  -Value $content 
 
 
 

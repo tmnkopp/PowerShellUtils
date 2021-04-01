@@ -1,18 +1,43 @@
-﻿
-## Get-Help Backup-SqlDatabase
-## Invoke-BackupDB
-function Invoke-BackupDB 
+﻿function UnitTest(){
+
+  [CmdletBinding()]
+   param (  
+    [Parameter(Mandatory = $false, Position = 0)] 
+    [string] $pass = 'default' 
+   )
+   Write-Host $pass 
+}   
+
+function DBBackup 
 { 
     [string] $dbname = 'CyberScope123'
     Get-SqlDatabase -ServerInstance localhost -NAME $dbname | Backup-SqlDatabase -Incremental    
 }
- 
-function Invoke-UpdateDB 
+function PassResetter{
+    [CmdletBinding()]
+    param (  
+     [Parameter(Mandatory = $true, Position = 0)] 
+     [string] $pass = '' 
+    )
+    $sql = "UPDATE aspnet_Membership 
+            SET IsLockedOut = 0
+            , IsApproved = 1
+            , Password = 'HRnRWpAftHn6V+MWljtLDDJdNXQ='
+            , PasswordSalt = '5FyxBJd7FpU1Elu0xjyVnw==' 
+            WHERE UserId <> '80CA7CC1-C0A1-44A8-9DF9-912F52C7FE51'"
+    
+    Invoke-Sqlcmd -Database Cyberscope123 -Query $sql -Password $pass -Username CSAdmin  
+
+} 
+  
+function DBUpdate 
 {  
   [CmdletBinding()]
    param ( 
+    [Parameter(Mandatory = $false, Position = 0)] 
+    [int] $UpdateFromDays = 10 ,
     [Parameter(Mandatory = $true, Position = 0)] 
-    [int] $UpdateFromDays = 5 
+    [string] $pass = '' 
    )
 
     [bool] $doBackup = $false
@@ -43,9 +68,9 @@ function Invoke-UpdateDB
     } 
     $FileCollection | Sort-Object -Property ScriptUpdated -de | Out-GridView -PassThru  |  ForEach-Object {    
         Write-Host $_.Script 
-        Invoke-Sqlcmd  -Database $dbname -InputFile $_.Script   -Password P@ssword1  -Username CSAdmin  
-     }  
-      Invoke-Sqlcmd  -Database Cyberscope123 -Query "SELECT TOP 50   NAME, CONVERT(VARCHAR(20), CREATE_DATE) UPDATED FROM sys.all_objects  ORDER BY CREATE_DATE DESC"  | Out-GridView
+        Invoke-Sqlcmd  -Database $dbname -InputFile $_.Script  -Password $pass  -Username CSAdmin  
+    }  
+    Invoke-Sqlcmd  -Database Cyberscope123 -Query "SELECT TOP 50 NAME, CONVERT(VARCHAR(20), CREATE_DATE) UPDATED FROM sys.all_objects  ORDER BY CREATE_DATE DESC"  | Out-GridView
 
 } 
 function Invoke-ExtractObjectFromScript {
@@ -58,40 +83,7 @@ function Invoke-ExtractObjectFromScript {
     % {$_.matches.groups[2].value}` 
    
 } 
-function SVN-UPDATE 
-{ 
-      [CmdletBinding()]
-       param ( 
-        [Parameter(Mandatory = $false, Position = 0)] 
-        [bool] $showlog = $false ,
-        [Parameter(Mandatory = $false, Position = 1)] 
-        [bool] $withrtime = $false 
-       )
 
-    cd   D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database 
-    svn  update 
-    Invoke-UpdateDB -UpdateFromDays 5
+ 
 
-    if([bool]$showlog){
-        svn log -l 2 -v   
-    }   
-    if([bool]$withrtime){
-        $exe = [System.Environment]::GetEnvironmentVariable('bom', 'User')  
-        & $exe  cmd -t rtime
-    }   
-
-    cd   D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code 
-    svn  update
-    svn  status
-    cd   D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code
-    dotnet build
-
-
-
-}
-SVN-UPDATE -showlog $true -withrtime $true
-
-
-
-
-
+  
