@@ -1,4 +1,4 @@
-﻿function UnitTest(){
+﻿function DBUnitTest(){
 
   [CmdletBinding()]
    param (  

@@ -1,4 +1,4 @@
-﻿function UnitTest(){
+﻿function SCUnitTest(){
 
     [CmdletBinding()]
      param (  

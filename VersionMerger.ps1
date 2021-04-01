@@ -5,8 +5,7 @@ $moveto = 'D:\dev\CyberScope\Trunk_31526\CSwebdev'
 
 $base = 'D:\dev\CyberScope\' 
 $temp = $base + "temp\"  
-Remove-item ( $temp + "*" ) -recurse -force 
-
+Remove-item ( $temp + "*" ) -recurse -force  
 Copy-Item -Path ($moveto + "\code\CyberScope\web.config*" ) -Destination ($temp) 
 Copy-Item -Path ($moveto + "\code\CyberScope\My Project\PublishProfiles\FolderProfile.pubxml" ) -Destination ($temp) 
 
