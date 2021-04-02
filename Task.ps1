@@ -1,17 +1,23 @@
-﻿param (  
-    [Parameter(Mandatory = $false, Position = 0)] 
-    [string] $Foo  = 'bar' 
-)
+﻿Import-Module sqlserver
 
-Write-Host $Foo  
+$Databases = Get-ChildItem -Path SQLSERVER:\SQL\LOCALHOST\DEFAULT\Databases
 
-function UnitTest(){
+$Output = @()
 
-  [CmdletBinding()]
-   param (  
-    [Parameter(Mandatory = $false, Position = 0)] 
-    [string] $Bar = 'default' 
-   )
-   Write-Host $Bar  
-}  
- 
+ForEach ($d in $Databases) {
+
+    ForEach ($t in $d.tables) {
+        $Object = [PSCustomObject] @{
+            ServerName = 'LOCALHOST'
+            DatabaseName = $d.Name
+            DatabaseSize = $d.Size
+            TableSchema = $t.Schema
+            TableName = $t.Name
+            RowCount = $t.RowCount
+            DataSpaceUsed = $t.DataSpaceUsed
+            IndexSize = ($t.Indexes.SpaceUsed | Measure-Object -Sum).Sum
+        }
+
+        $Output += $Object
+    }
+}
