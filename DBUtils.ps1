@@ -35,7 +35,7 @@ function DBUpdate
   [CmdletBinding()]
    param ( 
     [Parameter(Mandatory = $false, Position = 0)] 
-    [int] $UpdateFromDays = 10 ,
+    [int] $UpdateFromDays = 30 ,
     [Parameter(Mandatory = $true, Position = 0)] 
     [string] $pass = '' 
    )
