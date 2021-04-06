@@ -5,10 +5,10 @@ git push --set-upstream origin master
 git remote -v
 git status
 
-cd 'D:\PS'; git add .; git commit -m "revised git commands";git push;
+cd 'D:\PS'; git add .; git commit -m "revised shell commands";git push;
 
 cd C:\users\tim\source\repos\BrowseOmatic;
-git add .; git commit -m "refactored control driver libraries"; git push;
+git add .; git commit -m "refactored  driver libraries"; git push;
 
 
 cd C:\users\tim\source\repos\SledgeOMatic;
