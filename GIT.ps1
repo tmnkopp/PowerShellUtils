@@ -1,10 +1,7 @@
 ﻿ 
-cd 'D:\PS'
-git remote set-url origin   https://github.com/tmnkopp/PowerShellUtils.git
-git push --set-upstream origin master
-git remote -v
-git status
 
+
+ 
 cd 'D:\PS'; git add .; git commit -m "revised shell commands";git push;
 
 cd C:\users\tim\source\repos\BrowseOmatic;
@@ -15,7 +12,7 @@ cd C:\users\tim\source\repos\SledgeOMatic;
 git add .; git commit -m "unit test compiler"; git push;
 
 
-
+cd C:\Users\Tim\source\repos\citizendez\Budget_App\; git add .; git commit -m "refactored main";git push;
 
  
 cd C:\users\tim\source\repos\JiraPortal
@@ -43,3 +40,8 @@ git remote -v
 git add .; git commit -m "refac main";git push;
 
 
+cd 'D:\PS'
+git remote set-url origin   https://github.com/tmnkopp/PowerShellUtils.git
+git push --set-upstream origin master
+git remote -v
+git status
