@@ -1,13 +1,9 @@
 ﻿ 
-
-
- 
-cd 'D:\PS'; git add .; git commit -m "revised shell commands";git push;
+cd 'D:\PS'; git add .; git commit -m "revised shell cmds";git push;
 
 cd C:\users\tim\source\repos\BrowseOmatic;
 git add .; git commit -m "refactored  driver libraries"; git push;
-
-
+ 
 cd C:\users\tim\source\repos\SledgeOMatic;
 git add .; git commit -m "unit test compiler"; git push;
 
