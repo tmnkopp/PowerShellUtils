@@ -1,23 +1,25 @@
 ﻿ 
-cd 'D:\PS'; git add .; git commit -m "revised shell cmds";git push;
+cd 'D:\PS'; git add .; git commit -m "revised unit tests";git push;
 
 cd C:\users\tim\source\repos\BrowseOmatic;
-git add .; git commit -m "refactored  driver libraries"; git push;
+git add .; git commit -m "refactored unit tests"; git push;
  
 cd C:\users\tim\source\repos\SledgeOMatic;
-git add .; git commit -m "unit test compiler"; git push;
+git add .; git commit -m "unit test refactor"; git push;
+
+cd C:\users\tim\source\repos\JiraPortal
+git add .; git commit -m "unit test refac";git push; 
+cd C:\users\tim\source\repos\JiraFormatter
+git add .; git commit -m "unit test refac";git push; 
+cd C:\users\tim\source\repos\JiraCore
+git add .; git commit -m "unit test refac";git push;
+  
 
 
 cd C:\Users\Tim\source\repos\citizendez\Budget_App\; git add .; git commit -m "refactored main";git push;
 
  
-cd C:\users\tim\source\repos\JiraPortal
-git add .; git commit -m "migrated assm formatting";git push; 
-cd C:\users\tim\source\repos\JiraFormatter
-git add .; git commit -m "refactored formatting";git push; 
-cd C:\users\tim\source\repos\JiraCore
-git add .; git commit -m "updated formatting";git push;
-  
+
 cd C:\users\tim\source\repos\SOMData
 git add .; git commit -m "added code gen assm";git push;
 

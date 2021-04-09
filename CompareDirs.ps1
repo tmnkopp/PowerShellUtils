@@ -6,9 +6,9 @@ $exc =  @("*.resources*","*.config*","*.out*","*.licx*","*\bin*","*\Debug*","*.d
 # $inc = @("*aspx*","*.vb*","*.ascx","*.master")
 
 $f1 = Get-ChildItem -Exclude $exc   -Recurse -path $src `
-    | WHERE-OBJECT{ $_.LastWriteTime -gt '3/10/2021' }  
+    | WHERE-OBJECT{ $_.LastWriteTime -gt '4/05/2021' }  
 $f2 = Get-ChildItem -Exclude $exc   -Recurse -path $dest `
-    | WHERE-OBJECT{ $_.LastWriteTime -gt '3/10/2021' } 
+    | WHERE-OBJECT{ $_.LastWriteTime -gt '4/05/2021' } 
 
  
 Compare-Object -ReferenceObject $f1 -DifferenceObject $f2 -Property Name, LastWriteTime, Fullname  `
