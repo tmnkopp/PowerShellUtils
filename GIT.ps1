@@ -8,11 +8,11 @@ cd C:\users\tim\source\repos\SledgeOMatic;
 git add .; git commit -m "unit test refactor"; git push;
 
 cd C:\users\tim\source\repos\JiraPortal
-git add .; git commit -m "unit test refac";git push; 
+git add .; git commit -m "unit test revise";git push; 
 cd C:\users\tim\source\repos\JiraFormatter
-git add .; git commit -m "unit test refac";git push; 
+git add .; git commit -m "unit test revise";git push; 
 cd C:\users\tim\source\repos\JiraCore
-git add .; git commit -m "unit test refac";git push;
+git add .; git commit -m "unit test revise";git push;
   
 
 
