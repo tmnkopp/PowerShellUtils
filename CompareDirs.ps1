@@ -10,13 +10,20 @@ $f1 = Get-ChildItem -Exclude $exc   -Recurse -path $src `
 $f2 = Get-ChildItem -Exclude $exc   -Recurse -path $dest `
     | WHERE-OBJECT{ $_.LastWriteTime -gt '4/05/2021' } 
 
- 
+$nams = ''
+Set-Content -Path 'C:\temp\svnupdates.txt' -Value $nams
 Compare-Object -ReferenceObject $f1 -DifferenceObject $f2 -Property Name, LastWriteTime, Fullname  `
     | Where-Object {$_.SideIndicator -eq "<=" -and $_.FullName  -match "\."  } `
-    | Out-GridView  -PassThru  | ForEach-Object {  
+    | Sort-Object -Property LastWriteTime -de  | Out-GridView  -PassThru | ForEach-Object {  
         $nam = $_.FullName   
         Copy-Item -Path ("$nam")  -Destination $nam.Replace($src, $dest) -Verbose
+        $nams += $_.FullName.Replace("D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\", "") +  "`n"
 } 
 
-cd D:\dev\CyberScope\CyberScope-v-7-34\CSwebdev\code; dotnet build;     
+Set-Content -Path 'C:\temp\svnupdates.txt' -Value $nams   
+cd D:\dev\CyberScope\CyberScope-v-7-34\CSwebdev\code; 
+dotnet build;   
+cd D:\dev\CyberScope\CyberScope-v-7-34\CSwebdev\code; 
+svn commit --targets 'C:\temp\svnupdates.txt' -m"CS-8057 CyberScope-v-7-34 Update Branch" ;
+ 
  

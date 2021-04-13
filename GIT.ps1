@@ -5,15 +5,17 @@ cd C:\users\tim\source\repos\BrowseOmatic;
 git add .; git commit -m "refactored unit tests"; git push;
  
 cd C:\users\tim\source\repos\SledgeOMatic;
-git add .; git commit -m "unit test refactor"; git push;
+git add .; git commit -m "configuration options for command line parser #4 #5 #6"; git push;
 
 cd C:\users\tim\source\repos\JiraPortal
-git add .; git commit -m "unit test revise";git push; 
-cd C:\users\tim\source\repos\JiraFormatter
-git add .; git commit -m "unit test revise";git push; 
+git add .; git commit -m "u test revise";git push; 
+
 cd C:\users\tim\source\repos\JiraCore
-git add .; git commit -m "unit test revise";git push;
-  
+git add .; git commit -m "u test revise";git push;
+ 
+cd 'C:\Users\Tim\source\repos\Py\snippets'
+git add .; git commit -m "refac main";git push;
+ 
 
 
 cd C:\Users\Tim\source\repos\citizendez\Budget_App\; git add .; git commit -m "refactored main";git push;
@@ -43,3 +45,6 @@ git remote set-url origin   https://github.com/tmnkopp/PowerShellUtils.git
 git push --set-upstream origin master
 git remote -v
 git status
+
+cd C:\users\tim\source\repos\JiraFormatter
+git add .; git commit -m "u test revise";git push; 
