@@ -1,17 +1,17 @@
 ﻿ 
-cd 'D:\PS'; git add .; git commit -m "revised unit tests";git push;
+cd 'D:\PS'; git add .; git commit -m "revised compdirs";git push;
 
 cd C:\users\tim\source\repos\BrowseOmatic;
-git add .; git commit -m "refactored unit tests"; git push;
+git add .; git commit -m "refacor/add unittests"; git push;
  
 cd C:\users\tim\source\repos\SledgeOMatic;
-git add .; git commit -m "configuration options for command line parser #4 #5 #6"; git push;
+git add .; git commit -m "refactored unittests"; git push;
 
 cd C:\users\tim\source\repos\JiraPortal
-git add .; git commit -m "u test revise";git push; 
+git add .; git commit -m "unittests refactor";git push; 
 
 cd C:\users\tim\source\repos\JiraCore
-git add .; git commit -m "u test revise";git push;
+git add .; git commit -m "unittests revise";git push;
  
 cd 'C:\Users\Tim\source\repos\Py\snippets'
 git add .; git commit -m "refac main";git push;

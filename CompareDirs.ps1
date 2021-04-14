@@ -23,7 +23,11 @@ Compare-Object -ReferenceObject $f1 -DifferenceObject $f2 -Property Name, LastWr
 Set-Content -Path 'C:\temp\svnupdates.txt' -Value $nams   
 cd D:\dev\CyberScope\CyberScope-v-7-34\CSwebdev\code; 
 dotnet build;   
+ 
+
 cd D:\dev\CyberScope\CyberScope-v-7-34\CSwebdev\code; 
+svn status;
+
 svn commit --targets 'C:\temp\svnupdates.txt' -m"CS-8057 CyberScope-v-7-34 Update Branch" ;
  
  
