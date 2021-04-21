@@ -5,7 +5,7 @@ cd C:\users\tim\source\repos\BrowseOmatic;
 git add .; git commit -m "refacor/add unittests"; git push;
  
 cd C:\users\tim\source\repos\SledgeOMatic;
-git add .; git commit -m "refactored unittests"; git push;
+git add .; git commit -m "add unittests"; git push;
 
 cd C:\users\tim\source\repos\JiraPortal
 git add .; git commit -m "unittests refactor";git push; 
