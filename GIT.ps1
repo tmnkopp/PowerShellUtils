@@ -1,14 +1,14 @@
 ﻿ 
-cd 'D:\PS'; git add .; git commit -m "revised compdirs";git push;
+cd 'D:\PS'; git add .; git commit -m "dir revise";git push;
 
 cd C:\users\tim\source\repos\BrowseOmatic;
-git add .; git commit -m "refacor/add unittests"; git push;
+git add .; git commit -m "refacor/added unit test"; git push;
  
 cd C:\users\tim\source\repos\SledgeOMatic;
-git add .; git commit -m "add unittests"; git push;
+git add .; git commit -m "fix parse null for exclude files"; git push;
 
 cd C:\users\tim\source\repos\JiraPortal
-git add .; git commit -m "unittests refactor";git push; 
+git add .; git commit -m "update diff module";git push; 
 
 cd C:\users\tim\source\repos\JiraCore
 git add .; git commit -m "unittests revise";git push;
@@ -26,10 +26,10 @@ cd C:\users\tim\source\repos\SOMData
 git add .; git commit -m "added code gen assm";git push;
 
 cd C:\users\tim\source\repos\somuing
-git add .; git commit -m "inc support for assm codegen";git push;
+git add .; git commit -m "refactored ";git push;
 
 cd C:\users\tim\source\repos\SOM-API
-git add .; git commit -m "added code gen supporting model";git push;
+git add .; git commit -m "added code gen";git push;
 
 
 
