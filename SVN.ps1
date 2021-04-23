@@ -1,21 +1,32 @@
-﻿cd D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope\ 
-svn log  -l 5
-cd D:\dev\CyberScope\CyberScopeBranch\CSwebdev 
-svn  update 
+﻿
 ####### CODE ######
+$src = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope' 
+$inc = @("*.aspx","*.vb","*.ascx","*.master", "*.css", "*.js") 
+$nams = Get-ChildItem -Include $inc -Recurse -path $src `
+    | WHERE-OBJECT{ $_.LastWriteTime -gt '4/22/2021' -and $_.FullName -match "\."  }   
+     
+Set-Content -Path 'C:\temp\svnupdates.txt' -Value $nams
+notepad.exe C:\temp\svnupdates.txt
+cd $src 
+svn commit --targets 'C:\temp\svnupdates.txt' -m"CS-8132 updated  HVA Reporting";
 
-cd D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope\
-svn status -u
-svn  commit `
-'' `
--m "CS-7485 updated  CIO C4 2020"
- 
-###### DB #######
 
-cd D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\
-svn status -q  
-svn  commit `
-'DB_Update7.26_CIOQ42020.sql' `
--m 'CS-'  
+####### DB ######
+$src = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\'
+$inc = @("*.sql") 
+$nams = Get-ChildItem -Include $inc -Recurse -path $src `
+    | WHERE-OBJECT{ $_.LastWriteTime -gt '4/23/2021' } 
+Set-Content -Path 'C:\temp\svnupdates.txt' -Value $nams    
+notepad.exe 'C:\temp\svnupdates.txt'
+cd $src   
+
+svn status -u 
+svn commit --targets 'C:\temp\svnupdates.txt' -m"CS-8132 add ArtifactTypes";
  
-svn --help  log 
+#cd D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope\ 
+#svn log  -l 5
+#cd D:\dev\CyberScope\CyberScopeBranch\CSwebdev 
+#svn  update 
+
+
+ 

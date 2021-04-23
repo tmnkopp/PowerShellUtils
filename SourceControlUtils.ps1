@@ -18,7 +18,5 @@ function SVNUpdate
     cd D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database; svn update ; 
     cd D:\dev\CyberBalance\trunk\projects; svn update; 
     cd D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code; svn update; dotnet build;   
-   
-    cd D:\dev\CyberScope\CyberScope-v-7-34\CSwebdev\database; svn update ;  
-    cd D:\dev\CyberScope\CyberScope-v-7-34\CSwebdev\code; svn update; dotnet build;     
+     
 }

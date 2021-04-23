@@ -1,11 +1,11 @@
 ﻿ 
-cd 'D:\PS'; git add .; git commit -m "dir revise";git push;
+cd 'D:\PS'; git add .; git commit -m "db script revise";git push;
 
 cd C:\users\tim\source\repos\BrowseOmatic;
 git add .; git commit -m "refacor/added unit test"; git push;
  
 cd C:\users\tim\source\repos\SledgeOMatic;
-git add .; git commit -m "fix parse null for exclude files"; git push;
+git add .; git commit -m "refac ProcessStartTests Unit"; git push;
 
 cd C:\users\tim\source\repos\JiraPortal
 git add .; git commit -m "update diff module";git push; 
