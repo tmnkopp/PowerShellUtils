@@ -3,7 +3,7 @@
 $src = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope' 
 $inc = @("*.aspx","*.vb","*.ascx","*.master", "*.css", "*.js") 
 $nams = Get-ChildItem -Include $inc -Recurse -path $src `
-    | WHERE-OBJECT{ $_.LastWriteTime -gt '4/22/2021' -and $_.FullName -match "\."  }   
+    | WHERE-OBJECT{ $_.LastWriteTime -gt '4/23/2021' -and $_.FullName -match "\."  }   
      
 Set-Content -Path 'C:\temp\svnupdates.txt' -Value $nams
 notepad.exe C:\temp\svnupdates.txt
@@ -13,14 +13,15 @@ svn commit --targets 'C:\temp\svnupdates.txt' -m"CS-8132 updated  HVA Reporting"
 
 ####### DB ######
 $src = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\'
+cd $src  
+svn status -u  
 $inc = @("*.sql") 
 $nams = Get-ChildItem -Include $inc -Recurse -path $src `
     | WHERE-OBJECT{ $_.LastWriteTime -gt '4/23/2021' } 
 Set-Content -Path 'C:\temp\svnupdates.txt' -Value $nams    
 notepad.exe 'C:\temp\svnupdates.txt'
-cd $src   
+ 
 
-svn status -u 
 svn commit --targets 'C:\temp\svnupdates.txt' -m"CS-8132 add ArtifactTypes";
  
 #cd D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope\ 
