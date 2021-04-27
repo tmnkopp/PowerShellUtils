@@ -15,8 +15,9 @@ function SVNUpdate
         [Parameter(Mandatory = $false, Position = 1)] 
         [string] $With = '  ' 
     ) 
-    cd D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database; svn update ; 
-    cd D:\dev\CyberBalance\trunk\projects; svn update; 
-    cd D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code; svn update; dotnet build;   
+    $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
+    cd  ($config.CSDIR+':\dev\CyberBalance\trunk\projects'); svn update; 
+    cd  ($config.CSDIR+':\dev\CyberScope\CyberScopeBranch\CSwebdev\database'); svn update ; 
+    cd  ($config.CSDIR+':\dev\CyberScope\CyberScopeBranch\CSwebdev\code'); svn update; dotnet build;   
      
 }

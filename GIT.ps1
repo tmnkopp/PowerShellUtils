@@ -1,5 +1,5 @@
 ﻿ 
-cd 'D:\PS'; git add .; git commit -m "db script revise";git push;
+cd 'c:\posh'; git add .; git commit -m "db script revise";git push;
 
 cd C:\users\tim\source\repos\BrowseOmatic;
 git add .; git commit -m "refacor/added unit test"; git push;

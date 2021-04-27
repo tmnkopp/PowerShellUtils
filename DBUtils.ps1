@@ -37,8 +37,8 @@ function DBUpdate
     [Parameter(Mandatory = $false, Position = 2)] 
     [string] $dbname = 'Cyberscope123' 
    )
-  
-    [string] $pathToDbScripts = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\'
+    $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json 
+    [string] $pathToDbScripts = $config.CSDIR+':\dev\CyberScope\CyberScopeBranch\CSwebdev\database\'
      
     $FileCollection = New-Object System.Collections.ArrayList   
     $rs = Invoke-Sqlcmd  -Database $dbname  -Query "SELECT NAME, CREATE_DATE FROM sys.all_objects WHERE CREATE_DATE > DATEADD( d, -120 , GETDATE()) ;"
