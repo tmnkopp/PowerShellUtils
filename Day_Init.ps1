@@ -1,5 +1,6 @@
 ﻿Import-Module  c:\posh\DBUtils.ps1  
-Import-Module  c:\posh\SourceControlUtils.ps1  
+Import-Module  c:\posh\SourceControlUtils.ps1 
+Committer -with ' dbstage '
 $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json 
 SVNUpdate 
 #  DBBackup -dbname CyberScopeLite 
