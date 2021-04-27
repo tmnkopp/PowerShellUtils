@@ -3,7 +3,7 @@ function Committer(){
     [CmdletBinding()]
      param (  
         [Parameter(Mandatory = $false, Position = 0)] 
-        [string] $commitm = 'CS-8132 updated 19 metric' ,
+        [string] $commitm = 'CS-8132 updated metrics' ,
         [Parameter(Mandatory = $false, Position = 0)] 
         [string] $with = ' ' ,        
         [Parameter(Mandatory = $false, Position = 0)] 

@@ -37,20 +37,21 @@ function Committer(){
     $exc = @("Archive") 
     Set-Content -Path 'C:\temp\svnupdates.txt' -Value ''
     ####### DB ###### 
-    if( $with -match '.*db.*'){
-        $src = ($config.CSDIR+':\dev\CyberScope\CyberScopeBranch\CSwebdev\database\') 
+    $src = ($config.CSDIR+':\dev\CyberScope\CyberScopeBranch\CSwebdev\database\') 
+    if( $with -match '.*db.*'){ 
         cd $src  
         $fs = Get-ChildItem -Include $inc -Recurse -path $src `
             | WHERE-OBJECT{ $_.LastWriteTime -gt $fromdate } 
         Set-Content -Path 'C:\temp\svnupdates.txt' -Value $fs 
     }   
     if( $with -match '.*commit.*'){
+
         cd $src 
         svn commit --targets 'C:\temp\svnupdates.txt' -m $commitm;
     } 
     ####### CODE ###### 
-    if( $with -match '.*code.*'){
-        $src = $config.CSDIR+':\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope' 
+    $src = $config.CSDIR+':\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope' 
+    if( $with -match '.*code.*'){ 
         $nams = Get-ChildItem -Include $inc -Recurse -path $src `
             | WHERE-OBJECT{ $_.LastWriteTime -gt $fromdate -and $_.FullName -match "\."  }    
         Set-Content -Path 'C:\temp\svnupdates.txt' -Value $nams
