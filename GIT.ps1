@@ -31,7 +31,8 @@ git add .; git commit -m "refactored ";git push;
 cd C:\users\tim\source\repos\SOM-API
 git add .; git commit -m "added code gen";git push;
 
-
+cd 'C:\Users\timko\source\repos\PythonBoiler'
+git add .; git commit -m "refactor pynb";git push;
 
 cd 'C:\Users\Tim\source\repos\Py\snippets'
 git remote set-url origin   https://github.com/tmnkopp/PythonBoiler.git
