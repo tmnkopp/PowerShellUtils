@@ -1,6 +1,8 @@
 ﻿ 
 cd 'c:\posh'; git add .; git commit -m "update db and svn";git push;
 
+cd 'C:\sql'; git add .; git commit -m "cleanup main";git push;
+
 cd C:\users\tim\source\repos\BrowseOmatic;
 git add .; git commit -m "refacor/add unit test"; git push;
  
