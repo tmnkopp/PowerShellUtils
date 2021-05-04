@@ -1,29 +1,28 @@
 ﻿ 
-cd 'c:\posh'; git add .; git commit -m "update db and svn";git push;
+cd 'c:\posh'; git add .; git commit -m "update db and svn"; git push;
 
-cd 'C:\sql'; git add .; git commit -m "cleanup main";git push;
+cd 'C:\sql'; git add .; git commit -m "cleanup main"; git push;
+
+cd 'C:\Users\Tim\source\repos\Py\snippets';
+git add .; git commit -m "refactor pynb"; git push;
 
 cd C:\users\tim\source\repos\BrowseOmatic;
-git add .; git commit -m "refacor/add unit test"; git push;
+git add .; git commit -m "refacor unit tests"; git push;
  
 cd C:\users\tim\source\repos\SledgeOMatic;
-git add .; git commit -m "refac/add  tTest Unit"; git push;
+git add .; git commit -m "update Test Units"; git push;
 
-cd C:\users\tim\source\repos\JiraPortal
-git add .; git commit -m "update diff module";git push; 
+cd C:\users\tim\source\repos\JiraPortal;
+git add .; git commit -m "update diff module"; git push; 
 
-cd C:\users\tim\source\repos\JiraCore
-git add .; git commit -m "unittests revise";git push;
+cd C:\users\tim\source\repos\JiraCore;
+git add .; git commit -m "unittests revise"; git push;
  
-cd 'C:\Users\Tim\source\repos\Py\snippets'
-git add .; git commit -m "refac main";git push;
- 
-
-
+cd 'C:\Users\Tim\source\repos\Py\snippets';
+git add .; git commit -m "refac main"; git push;
+  
 cd C:\Users\Tim\source\repos\citizendez\Budget_App\; git add .; git commit -m "refactored main";git push;
-
  
-
 cd C:\users\tim\source\repos\SOMData
 git add .; git commit -m "added code gen assm";git push;
 
@@ -32,10 +31,7 @@ git add .; git commit -m "refactored ";git push;
 
 cd C:\users\tim\source\repos\SOM-API
 git add .; git commit -m "added code gen";git push;
-
-cd 'C:\Users\timko\source\repos\PythonBoiler'
-git add .; git commit -m "refactor pynb";git push;
-
+ 
 cd 'C:\Users\Tim\source\repos\Py\snippets'
 git remote set-url origin   https://github.com/tmnkopp/PythonBoiler.git
 git push --set-upstream origin master

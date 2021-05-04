@@ -41,4 +41,4 @@ function Committer(){
         notepad.exe 'C:\temp\svnupdates.txt'; cls; svn status ;
     }   
 } 
-#Committer -with '  codestage '
+Committer -with '  codestage '
