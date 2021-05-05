@@ -4,10 +4,10 @@ cd 'c:\posh'; git add .; git commit -m "update db and svn"; git push;
 cd 'C:\sql'; git add .; git commit -m "cleanup main"; git push;
 
 cd 'C:\Users\Tim\source\repos\Py\snippets';
-git add .; git commit -m "refactor pynb"; git push;
+git add .; git commit -m " pynb refactor"; git push;
 
 cd C:\users\tim\source\repos\BrowseOmatic;
-git add .; git commit -m "refacor unit tests"; git push;
+git add .; git commit -m "refacor FormFill"; git push;
  
 cd C:\users\tim\source\repos\SledgeOMatic;
 git add .; git commit -m "update Test Units"; git push;

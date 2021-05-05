@@ -15,7 +15,7 @@ $exe = [System.Environment]::GetEnvironmentVariable('bom', 'User')
 $exe = [System.Environment]::GetEnvironmentVariable('bom', 'User')   
 & $exe cmd -t ebil -p timesheets.yaml  
 
-Committer -with ' dbstage ' -commitm 'CS-8132 add justification field' # 'CS-8117 updated IG5 lists'
-Committer -with ' dbstage  ' -commitm 'CS-8132 add justification field' # 'CS-8117 updated IG5 lists'
+Committer -with ' dbstage ' -commitm 'CS-8132  metrics updated' # '  commit  CS-8117 updated IG5 lists' CS-8132	
+Committer -with ' codestage  ' -commitm 'CS-8132  metrics updated' # 'commit  CS-8117 updated IG5 lists'
 
  
