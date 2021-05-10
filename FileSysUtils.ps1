@@ -1,4 +1,6 @@
-﻿function FileDialog{ 
+﻿
+Get-ChildItem G:\* | Rename-Item -NewName { $_.Name -replace '\.720p','' } 
+function FileDialog{ 
     [CmdletBinding()] 
     Param(   
         [Parameter(Mandatory=$True,Position=0)]   
