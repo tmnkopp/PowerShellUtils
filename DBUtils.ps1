@@ -41,8 +41,15 @@ function DBUpdate
     [string] $pathToDbScripts = $config.CSDIR+':\dev\CyberScope\CyberScopeBranch\CSwebdev\database\'
      
     $FileCollection = New-Object System.Collections.ArrayList   
-    $rs = Invoke-Sqlcmd  -Database $dbname  -Query "SELECT NAME, CREATE_DATE FROM sys.all_objects WHERE CREATE_DATE > DATEADD( d, -120 , GETDATE()) ;"
- 
+    $config  = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json   
+    Write-Host $config.CONNSTR -match 'SQL'
+
+    if($config.CONNSTR -match '.*SQL.*'){
+        $rs = Invoke-Sqlcmd  -Query "SELECT NAME, CREATE_DATE FROM sys.all_objects WHERE CREATE_DATE > DATEADD( d, -120 , GETDATE()) ;" -ConnectionString $config.CONNSTR
+    }else{
+        $rs = Invoke-Sqlcmd  -Database $dbname  -Query "SELECT NAME, CREATE_DATE FROM sys.all_objects WHERE CREATE_DATE > DATEADD( d, -120 , GETDATE()) ;"
+    }
+  
     Get-ChildItem  -Path $pathToDbScripts -Recurse -Filter *sql  | `
     Where-Object { ($_.LastWriteTime -gt  (Get-date).AddDays(-$UpdateFromDays)) } | ` 
     Where-Object { ($_.FullName -notmatch '(\\Utils|\\InProgress|\\Archive)') } | `    
@@ -60,8 +67,13 @@ function DBUpdate
         $dbobject =''
     } 
     $FileCollection | Sort-Object -Property ScriptUpdated -de | Out-GridView -PassThru  |  ForEach-Object {    
-        Write-Host $_.Script 
-        Invoke-Sqlcmd  -Database $dbname -InputFile $_.Script  -Password $pass  -Username CSAdmin  
+        Write-Host $_.Script
+        if($config.CONNSTR -match '.*SQL.*'){
+            Invoke-Sqlcmd -InputFile $_.Script  -ConnectionString $config.CONNSTR
+        }else{
+            Invoke-Sqlcmd  -Database $dbname -InputFile $_.Script  -Password $pass  -Username CSAdmin  
+        }
+        
     }   
 
 } 
