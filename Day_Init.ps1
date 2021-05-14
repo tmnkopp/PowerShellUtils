@@ -13,10 +13,16 @@ $exe = [System.Environment]::GetEnvironmentVariable('bom', 'User')
 $exe = [System.Environment]::GetEnvironmentVariable('bom', 'User')   
 & $exe cmd -t ebil -p timesheets.yaml  
 
+cd d:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\
+cls
 svn status
 Import-Module  c:\posh\SourceControlUtils.ps1  
-Committer -with ' db commit ' -commitm 'CSHELP-2828 HVA Transfer updated' # '  commit  CS-8117 updated IG5 lists' CS-8132	
-Committer -with ' code commit  ' -commitm 'CS-8132  metrics 5 updated' # 'commit  CS-8117 updated IG5 lists'
- 
-cmd -t HVA -p cyber.yaml  
+Committer -with ' code commit' -commitm 'CS-8190 1b metrics updated' # '  commit  CS-8117 updated IG5 lists' CS-8132	 
+Committer -with ' db commit  ' -commitm 'CS-8190 1b metrics updated' # 'commit  CS-8117 updated IG5 lists'
+
+
+
+
+
+
  
