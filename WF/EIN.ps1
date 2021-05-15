@@ -2,6 +2,7 @@ cd D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code
 dotnet build 
 # D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope\EINSTEIN\2021\
 explorer.exe D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope\EINSTEIN\2021\ 
+explorer.exe C:\Users\Tim\Documents\EINSTEIN\ 
 #2021_A_EINSTEIN_0.aspx PUBLIC
 code D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope\CustomControls\NCEinsteinPublicIP.ascx
 code D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope\CustomControls\NCEinsteinPublicIP.ascx.vb
