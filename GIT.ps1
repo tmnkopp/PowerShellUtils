@@ -1,5 +1,5 @@
 ﻿ 
-cd 'c:\posh'; git add .; git commit -m "update db and svn"; git push;
+cd 'c:\posh'; git add .; git commit -m "refactor units"; git push;
 
 cd 'C:\sql'; git add .; git commit -m "backup add main"; git push;
 
@@ -7,10 +7,10 @@ cd 'C:\Users\Tim\source\repos\Py\snippets';
 git add .; git commit -m "refactor pynb "; git push;
 
 cd C:\users\tim\source\repos\BrowseOmatic;
-git add .; git commit -m "InputDefaultProvider RadForm"; git push;
+git add .; git commit -m " RadForm refactor"; git push;
  
 cd C:\users\tim\source\repos\SledgeOMatic;
-git add .; git commit -m "InputDefaultProvider Test Units"; git push;
+git add .; git commit -m " Unit Test refactor"; git push;
 
 cd C:\users\tim\source\repos\JiraPortal;
 git add .; git commit -m "revise view module"; git push; 

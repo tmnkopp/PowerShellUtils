@@ -1,5 +1,6 @@
 ﻿
 Get-ChildItem G:\* | Rename-Item -NewName { $_.Name -replace '\.720p','' } 
+Copy-Item -path D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope\HVA\2021\ -Destination C:\temp\backup 
 function FileDialog{ 
     [CmdletBinding()] 
     Param(   
@@ -15,3 +16,5 @@ function FileDialog{
     $OpenFileDialog.filename 
 } 
 FileDialog -initdir 'c:\bom'
+
+explorer.exe c:\temp
