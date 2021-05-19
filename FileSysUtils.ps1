@@ -1,6 +1,6 @@
 ﻿
 Get-ChildItem G:\* | Rename-Item -NewName { $_.Name -replace '\.720p','' } 
-Copy-Item -path D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope\HVA\2021\ -Destination C:\temp\backup 
+Copy-Item -path D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope\HVA\2021\ -Destination C:\temp\backup -Recurse
 function FileDialog{ 
     [CmdletBinding()] 
     Param(   
