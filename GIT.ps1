@@ -1,5 +1,5 @@
 ﻿ 
-cd 'c:\posh'; git add .; git commit -m "refactor units"; git push;
+cd 'c:\posh'; git add .; git commit -m "refactor local"; git push;
 
 cd 'C:\sql'; git add .; git commit -m "backup add main"; git push;
 
