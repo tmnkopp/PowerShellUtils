@@ -1,5 +1,6 @@
 cd D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code
 dotnet build 
+
 # D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope\EINSTEIN\2021\
 explorer.exe D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope\EINSTEIN\2021\ 
 explorer.exe C:\Users\Tim\Documents\EINSTEIN\ 
@@ -32,3 +33,4 @@ code D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope\CustomControls\
 code D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope\CustomControls\NCVNATInfo.ascx.vb
 
  
+code D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\Archive\DB_Update7.31_POAM.sql
