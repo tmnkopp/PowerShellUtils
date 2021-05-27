@@ -30,7 +30,7 @@ function Committer(){
         [Parameter(Mandatory = $false, Position = 0)] 
         [string] $with = ' ' ,        
         [Parameter(Mandatory = $false, Position = 0)] 
-        [string] $fromdate = (Get-Date -date ((Get-Date).AddDays(-2)) -format "MM/dd/yyyy")
+        [string] $fromdate = (Get-Date -date ((Get-Date).AddDays(-1)) -format "MM/dd/yyyy")
     )
     $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json 
     $inc = @("*.aspx","*.vb","*.ascx","*.master", "*.css", "*.js", "*.sql") 
