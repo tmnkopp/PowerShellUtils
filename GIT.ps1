@@ -1,7 +1,7 @@
 ﻿ 
 cd 'c:\posh'; git pull; git add .; git commit -m "local refactor "; git push;
 
-cd 'C:\sql'; git add .; git commit -m "add extended event script"; git push;
+cd 'C:\sql'; git add .; git commit -m "XE tracer update"; git push;
 
 cd 'C:\Users\Tim\source\repos\Py\snippets';
 git add .; git commit -m "update code gen"; git push;
@@ -10,10 +10,8 @@ cd C:\users\tim\source\repos\SledgeOMatic;
 git add .; git commit -m "refactor Unit Test "; git push;
 
 cd C:\users\tim\source\repos\BrowseOmatic;
-git add .; git commit -m " RadForm refactor"; git push;
- 
-
-
+git add .; git commit -m "refactor RadForm "; git push;
+  
 cd C:\users\tim\source\repos\JiraPortal;
 git add .; git commit -m "revise view module"; git push; 
 
@@ -23,7 +21,8 @@ git add .; git commit -m "revise unittests "; git push;
 cd 'C:\Users\Tim\source\repos\Py\snippets';
 git add .; git commit -m "refac main"; git push;
   
-cd C:\Users\Tim\source\repos\citizendez\Budget_App\; git add .; git commit -m "refactored main";git push;
+cd C:\Users\Tim\source\repos\citizendez\Budget_App\; git pull; 
+git add .; git commit -m "refactored main"; git push;
  
 cd C:\users\tim\source\repos\SOMData
 git add .; git commit -m "added code gen assm";git push;
