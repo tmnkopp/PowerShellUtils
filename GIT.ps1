@@ -1,7 +1,7 @@
 ﻿ 
 cd 'c:\posh'; git pull; git add .; git commit -m "local refactor "; git push;
 
-cd 'C:\sql'; git add .; git commit -m "XE tracer update"; git push;
+cd 'C:\sql'; git add .; git commit -m "restore update"; git push;
 
 cd 'C:\Users\Tim\source\repos\Py\snippets';
 git add .; git commit -m "update code gen"; git push;
