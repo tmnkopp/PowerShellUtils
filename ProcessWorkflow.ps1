@@ -1,7 +1,14 @@
+
+
+$exe = [System.Environment]::GetEnvironmentVariable('bom', 'User')   
+& $exe cmd -t init -p cyber.yaml  
+
+Stop-process -Name BOM -Force 
+ 
 $exe = [System.Environment]::GetEnvironmentVariable('bom', 'User')   
 & $exe cmd -t rtime -p timesheets.yaml  
 
-Stop-process -Name BOM -Force 
+
 Get-Process | Where {$_.ProcessName -Like "BOM"} | Format-Table  
 Get-Process | Where {$_.ProcessName -Like "*chrome*"} | Format-Table  
 

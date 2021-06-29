@@ -33,7 +33,7 @@ function Committer(){
         [string] $fromdate = (Get-Date -date ((Get-Date).AddDays(-1)) -format "MM/dd/yyyy")
     )
     $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json 
-    $inc = @("*.aspx","*.vb","*.ascx","*.master", "*.css", "*.js", "*.sql") 
+    $inc = @("*.aspx","*.vb","*.ascx","*.master", "*.css", "*.js", "*.sql", "*.vbproj") 
     $exc = @("Archive") 
     Set-Content -Path 'C:\temp\svnupdates.txt' -Value ''
     ####### DB ###### 
