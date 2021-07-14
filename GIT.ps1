@@ -1,5 +1,5 @@
 ﻿ 
-cd 'c:\posh'; git pull; git add .; git commit -m " refactor loc updater "; git push;
+cd 'c:\posh'; git pull; git add .; git commit -m " udpate DB Backupper   "; git push;
 
 cd 'C:\sql'; git add .; git commit -m " update minifier "; git push;
 
