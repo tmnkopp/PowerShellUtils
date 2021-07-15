@@ -1,47 +1,51 @@
 
-New-Item G:\inetpub\wwwroot\builds\CyberScope\_releases\7.35.1Prod\  -ItemType "directory"
-New-Item G:\inetpub\wwwroot\builds\CyberScope\_releases\7.35.1Prod\scripts  -ItemType "directory"
-New-Item G:\inetpub\wwwroot\builds\CyberScope\_releases\7.35.1Prod\scripts\Sprocs  -ItemType "directory"
-New-Item G:\inetpub\wwwroot\builds\CyberScope\_releases\7.35.1Prod\scripts\Views  -ItemType "directory"
-New-Item G:\inetpub\wwwroot\builds\CyberScope\_releases\7.35.1Prod\scripts\Functions  -ItemType "directory"
-
 $CREATE_CODE = $false
-if ($CREATE_CODE -eq $true){
+if ($CREATE_CODE -eq $true){ 
+    
     $f = Get-ChildItem 'G:\inetpub\wwwroot\builds\CyberScope' -Filter *.zip | sort CreationTime -desc | select -f 1   
     $match = select-string ".*svn(\d{4,9}).*" -inputobject $f.FullName 
     $version = $match.Matches.groups[1].value
     $match = select-string ".*tc(\d{4,5}).*" -inputobject $f.FullName 
     $tc = $match.Matches.groups[1].value 
-    $new='t_'+$tc +'_s'+ $version + '.zip' 
+    $new='t'+$tc +'s'+ $version + '.zip' 
     $new
-    Copy-Item -LiteralPath $f.FullName -Destination G:\inetpub\wwwroot\builds\CyberScope\_releases\7.35.1Prod\$new -Force 
-    explorer.exe G:\inetpub\wwwroot\builds\CyberScope\_releases\7.35.1Prod\
-}
- 
+    Copy-Item -LiteralPath $f.FullName -Destination $PATH_releases\7.35.1Stage\$new -Force 
+
+    explorer.exe $PATH_releases\7.35.1Stage\
+
+}  
 $CREATE_SCRIPTS = $false
 if ($CREATE_SCRIPTS -eq $true){ 
-    Remove-Item G:\inetpub\wwwroot\builds\CyberScope\_releases\7.35.1Prod\scripts
-    New-Item G:\inetpub\wwwroot\builds\CyberScope\_releases\7.35.1Prod\scripts  -ItemType "directory"
-    New-Item G:\inetpub\wwwroot\builds\CyberScope\_releases\7.35.1Prod\scripts\Sprocs  -ItemType "directory"
-    New-Item G:\inetpub\wwwroot\builds\CyberScope\_releases\7.35.1Prod\scripts\Views  -ItemType "directory"
-    New-Item G:\inetpub\wwwroot\builds\CyberScope\_releases\7.35.1Prod\scripts\Functions  -ItemType "directory"   
+    Remove-Item $PATH_releases\7.35.1Stage\scripts -Recurse -Force 
+    New-Item $PATH_releases\7.35.1Stage\scripts  -ItemType "directory"
+    New-Item $PATH_releases\7.35.1Stage\scripts\Sprocs  -ItemType "directory"
+    New-Item $PATH_releases\7.35.1Stage\scripts\Views  -ItemType "directory"
+    New-Item $PATH_releases\7.35.1Stage\scripts\Functions  -ItemType "directory"   
+    ## explorer.exe $PATH_releases\7.35Prod\script_1963\script1\script2
     Get-ChildItem  -Path 'G:\inetpub\wwwroot\database' -Recurse -Filter *sql  | `
     Where-Object { ($_.LastWriteTime -gt  (Get-date).AddDays(-45)) } | ` 
     Where-Object { ($_.FullName -notmatch '(\\Utils|\\InProgress|\\Archive)') } | `    
     Sort-Object -Property $_.LastWriteTime -de |  Out-GridView -PassThru  |  ForEach-Object  { 
-        $ff = $_.FullName -replace 'G:\\inetpub\\wwwroot\\database', ''
-        #Write-Host $ff
-        Write-Host $_.Name
-        Copy-Item -LiteralPath $_.FullName -Destination G:\inetpub\wwwroot\builds\CyberScope\_releases\7.35.1Prod\scripts$ff  -Recurse -Force 
+        $ff = $_.FullName -replace 'G:\\inetpub\\wwwroot\\database', '' 
+        Write-Host $_.Name  #  $ff
+        #Copy-Item -LiteralPath $_.FullName -Destination $PATH_releases\7.35.1Stage\scripts$ff  -Recurse -Force 
     }# 
-    Compress-Archive -Path G:\inetpub\wwwroot\builds\CyberScope\_releases\7.35.1Prod\scripts* -Update -DestinationPath G:\inetpub\wwwroot\builds\CyberScope\_releases\7.35.1Prod\scripts.zip
+    Compress-Archive -Path $PATH_releases\7.35.1Stage\scripts* -Update -DestinationPath $PATH_releases\7.35.1Stage\scripts.zip
   
 }
-explorer.exe G:\inetpub\wwwroot\database
-explorer.exe G:\inetpub\wwwroot\builds\CyberScope\_releases\7.35.1Prod\scripts
-explorer.exe G:\inetpub\wwwroot\builds\CyberScope\_releases\7.35.1Prod\scripts
-explorer.exe G:\inetpub\wwwroot\builds\CyberScope\_releases
 
-explorer.exe  G:\inetpub\wwwroot\
+$INIT = $false
+if ($INIT -eq $true){ 
+    New-Item $PATH_releases\7.35.1Stage\  -ItemType "directory"
+    New-Item $PATH_releases\7.35.1Stage\scripts  -ItemType "directory"
+    New-Item $PATH_releases\7.35.1Stage\scripts\Sprocs  -ItemType "directory"
+    New-Item $PATH_releases\7.35.1Stage\scripts\Views  -ItemType "directory"
+    New-Item $PATH_releases\7.35.1Stage\scripts\Functions  -ItemType "directory"
 
-
+    explorer.exe G:\inetpub\wwwroot\
+    explorer.exe G:\inetpub\wwwroot\database
+    explorer.exe $PATH_releases
+    explorer.exe $PATH_releases\7.35.1Stage\scripts 
+}
+ 
+ 
