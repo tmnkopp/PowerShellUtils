@@ -1,7 +1,7 @@
 ﻿ 
 cd 'c:\posh'; git pull; git add .; git commit -m " udpate DB Backerupper   "; git push;
 
-cd 'C:\sql'; git add .; git commit -m " update TableSpace "; git push;
+cd 'C:\sql'; git add .; git commit -m " update db backup "; git push;
 
 cd C:\Users\Tim\source\repos\Py\snippets;
 git add .; git commit -m "update code gen"; git push;
