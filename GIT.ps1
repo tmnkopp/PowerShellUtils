@@ -1,10 +1,10 @@
 ﻿ 
-cd 'c:\posh'; git pull; git add .; git commit -m " udpate DB Backerupper   "; git push;
+cd 'c:\posh'; git pull; git add .; git commit -m " udpate sql connector  "; git push;
 
-cd 'C:\sql'; git add .; git commit -m " update db backup "; git push;
+cd 'C:\sql'; git add .; git commit -m " review db backup "; git push;
 
 cd C:\Users\Tim\source\repos\Py\snippets;
-git add .; git commit -m "update code gen"; git push;
+git add .; git commit -m "add code gen"; git push;
 
 cd C:\users\tim\source\repos\SledgeOMatic;
 git add .; git commit -m "refactor Unit Test "; git push;
