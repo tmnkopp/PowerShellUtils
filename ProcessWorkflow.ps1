@@ -1,4 +1,6 @@
-
+$config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json 
+cd  ($config.CSDIR+':\dev\CyberScope\CyberScopeBranch\CSwebdev\code');   
+dotnet build;    
 
 $exe = [System.Environment]::GetEnvironmentVariable('bom', 'User')   
 & $exe cmd -t init -p cyber.yaml  

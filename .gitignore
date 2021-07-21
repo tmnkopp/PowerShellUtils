@@ -3,3 +3,5 @@ config.*
 data/
 config/
 local*
+Deploy.*
+deploy.*
