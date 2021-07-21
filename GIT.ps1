@@ -1,7 +1,12 @@
 ﻿ 
-cd 'c:\posh'; git pull; git add .; git commit -m " udpate sql connector  "; git push;
+cd 'c:\posh'; git pull; git add .; git commit -m " refac workflow   "; git push;
 
 cd 'C:\sql'; git add .; git commit -m " review db backup "; git push;
+
+cd 'c:\posh';
+git status; 
+git rm --cached Deploy.*
+ 
 
 cd C:\Users\Tim\source\repos\Py\snippets;
 git add .; git commit -m "add code gen"; git push;
