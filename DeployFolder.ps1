@@ -18,11 +18,10 @@ $inc = @( "CreateDbFromBackup.sql", "vwTableSpace.sql", "XE_Tracer.sql", "XE_Ses
 Copy-Item -Path $src* -Include $inc -Destination $dest -Recurse -Force  
 
 cd $dest
-svn add *.sql; 
-svn add SourceControlUtils.ps1; 
+svn add *.sql;  
 explorer.exe $dest; 
 
-cd D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\Utils\ 
-svn status;   
+cls; cd  'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\Utils\' ; svn status;   
+
 
  
