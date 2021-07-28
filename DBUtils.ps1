@@ -7,23 +7,7 @@ function DBBackup {
     )  
     Write-Host 'DBBackup: ' $dbname   
     Get-SqlDatabase -ServerInstance localhost -NAME $dbname | Backup-SqlDatabase -Incremental    
-}
-function PassResetter{
-    [CmdletBinding()]
-    param (  
-     [Parameter(Mandatory = $true, Position = 0)] 
-     [string] $pass = '' 
-    )
-    $sql = "UPDATE aspnet_Membership 
-            SET IsLockedOut = 0
-            , IsApproved = 1
-            , Password = 'HRnRWpAftHn6V+MWljtLDDJdNXQ='
-            , PasswordSalt = '5FyxBJd7FpU1Elu0xjyVnw==' 
-            WHERE UserId <> '80CA7CC1-C0A1-44A8-9DF9-912F52C7FE51'"
-    
-    Invoke-Sqlcmd -Database Cyberscope123 -Query $sql -Password $pass -Username CSAdmin   
 } 
-  
 function DBUpdate 
 {  
   [CmdletBinding()]
