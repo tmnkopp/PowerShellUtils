@@ -4,8 +4,7 @@ function DBBackup {
     param (  
       [Parameter(Mandatory = $false )] 
       [string] $dbname = 'Cyberscope123'
-    )  
-    Write-Host 'DBBackup: ' $dbname   
+    )   
     Get-SqlDatabase -ServerInstance localhost -NAME $dbname | Backup-SqlDatabase -Incremental    
 } 
 function DBUpdate 
