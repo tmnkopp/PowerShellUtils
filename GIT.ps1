@@ -1,5 +1,5 @@
 ﻿ 
-cd 'c:\posh'; git pull; git add .; git commit -m "  dbutils refactor  "; git push;
+cd 'c:\posh'; git pull; git add .; git commit -m "  deply scripts refactor    "; git push;
 
 cd 'C:\sql'; git add .; git commit -m " review db backup "; git push;
 

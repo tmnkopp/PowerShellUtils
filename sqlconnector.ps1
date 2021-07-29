@@ -1,11 +1,9 @@
 
 $password = ""  
-$connectionString = ";Initial Catalog=Cyberscope123;Data Source=DESKTOP-OM9UKAC;User ID=timk0pp;Password=$password;Max Pool Size=200"
-
+$connectionString = ";Initial Catalog=Cyberscope123;Data Source=DESKTOP-OM9UKAC;User ID=timk0pp;Password=$password;Max Pool Size=200" 
 $connection = New-Object System.Data.SqlClient.SqlConnection
 $connection.ConnectionString = $connectionstring
-$connection.Open()
-
+$connection.Open() 
 $command = New-Object System.Data.SqlClient.SqlCommand
 $command.Connection = $connection
 
