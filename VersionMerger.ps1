@@ -1,21 +1,40 @@
-﻿cls; 
-$movefrom = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev'
-$moveto = 'D:\dev\CyberScope\CyberScope-v-7-35-1\CSwebdev'   
-  
-Copy-Item  -Path ($movefrom + "*") -Destination (  $moveto ) -recurse  -force
-
-$temp = "D:\dev\CyberScope\temp\"   
-Remove-item ( $temp + "*" ) -recurse -force
-
-Remove-item ( $temp + "*" ) -recurse -force  
-Copy-Item -Path ($moveto + "\code\CyberScope\web.config*" ) -Destination ($temp) 
-Copy-Item -Path ($moveto + "\code\CyberScope\My Project\PublishProfiles\FolderProfile.pubxml" ) -Destination ($temp) 
-  
-$HasFiles = Test-Path -Path $movefrom* 
-if( $HasFiles ) {
-    Remove-item ( $moveto + "*" ) -recurse -force
-    Copy-Item   -Path ($movefrom + "*") -Destination (  $moveto ) -recurse  -force 
-    Copy-Item   -Path ($temp + "web.config*") -Destination (  $moveto + '\code\CyberScope\' ) -recurse  -force  
-    Copy-Item   -Path ($temp + "FolderProfile.pubxml") -Destination ( $moveto + '\code\CyberScope\My Project\PublishProfiles\') -recurse  -force  
-}
- 
+﻿function Invoke-VersionMerger(){ 
+    [CmdletBinding()]
+    param (  
+        [Parameter(Mandatory = $false, Position = 0)] 
+        [string] $from = 'D:\dev\CyberScope\CyberScope-v-7-35-1\CSwebdev\' ,
+        [Parameter(Mandatory = $false, Position = 1)] 
+        [string] $to = 'D:\dev\CyberScope\trunk\CSwebdev\' ,
+        [Parameter(Mandatory = $false, Position = 2)] 
+        [string] $temp = 'D:\dev\CyberScope\temp\' ,
+        [Parameter(Mandatory = $false, Position = 3)] 
+        [string] $with = ''
+    )
+    cls;   
+    Write-Host $from $to $temp;
+    RETURN ;
+    if( $with -match '.*exec.*' )
+    {
+        if( Test-Path -Path ($to + "\code\CyberScope\web.config*") )
+        {
+           Remove-item ( $temp + "*" ) -recurse -force 
+           Copy-Item -Path ($to + "\code\CyberScope\web.config*" ) -Destination ($temp) 
+           Copy-Item -Path ($to + "\code\CyberScope\My Project\PublishProfiles\FolderProfile.pubxml" ) -Destination ($temp)
+         
+           Remove-item  $to  -recurse -force
+           Copy-Item   -Path ($from) -Destination  $to  -recurse  -force 
+           Copy-Item   -Path ($temp  + "web.config*") -Destination (  $to  + '\code\CyberScope\' ) -recurse  -force  
+           Copy-Item   -Path ($temp  + "FolderProfile.pubxml") -Destination ( $to  + '\code\CyberScope\My Project\PublishProfiles\') -recurse  -force 
+       } 
+    } 
+    if($with -match '.*inspect.*'){
+        explorer.exe $to
+    }  
+    if($with -match '.*merge.*'){
+        cd D:\dev\CyberScope\trunk\;
+        svn add --force * --auto-props --parents --depth infinity -q
+        svn commit --targets 'C:\temp\svnupdates.txt' -m 'CS-2828 Merge Trunk'; 
+        svn status; 
+    }  
+}   
+ Invoke-VersionMerger -With 'inspect'   

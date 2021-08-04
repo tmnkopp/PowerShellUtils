@@ -23,3 +23,4 @@ ForEach-Object {
     # Invoke-Sqlcmd -Database 'Cyberscope123' -InputFile $_.FullName  -Password $config.CSDBPASS -Username CSAdmin  
 }   
 Compress-Archive -Path D:\Backup\CyberScopeLite.bak -Update -DestinationPath D:\Backup\CyberScopeLite.zip
+ 
