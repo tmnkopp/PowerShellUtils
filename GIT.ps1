@@ -1,15 +1,15 @@
 ﻿ 
-cd 'c:\posh'; git pull; git add .; git commit -m "  deply scripts refactor    "; git push; 
+cd 'c:\posh'; git pull; git add .; git commit -m "   svns refactor "; git push; 
 cd 'C:\sql'; git add .; git commit -m " lookup for db backup "; git push;
 
 cd C:\users\tim\source\repos\BrowseOmatic;
-git add .; git commit -m " update to string ICommand overrides "; git push;
+git add .; git commit -m "  ICommand refactor overrides "; git push;
 
 cd C:\Users\Tim\source\repos\Py\snippets; git status; 
-git add .; git commit -m " app file scan"; git push;
+git add .; git commit -m "  file refactor scan"; git push;
 
 cd C:\users\tim\source\repos\SledgeOMatic;
-git add .; git commit -m " refactor Content Formatters Func "; git push;
+git add .; git commit -m " refac Formatter  Func "; git push;
  
 cd C:\users\tim\source\repos\JiraPortal;
 git add .; git commit -m "revise view module"; git push; 
