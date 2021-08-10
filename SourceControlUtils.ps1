@@ -7,7 +7,24 @@
      )
      Write-Host $pass 
 }  
-
+function SVNAdder
+{ 
+    [CmdletBinding()]
+        param (  
+        [Parameter(Mandatory = $false, Position = 1)] 
+        [string] $With = '  ' 
+    ) 
+    $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
+    cd $config.CSDIR + ':\dev\CyberScope\CyberScopeBranch\CSwebdev\database\'
+    svn status | Out-GridView -PassThru | ForEach-Object {    
+        $_ -match '(.+\s{2,7})(.*)';
+        $stat = $Matches[1] 
+        $file = $Matches[2] 
+        if($stat -match '\?'){   svn add $file;   }     
+        #if($stat -match 'A'){    svn commit $file -m 'CS-8412 init commit';  }   
+        #if($stat -match 'M'){    svn commit $file -m 'CS-8450 setup for open text finding ';  }      
+    }        
+}
 function SVNUpdate 
 { 
     [CmdletBinding()]
@@ -21,7 +38,7 @@ function SVNUpdate
     cd  ($config.CSDIR+':\dev\CyberScope\CyberScopeBranch\CSwebdev\code'); svn update; dotnet build;   
      
 }
-
+ 
 function Committer(){ 
     [CmdletBinding()]
      param (  
