@@ -61,9 +61,6 @@ function Invoke-ExtractObjectFromScript {
         [string] $Path = ''
     )
     $sql = (Get-Content $Path).Replace("[dbo].", "").Replace("dbo.", "").Replace("[", "").Replace("]", "") 
-    $sql | Select-String '.*DROP\s{1,}(PROCEDURE|VIEW)\s{1,}([A-Za-z0-9\\_]{3,})' -AllMatches | Select -First 1 |  `
-    % {$_.matches.groups[2].value}` 
-   
-} 
- 
-  
+    $sql | Select-String ".*DROP\s{1,}(\w{2,255})\s{1,}([A-Za-z0-9\\_]{3,})" -AllMatches | Select -First 1 |  `
+    % {$_.matches.groups[2].value}`  
+}   
