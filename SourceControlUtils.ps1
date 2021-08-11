@@ -21,8 +21,7 @@ function SVNAdder
         $stat = $Matches[1] 
         $file = $Matches[2] 
         if($stat -match '\?'){   svn add $file;   }     
-        #if($stat -match 'A'){    svn commit $file -m 'CS-8412 init commit';  }   
-        #if($stat -match 'M'){    svn commit $file -m 'CS-8450 setup for open text finding ';  }      
+        if($stat -match 'A|M'){    svn commit $file -m 'CS-8412 init commit';  } # CS-8450    CS-8412 
     }        
 }
 function SVNUpdate 
