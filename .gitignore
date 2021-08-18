@@ -5,3 +5,4 @@ config/
 local*
 Deploy.*
 deploy.*
+deploy/

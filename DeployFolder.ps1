@@ -10,7 +10,7 @@ Copy-Item -Path $src*  -Exclude $exclusions -Destination $dest -Recurse -Force
 cls;
 $dest = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\Utils\';
 $src = 'C:\posh\';  
-$inc = @( "VersionMerger.ps1", "DBUtils.ps1", "sqlconnector.ps1", "SourceControlUtils.ps1", "BackerUpper.ps1" ); 
+$inc = @("CreateRelease.ps1", "SqlRunner.ps1",  "VersionMerger.ps1", "DBUtils.ps1", "sqlconnector.ps1", "SourceControlUtils.ps1", "BackerUpper.ps1" ); 
 Copy-Item -Path $src* -Include $inc -Destination $dest -Recurse -Force  
 
 $src = 'C:\sql\';  
@@ -24,9 +24,9 @@ svn status | Out-GridView -PassThru  |  ForEach-Object {
     $file = $Matches[2] 
     if($stat -match '\?'){
         svn add $file; 
-    } 
+    }  
 }  
-explorer.exe $dest; 
+explorer.exe D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\Utils\  
  
 cls; cd  'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\Utils\' ; svn status;   
 

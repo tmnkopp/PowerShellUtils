@@ -3,10 +3,10 @@ cd 'c:\posh'; git pull; git add .; git commit -m "env var updates "; git push;
 cd 'C:\sql'; git add .; git commit -m "backup update  "; git push;
 
 cd C:\users\tim\source\repos\BrowseOmatic; 
-git add .; git commit -m "ParameterType updates "; git push;
+git add .; git commit -m "add url provider  "; git push;
 
 cd C:\Users\Tim\source\repos\Py\snippets; git status; 
-git add .; git commit -m "file yaml refact "; git push;
+git add .; git commit -m "file pj log refact "; git push;
 
 cd C:\users\tim\source\repos\SledgeOMatic;
 git add .; git commit -m " refac Formatter  Func "; git push; 
