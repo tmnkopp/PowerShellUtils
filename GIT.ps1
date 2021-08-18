@@ -1,6 +1,7 @@
 ﻿ 
-cd 'c:\posh'; git pull; git add .; git commit -m "env var updates "; git push; 
+cd 'c:\posh'; git pull; git add .; git commit -m "add deploy scripts "; git push; 
 cd 'C:\sql'; git add .; git commit -m "backup update  "; git push;
+ 
 
 cd C:\users\tim\source\repos\BrowseOmatic; 
 git add .; git commit -m "add url provider  "; git push;
