@@ -10,7 +10,7 @@ Copy-Item -Path $src*  -Exclude $exclusions -Destination $dest -Recurse -Force
 cls;
 $dest = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\Utils\';
 $src = 'C:\posh\';  
-$inc = @("CreateRelease.ps1", "SqlRunner.ps1",  "VersionMerger.ps1", "DBUtils.ps1", "sqlconnector.ps1", "SourceControlUtils.ps1", "BackerUpper.ps1" ); 
+$inc = @("DirReplacer.ps1", "CreateRelease.ps1", "SqlRunner.ps1",  "VersionMerger.ps1", "DBUtils.ps1", "sqlconnector.ps1", "SourceControlUtils.ps1", "BackerUpper.ps1" ); 
 Copy-Item -Path $src* -Include $inc -Destination $dest -Recurse -Force  
 
 $src = 'C:\sql\';  

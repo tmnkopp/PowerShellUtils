@@ -15,13 +15,13 @@ function SVNAdder
         [string] $With = '  ' 
     ) 
     $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
-    cd $config.CSDIR + ':\dev\CyberScope\CyberScopeBranch\CSwebdev\database\'
+    cd ($config.CSDIR + ':\dev\CyberScope\CyberScopeBranch\CSwebdev\database\Utils\\Deployment\')
     svn status | Out-GridView -PassThru | ForEach-Object {    
         $_ -match '(.+\s{2,7})(.*)';
         $stat = $Matches[1] 
         $file = $Matches[2] 
-        if($stat -match '\?'){   svn add $file;   }     
-        if($stat -match 'A|M'){    svn commit $file -m 'CS-8412 init commit';  } # CS-8450    CS-8412 
+        if($stat -match '\?'){  svn add $file;  }     
+        if($stat -match 'A|M'){ svn commit $file -m 'CS-7680 revise util';  } # CS-8450    CS-8412 
     }        
 }
 function SVNUpdate 

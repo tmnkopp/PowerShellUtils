@@ -1,23 +1,22 @@
 ﻿ 
-cd 'c:\posh'; git pull; git add .; git commit -m "add deploy scripts "; git push; 
+cd 'c:\posh'; git pull; git add .; git commit -m "deploy update scripts "; git push; 
 cd 'C:\sql'; git add .; git commit -m "backup update  "; git push;
- 
-
+  
 cd C:\users\tim\source\repos\BrowseOmatic; 
-git add .; git commit -m "add url provider  "; git push;
+$m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_}) 
+git add .; git commit -m "refactor cmd process "+$m; git push;
 
 cd C:\Users\Tim\source\repos\Py\snippets; git status; 
 git add .; git commit -m "file pj log refact "; git push;
 
 cd C:\users\tim\source\repos\SledgeOMatic;
-git add .; git commit -m " refac Formatter  Func "; git push; 
+git add .; git commit -m " added Compilation "; git push; 
 cd C:\users\tim\source\repos\JiraPortal;
 git add .; git commit -m "revise view module"; git push;  
 cd C:\users\tim\source\repos\JiraCore;
 git add .; git commit -m "revise unittests "; git push;   
 cd C:\users\tim\source\repos\SOMData
-git add .; git commit -m "added code gen assm";git push;
-
+git add .; git commit -m "added code gen assm";git push; 
 cd C:\users\tim\source\repos\somuing
 git add .; git commit -m "refactored "; git push; 
 cd C:\users\tim\source\repos\SOM-API
