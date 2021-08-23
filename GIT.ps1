@@ -1,16 +1,17 @@
 ﻿ 
-cd 'c:\posh'; git pull; git add .; git commit -m "deploy update scripts "; git push; 
+cd 'c:\posh'; git pull; git add .; git commit -m "update deploy script"; git push; 
 cd 'C:\sql'; git add .; git commit -m "backup update  "; git push;
   
 cd C:\users\tim\source\repos\BrowseOmatic; 
 $m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_}) 
-git add .; git commit -m "refactor cmd process "+$m; git push;
+git add .; git commit -m "refactor yaml serializer "+$m; git push;
 
-cd C:\Users\Tim\source\repos\Py\snippets; git status; 
-git add .; git commit -m "file pj log refact "; git push;
+cd C:\Users\Tim\source\repos\Py\snippets; git status; git pull;
+git add .; git commit -m "yaml unit test "; git push;
 
 cd C:\users\tim\source\repos\SledgeOMatic;
-git add .; git commit -m " added Compilation "; git push; 
+git add .; git commit -m " added yaml unit test "; git push; 
+
 cd C:\users\tim\source\repos\JiraPortal;
 git add .; git commit -m "revise view module"; git push;  
 cd C:\users\tim\source\repos\JiraCore;

@@ -15,13 +15,13 @@ function SVNAdder
         [string] $With = '  ' 
     ) 
     $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
-    cd ($config.CSDIR + ':\dev\CyberScope\CyberScopeBranch\CSwebdev\database\Utils\\Deployment\')
+    cd ($config.CSDIR + ':\dev\CyberScope\CyberScopeBranch\CSwebdev\test\bom')
     svn status | Out-GridView -PassThru | ForEach-Object {    
         $_ -match '(.+\s{2,7})(.*)';
         $stat = $Matches[1] 
         $file = $Matches[2] 
         if($stat -match '\?'){  svn add $file;  }     
-        if($stat -match 'A|M'){ svn commit $file -m 'CS-7680 revise util';  } # CS-8450    CS-8412 
+        if($stat -match 'A|M'){ svn commit $file -m 'CS-8459 revise util';  } # CS-8450    CS-8412 
     }        
 }
 function SVNUpdate 
@@ -32,10 +32,12 @@ function SVNUpdate
         [string] $With = '  ' 
     ) 
     $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
-    cd  ($config.CSDIR+':\dev\CyberBalance\trunk\projects'); svn update; 
-    cd  ($config.CSDIR+':\dev\CyberScope\CyberScopeBranch\CSwebdev\database'); svn update ; 
-    cd  ($config.CSDIR+':\dev\CyberScope\CyberScopeBranch\CSwebdev\code'); svn update; dotnet build;   
-     
+    cd ($config.CSDIR+':\dev\CyberBalance\trunk\projects'); svn update; 
+    cd ($config.CSDIR+':\dev\CyberScope\CyberScopeBranch\CSwebdev\database'); svn update ; 
+    $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
+    cd ($config.CSDIR+':\dev\CyberScope\CyberScopeBranch\CSwebdev\code'); svn update; 
+    $msbuild = 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe'
+    & $msbuild -v:q -p:WarningLevel=0 ; cls;    
 }
  
 function Committer(){ 
