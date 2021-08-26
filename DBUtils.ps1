@@ -1,22 +1,9 @@
-﻿ 
-function DBBackup { 
-    [CmdletBinding()] 
-    param (  
-      [Parameter(Mandatory = $false )] 
-      [string] $dbname = 'Cyberscope123'
-    )   
-    Get-SqlDatabase -ServerInstance localhost -NAME $dbname | Backup-SqlDatabase -Incremental    
-} 
-function DBUpdate 
+﻿function DBUpdate 
 {  
   [CmdletBinding()]
    param ( 
     [Parameter(Mandatory = $false, Position = 0)] 
-    [int] $UpdateFromDays = 45 ,
-    [Parameter(Mandatory = $true, Position = 1)] 
-    [string] $pass = '' ,  
-    [Parameter(Mandatory = $false, Position = 2)] 
-    [string] $dbname = 'Cyberscope123' 
+    [int] $UpdateFromDays = 45  
    )
     $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json 
     [string] $pathToDbScripts = $config.CSDIR+':\dev\CyberScope\CyberScopeBranch\CSwebdev\database\'
@@ -31,8 +18,8 @@ function DBUpdate
         $rs = Invoke-Sqlcmd  -Database $dbname  -Query "SELECT NAME, CREATE_DATE FROM sys.all_objects WHERE CREATE_DATE > DATEADD( d, -120 , GETDATE()) ;"
     } 
     Get-ChildItem  -Path $pathToDbScripts -Recurse -Filter *sql  | `
-    Where-Object { ($_.LastWriteTime -gt  (Get-date).AddDays(-$UpdateFromDays)) } | ` 
-    Where-Object { ($_.FullName -notmatch '(\\Utils|\\InProgress|\\Archive)') } | `    
+    Where-Object { ($_.LastWriteTime -gt  (Get-date).AddDays(-$UpdateFromDays)) } | `
+    Where-Object { ($_.FullName -notmatch '(\\Utils|\\InProgress|\\Archive)') } | `
     ForEach-Object { 
         $dbobject = Invoke-ExtractObjectFromScript -Path $_.FullName
         $rec = ($rs  | Where-Object {$_.NAME -eq $dbobject})
