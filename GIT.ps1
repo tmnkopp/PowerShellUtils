@@ -4,10 +4,10 @@ cd 'C:\sql'; git add .; git commit -m "backup update  "; git push;
   
 cd C:\users\tim\source\repos\BrowseOmatic; 
 $m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_}) 
-git add .; git commit -m ("refactor unit tests for serializer " + $m) ; git push;
+git add .; git commit -m ("refactor serializer " + $m) ; git push;
 
 cd C:\Users\Tim\source\repos\Py\snippets; git status; git pull;
-git add .; git commit -m "unit tests for yaml "; git push;
+git add .; git commit -m "code gen for xunit init "; git push;
 
 cd C:\users\tim\source\repos\SledgeOMatic;
 git add .; git commit -m " update yaml unit test "; git push; 
@@ -23,18 +23,15 @@ git add .; git commit -m "refactored "; git push;
 cd C:\users\tim\source\repos\SOM-API
 git add .; git commit -m "added code gen"; git push;
  
-cd 'C:\Users\Tim\source\repos\Py\snippets'
-git remote set-url origin   https://github.com/tmnkopp/PythonBoiler.git
-git push --set-upstream origin master
-git remote -v 
-git add .; git commit -m "refac main"; git push;
 
+$src = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope.Tests\';  
+$ex = @( "app.config", ".exe", "*.csproj" ); 
+$in = @( "Selenium", "Models", "packages.config" ); 
+Copy-Item -Path $src* -Exclude $ex -Include $in -Destination D:\repos\xUnit-Browser-Tests -Recurse -Force 
 
-cd 'D:\PS'
-git remote set-url origin   https://github.com/tmnkopp/PowerShellUtils.git
-git push --set-upstream origin master
-git remote -v
-git status
+cd D:\repos\xUnit-Browser-Tests
+git add .; git commit -m "refactor config"; git push;
+
 
 cd C:\users\tim\source\repos\JiraFormatter
 git add .; git commit -m "u test revise"; git push; 
