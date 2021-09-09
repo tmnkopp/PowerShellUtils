@@ -22,18 +22,18 @@ cd C:\users\tim\source\repos\somuing
 git add .; git commit -m "refactored "; git push; 
 cd C:\users\tim\source\repos\SOM-API
 git add .; git commit -m "added code gen"; git push;
- 
+cd C:\users\tim\source\repos\JiraFormatter
+git add .; git commit -m "u test revise"; git push;  
 
 $src = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope.Tests\';  
 $ex = @( "app.config", ".exe", "*.csproj" ); 
 $in = @( "Selenium", "Models", "packages.config" ); 
 Copy-Item -Path $src* -Exclude $ex -Include $in -Destination D:\repos\xUnit-Browser-Tests -Recurse -Force  
 cd D:\repos\xUnit-Browser-Tests
-git add .; git commit -m "refactor config"; git push;
+git add .; git commit -m "refac unit test"; git push;
 
 
-cd C:\users\tim\source\repos\JiraFormatter
-git add .; git commit -m "u test revise"; git push; 
+
 
 cd 'c:\posh';
 git status; 
