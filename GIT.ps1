@@ -1,5 +1,5 @@
 ﻿ 
-cd 'c:\posh'; git pull; git add .; git commit -m "update sql connector"; git push; 
+cd 'c:\posh'; git pull; git add .; git commit -m "update dbupdater"; git push; 
 cd 'C:\sql'; git add .; git commit -m "backup update  "; git push;
   
 cd C:\users\tim\source\repos\BrowseOmatic; 
@@ -27,8 +27,7 @@ git add .; git commit -m "added code gen"; git push;
 $src = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope.Tests\';  
 $ex = @( "app.config", ".exe", "*.csproj" ); 
 $in = @( "Selenium", "Models", "packages.config" ); 
-Copy-Item -Path $src* -Exclude $ex -Include $in -Destination D:\repos\xUnit-Browser-Tests -Recurse -Force 
-
+Copy-Item -Path $src* -Exclude $ex -Include $in -Destination D:\repos\xUnit-Browser-Tests -Recurse -Force  
 cd D:\repos\xUnit-Browser-Tests
 git add .; git commit -m "refactor config"; git push;
 

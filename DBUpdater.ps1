@@ -14,7 +14,10 @@ function DBUpdater
         [string] $SourcePath = '' ,
         [Alias("u")]
         [Parameter(Mandatory = $false, Position = 3)] 
-        [bool] $UpdateSVN = $false                  
+        [bool] $UpdateSVN = $false   ,
+        [Alias("f")]
+        [Parameter(Mandatory = $false, Position = 4)] 
+        [string] $FileFilter = '*.sql'                 
 	)
 	begin
 	{
@@ -22,11 +25,12 @@ function DBUpdater
             [CmdletBinding()] 
             param(    
                 [Parameter(Mandatory = $true, Position = 0)] [String]$sql 
-            )# |\nG[Oo]|\rG[Oo]
+            ) 
             ($sql -split 'G[Oo]\s*\r|G[Oo]\s*\n').foreach({ 
                 if($_ -ne ''){ 
                     $cmd = $_ -replace '\nG[Oo]|\rG[Oo]', ''   
                     try {
+                        # Write-Host $cmd
                         $command.CommandText = $cmd
                         $command.CommandTimeout = 0
                         $null = $command.ExecuteNonQuery() 
@@ -51,7 +55,7 @@ function DBUpdater
         $command = New-Object System.Data.SqlClient.SqlCommand
         $command.Connection = $connection       
 		try {    
-            $files = (Get-ChildItem $SourcePath -Recurse -Filter '*.sql') 
+            $files = (Get-ChildItem $SourcePath -Recurse -Filter $FileFilter) 
             $files = $files.where({$_.FullName -notmatch 'Archive\\|Utils\\|Progress\\'})
             $files = $files.where({$_.LastWriteTime -gt (Get-Date).AddDays(-$UpdateFromDays)})
             ($files.where({$_.FullName -match '.*DBUpdate.*|.*DB_Update.*'}) | sort $_.LastWriteTime | Out-GridView -PassThru).foreach({

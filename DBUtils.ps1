@@ -3,23 +3,24 @@
   [CmdletBinding()]
    param ( 
     [Parameter(Mandatory = $false, Position = 0)] 
-    [int] $UpdateFromDays = 45  
+    [int] $UpdateFromDays = 90  
    )
     $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json 
     [string] $pathToDbScripts = $config.CSDIR+':\dev\CyberScope\CyberScopeBranch\CSwebdev\database\'
-     
+    
     $FileCollection = New-Object System.Collections.ArrayList   
     $config  = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json   
     Write-Host $config.CONNSTR -match 'SQL'
+    $pass=$config.CSDBPASS
 
     if($config.CONNSTR -match '.*SQL.*'){
         $rs = Invoke-Sqlcmd  -Query "SELECT NAME, CREATE_DATE FROM sys.all_objects WHERE CREATE_DATE > DATEADD( d, -120 , GETDATE()) ;" -ConnectionString $config.CONNSTR
     }else{
-        $rs = Invoke-Sqlcmd  -Database $dbname  -Query "SELECT NAME, CREATE_DATE FROM sys.all_objects WHERE CREATE_DATE > DATEADD( d, -120 , GETDATE()) ;"
+        $rs = Invoke-Sqlcmd  -Database 'Cyberscope123'  -Query "SELECT NAME, CREATE_DATE FROM sys.all_objects WHERE CREATE_DATE > DATEADD( d, -120 , GETDATE()) ;"
     } 
     Get-ChildItem  -Path $pathToDbScripts -Recurse -Filter *sql  | `
     Where-Object { ($_.LastWriteTime -gt  (Get-date).AddDays(-$UpdateFromDays)) } | `
-    Where-Object { ($_.FullName -notmatch '(\\Utils|\\InProgress|\\Archive)') } | `
+    Where-Object { ($_.FullName -notmatch '(\\Utils|\\InProgress)') } | `
     ForEach-Object { 
         $dbobject = Invoke-ExtractObjectFromScript -Path $_.FullName
         $rec = ($rs  | Where-Object {$_.NAME -eq $dbobject})
@@ -38,7 +39,7 @@
         if($config.CONNSTR -match '.*SQL.*'){
             Invoke-Sqlcmd -InputFile $_.Script  -ConnectionString $config.CONNSTR
         }else{
-            Invoke-Sqlcmd  -Database $dbname -InputFile $_.Script  -Password $pass  -Username CSAdmin  
+            Invoke-Sqlcmd  -Database 'Cyberscope123' -InputFile $_.Script  -Password $pass  -Username CSAdmin  
         } 
     }    
 } 

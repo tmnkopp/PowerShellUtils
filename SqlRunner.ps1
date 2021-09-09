@@ -7,7 +7,7 @@ $command = New-Object System.Data.SqlClient.SqlCommand
 $command.Connection = $connection
 
 dir -Path D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\Sprocs -Filter *.sql -Recurse | `  
-where { ($_.FullName -notmatch '(DBUpdate|DB_Update)' -and $_.LastWriteTime -gt (Get-Date).AddDays(-30)) }  | `
+where { ($_.FullName -notmatch '(DBUpdate|DB_Update)' -and $_.LastWriteTime -gt (Get-Date).AddDays(-45)) }  | `
 % { 
     Write-Host $_.FullName
     $c = Get-Content $_.FullName  -Raw
