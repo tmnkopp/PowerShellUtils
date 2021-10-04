@@ -28,16 +28,19 @@ function SVNUpdate
 { 
     [CmdletBinding()]
         param (  
-        [Parameter(Mandatory = $false, Position = 1)] 
-        [string] $With = '  ' 
+            [Alias("b")]
+            [Parameter(Mandatory = $false, Position = 0)] 
+            [bool] $BuildCode = $false 
     ) 
     $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
     cd ($config.CSDIR+':\dev\CyberBalance\trunk\projects'); svn update; 
     cd ($config.CSDIR+':\dev\CyberScope\CyberScopeBranch\CSwebdev\database'); svn update ; 
     $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
     cd ($config.CSDIR+':\dev\CyberScope\CyberScopeBranch\CSwebdev\code'); svn update; 
-    $msbuild = 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe'
-    & $msbuild -v:q -p:WarningLevel=0 ; cls;    
+    if( $BuildCode ){
+        $msbuild = 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe'
+        & $msbuild -v:q -p:WarningLevel=0 ; cls;   
+    } 
 }
  
 function Committer(){ 
