@@ -39,7 +39,7 @@ function SVNUpdate
     cd ($config.CSDIR+':\dev\CyberScope\CyberScopeBranch\CSwebdev\code'); svn update; 
     if( $BuildCode ){
         $msbuild = 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe'
-        & $msbuild -v:q -p:WarningLevel=0 ; cls;   
+        & $msbuild -v:q  -clp:ErrorsOnly  -p:WarningLevel=0 ; cls;   
     } 
 }
  

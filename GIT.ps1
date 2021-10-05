@@ -1,13 +1,13 @@
 ﻿ 
-cd 'c:\posh'; git pull; git add .; git commit -m "refac dbupdate"; git push; 
-cd 'C:\sql'; git add .; git commit -m "backup update  "; git push;
+cd 'c:\posh'; git pull; git add .; git commit -m "refac db update"; git push; 
+cd 'C:\sql'; git add .; git commit -m "backup db update  "; git push;
   
 cd C:\users\tim\source\repos\BrowseOmatic; 
 $m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_}) 
 git add .; git commit -m ("refactor config " + $m) ; git push;
 
 cd C:\Users\Tim\source\repos\Py\snippets; # git status;  
-git pull; git add .; git commit -m "excluded templates "; git push;
+git pull; git add .; git commit -m "update db log tests"; git push;
 
 cd C:\users\tim\source\repos\SledgeOMatic;
 git add .; git commit -m " clean unit test "; git push; 
