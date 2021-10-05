@@ -1,5 +1,5 @@
 ﻿ 
-cd 'c:\posh'; git pull; git add .; git commit -m "refac splitter"; git push; 
+cd 'c:\posh'; git pull; git add .; git commit -m "refac dbupdate"; git push; 
 cd 'C:\sql'; git add .; git commit -m "backup update  "; git push;
   
 cd C:\users\tim\source\repos\BrowseOmatic; 

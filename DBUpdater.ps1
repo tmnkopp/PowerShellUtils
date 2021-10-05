@@ -20,7 +20,7 @@ function DBUpdater
         [string] $FileFilter = '*.sql'  ,
         [Alias("m")]
         [Parameter(Mandatory = $false, Position = 5)] 
-        [string] $OutGridMatch = '*.sql$'                 
+        [string] $OutGridMatch = '~'                 
 	)
 	begin
 	{
