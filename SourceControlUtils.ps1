@@ -21,7 +21,7 @@ function SVNAdder
         $stat = $Matches[1] 
         $file = $Matches[2] 
         if($stat -match '\?'){  svn add $file;  }     
-        if($stat -match 'A|M'){ svn commit $file -m 'CS-8459 refactor automator unit tests';  } # CS-8450    CS-8412 
+        if($stat -match 'A|M'){ svn commit $file -m 'CS-8459 refactor unit tests';  } # CS-8450    CS-8412 
     }        
 }
 function SVNUpdate 
