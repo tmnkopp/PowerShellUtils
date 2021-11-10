@@ -13,16 +13,40 @@ function SVNAdder
         param (  
         [Parameter(Mandatory = $false, Position = 1)] 
         [string] $With = '  ' 
-    ) 
-    $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
-    cd ($config.BRANCH + '\CSwebdev\code\CyberScope.Tests')
+    )
+
+    $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json  
+    cd ($config.BALANCE)
     svn status | Out-GridView -PassThru | ForEach-Object {    
         $_ -match '(.+\s{2,7})(.*)';
         $stat = $Matches[1] 
         $file = $Matches[2] 
         if($stat -match '\?'){  svn add $file;  }     
-        if($stat -match 'A|M'){ svn commit $file -m 'CS-8459 refactor unit tests';  } # CS-8450    CS-8412 
-    }        
+        if($stat -match 'A|M'){ } # CS-8450    CS-8412 
+        svn commit $file -m 'CS-8494 Einstein Section 1 updates'; 
+    }  
+
+    $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
+    cd ($config.BRANCH + '\CSwebdev\database\')
+    svn status | Out-GridView -PassThru | ForEach-Object {    
+        $_ -match '(.+\s{2,7})(.*)';
+        $stat = $Matches[1] 
+        $file = $Matches[2] 
+        if($stat -match '\?'){  svn add $file;  }     
+        if($stat -match 'A|M'){  } # CS-8450    CS-8412 
+        svn commit $file -m 'CS-8494 Einstein Section 1 updates'; 
+    } 
+    $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
+    cd ($config.BRANCH + '\CSwebdev\code\')
+    svn status | Out-GridView -PassThru | ForEach-Object {    
+        $_ -match '(.+\s{2,7})(.*)';
+        $stat = $Matches[1] 
+        $file = $Matches[2] 
+        if($stat -match '\?'){  svn add $file;  }     
+        if($stat -match 'A|M'){  } # CS-8450    CS-8412 
+        svn commit $file -m 'CS-8494 Einstein Section 1 updates'; 
+    }   
+        
 }
 function SVNUpdate 
 { 

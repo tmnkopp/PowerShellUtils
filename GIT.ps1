@@ -1,6 +1,6 @@
 ﻿ 
 cd 'c:\posh'; git pull; git add .; git commit -m "refac svn update"; git push; 
-cd 'C:\sql'; git add .; git commit -m "backup db update  "; git push;
+cd 'C:\sql'; git add .; git commit -m "refac date calc db update  "; git push;
   
 cd C:\users\tim\source\repos\BrowseOmatic; 
 $m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_}) 
@@ -10,7 +10,7 @@ cd C:\Users\Tim\source\repos\Py\snippets; # git status;
 git pull; git add .; git commit -m "update codegen tbl alters"; git push;
 
 cd C:\users\tim\source\repos\SledgeOMatic;
-git add .; git commit -m " clean unit test "; git push; 
+git add .; git commit -m " update eins refactor unit test "; git push; 
  
 cd C:\users\tim\source\repos\SOMData
 git add .; git commit -m "update to 3.1";git push; 
