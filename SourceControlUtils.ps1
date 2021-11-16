@@ -23,9 +23,9 @@ function SVNAdder
         $file = $Matches[2] 
         if($stat -match '\?'){  svn add $file;  }     
         if($stat -match 'A|M'){ } # CS-8450    CS-8412 
-        svn commit $file -m 'CS-8494 Einstein Section 1 updates'; 
+        svn commit $file -m 'CS-8494 Einstein Section 1-7 updates'; 
     }  
-
+   
     $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
     cd ($config.BRANCH + '\CSwebdev\database\')
     svn status | Out-GridView -PassThru | ForEach-Object {    
@@ -34,7 +34,7 @@ function SVNAdder
         $file = $Matches[2] 
         if($stat -match '\?'){  svn add $file;  }     
         if($stat -match 'A|M'){  } # CS-8450    CS-8412 
-        svn commit $file -m 'CS-8494 Einstein Section 1 updates'; 
+        svn commit $file -m 'CS-8494 Einstein Section 1-7 updates'; 
     } 
     
     $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
@@ -45,9 +45,9 @@ function SVNAdder
         $file = $Matches[2] 
         if($stat -match '\?'){  svn add $file;  }     
         if($stat -match 'A|M'){  } # CS-8450    CS-8412 
-        svn commit $file -m 'CS-8494 Einstein Section 1 updates'; 
+        svn commit $file -m 'CS-8494 Einstein Section 1-7 updates'; 
     }   
-        
+    bom run -c localagency -p cyber -k -t EINS      
 }
 function SVNUpdate 
 { 
