@@ -32,8 +32,7 @@ function SVNAdder
         $_ -match '(.+\s{2,7})(.*)';
         $stat = $Matches[1] 
         $file = $Matches[2] 
-        if($stat -match '\?'){  svn add $file;  }     
-        if($stat -match 'A|M'){  } # CS-8450    CS-8412 
+        if($stat -match '\?'){  svn add $file;  }      
         svn commit $file -m 'CS-8494 Einstein Section 1-7 updates'; 
     } 
     
