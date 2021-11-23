@@ -33,7 +33,7 @@ function SVNAdder
         $stat = $Matches[1] 
         $file = $Matches[2] 
         if($stat -match '\?'){  svn add $file;  }      
-        svn commit $file -m 'CS-8494 Einstein Section 1-7 updates'; 
+        svn commit $file -m 'CS-8568 added field to track dates uploaded '; 
     } 
     
     $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
