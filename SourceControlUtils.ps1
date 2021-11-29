@@ -44,7 +44,7 @@ function SVNAdder
         $file = $Matches[2] 
         if($stat -match '\?'){  svn add $file;  }     
         if($stat -match 'A|M'){  } # CS-8450    CS-8412 
-        svn commit $file -m 'CS-8216 moved einstein triggers to db crud'; 
+        svn commit $file -m 'CS-8509 update button panel to disable during grid edit'; 
     }   
        
 }
