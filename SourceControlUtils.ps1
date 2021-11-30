@@ -23,7 +23,7 @@ function SVNAdder
         $file = $Matches[2] 
         if($stat -match '\?'){  svn add $file;  }     
         if($stat -match 'A|M'){ } # CS-8450    CS-8412 
-        svn commit $file -m 'CS-8216 insert init event (for einstein trigger disable)'; 
+        svn commit $file -m 'CS-8568 update dat format  '; 
     }  
    
     $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
@@ -33,7 +33,7 @@ function SVNAdder
         $stat = $Matches[1] 
         $file = $Matches[2] 
         if($stat -match '\?'){  svn add $file;  }      
-        svn commit $file -m 'CS-8216 moved einstein triggers to db crud'; 
+        svn commit $file -m 'CS-8568 update dat format  '; 
     } 
     
     $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    

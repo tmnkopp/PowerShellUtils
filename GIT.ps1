@@ -7,7 +7,7 @@ $m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_})
 git add .; git commit -m ("refactor config " + $m) ; git push;
 
 cd C:\Users\Tim\source\repos\Py\snippets; # git status;  
-git pull; git add .; git commit -m "update codegen tbl alters"; git push;
+git pull; git add .; git commit -m "update codegen tbls"; git push;
 
 cd C:\users\tim\source\repos\somuing
 git add .; git commit -m "refactor post compile replacer "; git push; 
