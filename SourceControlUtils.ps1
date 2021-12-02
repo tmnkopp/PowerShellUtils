@@ -23,7 +23,7 @@ function SVNAdder
         $file = $Matches[2] 
         if($stat -match '\?'){  svn add $file;  }     
         if($stat -match 'A|M'){ } # CS-8450    CS-8412 
-        svn commit $file -m 'CS-8568 update dat format  '; 
+        svn commit $file -m 'CS-8494 move insert row event to post param importer  '; 
     }  
    
     $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
