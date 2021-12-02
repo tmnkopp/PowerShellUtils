@@ -33,7 +33,7 @@ function SVNAdder
         $stat = $Matches[1] 
         $file = $Matches[2] 
         if($stat -match '\?'){  svn add $file;  }      
-        svn commit $file -m 'CS-8568 update dat format  '; 
+        svn commit $file -m 'CS-8494 stage fix    stage fix form text/control update   '; 
     } 
     
     $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
@@ -44,7 +44,7 @@ function SVNAdder
         $file = $Matches[2] 
         if($stat -match '\?'){  svn add $file;  }     
         if($stat -match 'A|M'){  } # CS-8450    CS-8412 
-        svn commit $file -m 'CS-8509 update button panel to disable during grid edit'; 
+        svn commit $file -m 'CS-8494  stage fix form text/control update'; 
     }   
        
 }
