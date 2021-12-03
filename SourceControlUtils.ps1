@@ -23,7 +23,7 @@ function SVNAdder
         $file = $Matches[2] 
         if($stat -match '\?'){  svn add $file;  }     
         if($stat -match 'A|M'){ } # CS-8450    CS-8412 
-        svn commit $file -m 'CS-8494 move insert row event to post param importer  '; 
+        svn commit $file -m 'CS-8494 InsertableField add '; 
     }  
  
     $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
@@ -33,7 +33,7 @@ function SVNAdder
         $stat = $Matches[1] 
         $file = $Matches[2] 
         if($stat -match '\?'){  svn add $file;  }      
-        svn commit $file -m 'CS-8494 stage fix    stage fix form text/control update   '; 
+        svn commit $file -m 'CS-8494 update picklists  '; 
     } 
     
     $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
@@ -44,10 +44,13 @@ function SVNAdder
         $file = $Matches[2] 
         if($stat -match '\?'){  svn add $file;  }     
         if($stat -match 'A|M'){  } # CS-8450    CS-8412 
-        svn commit $file -m 'CS-8494  stage fix form text/control update'; 
+        svn commit $file -m 'CS-8494 update picklists  '; 
     }   
        
 }
+
+<CB:DataField  DBColumnName="Agency" ImportColumnName="Agency"  runat="server"/>  
+               
 function SVNUpdate 
 { 
     [CmdletBinding()]
