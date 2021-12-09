@@ -23,7 +23,7 @@ function SVNAdder
         $file = $Matches[2] 
         if($stat -match '\?'){  svn add $file;  }     
         if($stat -match 'A|M'){ } # CS-8450    CS-8412 
-        svn commit $file -m 'CS-8494 InsertableField add '; 
+        svn commit $file -m 'CS-8494 update exporter  add orgsub check   '; 
     }  
  
     $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
@@ -33,7 +33,7 @@ function SVNAdder
         $stat = $Matches[1] 
         $file = $Matches[2] 
         if($stat -match '\?'){  svn add $file;  }      
-        svn commit $file -m 'CS-8494 update picklists  '; 
+        svn commit $file -m 'CS-8494 validation update  '; 
     } 
     
     $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
@@ -44,7 +44,7 @@ function SVNAdder
         $file = $Matches[2] 
         if($stat -match '\?'){  svn add $file;  }     
         if($stat -match 'A|M'){  } # CS-8450    CS-8412 
-        svn commit $file -m 'CS-8494 update picklists  '; 
+        svn commit $file -m 'CS-8494 update unmon traf validaitons   '; 
     }   
        
 }
