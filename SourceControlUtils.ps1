@@ -23,7 +23,7 @@ function SVNAdder
         $file = $Matches[2] 
         if($stat -match '\?'){  svn add $file;  }     
         if($stat -match 'A|M'){ } # CS-8450    CS-8412 
-        svn commit $file -m 'CS-8494 update exporter  add orgsub check   '; 
+        svn commit $file -m 'CS-8614 answer grid control update  '; # CS-8494 EINS  CS-8614 CIO
     }  
  
     $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
@@ -33,7 +33,7 @@ function SVNAdder
         $stat = $Matches[1] 
         $file = $Matches[2] 
         if($stat -match '\?'){  svn add $file;  }      
-        svn commit $file -m 'CS-8494 validation update  '; 
+        svn commit $file -m 'CS-8614 db updates   '; 
     } 
     
     $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
@@ -44,12 +44,12 @@ function SVNAdder
         $file = $Matches[2] 
         if($stat -match '\?'){  svn add $file;  }     
         if($stat -match 'A|M'){  } # CS-8450    CS-8412 
-        svn commit $file -m 'CS-8494 update unmon traf validaitons   '; 
+        svn commit $file -m 'CS-8614 form  updates   '; 
     }   
        
 }
 
-<CB:DataField  DBColumnName="Agency" ImportColumnName="Agency"  runat="server"/>  
+ 
                
 function SVNUpdate 
 { 
