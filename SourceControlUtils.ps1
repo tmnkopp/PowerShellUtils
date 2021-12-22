@@ -33,7 +33,7 @@ function SVNAdder
         $stat = $Matches[1] 
         $file = $Matches[2] 
         if($stat -match '\?'){  svn add $file;  }      
-        svn commit $file -m 'CS-8614   val def updates   '; 
+        svn commit $file -m 'CS-8614  update frm val eo metric logic '; 
     } 
     
     $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
@@ -45,11 +45,8 @@ function SVNAdder
         if($stat -match '\?'){  svn add $file;  }     
         if($stat -match 'A|M'){  } # CS-8450    CS-8412 
         svn commit $file -m 'CS-8614 form  updates   '; 
-    }   
-       
-}
-
- 
+    }      
+}  
                
 function SVNUpdate 
 { 
