@@ -19,8 +19,7 @@ function SVNAdder
     cd ($config.BALANCE)
     svn status | Out-GridView -PassThru | ForEach-Object {    
         $_ -match '(.+\s{2,7})(.*)';
-        $stat = $Matches[1] 
-        $file = $Matches[2] 
+        $stat = $Matches[1] ;  $file = $Matches[2] ; 
         if($stat -match '\?'){  svn add $file;  }     
         if($stat -match 'A|M'){ } # CS-8450    CS-8412 
         svn commit $file -m 'CS-8614 control update data grid  '; # CS-8494 EINS  CS-8614 CIO
@@ -30,8 +29,7 @@ function SVNAdder
     cd ($config.BRANCH + '\CSwebdev\database\')
     svn status | Out-GridView -PassThru | ForEach-Object {    
         $_ -match '(.+\s{2,7})(.*)';
-        $stat = $Matches[1] 
-        $file = $Matches[2] 
+        $stat = $Matches[1];  $file = $Matches[2] ; 
         if($stat -match '\?'){  svn add $file;  }      
         svn commit $file -m 'CS-8614  update frm val eo metric logic '; 
     } 
@@ -40,12 +38,12 @@ function SVNAdder
     cd ($config.BRANCH + '\CSwebdev\code\')
     svn status | Out-GridView -PassThru | ForEach-Object {    
         $_ -match '(.+\s{2,7})(.*)';
-        $stat = $Matches[1] 
-        $file = $Matches[2] 
+        $stat = $Matches[1] ;  $file = $Matches[2] ; 
         if($stat -match '\?'){  svn add $file;  }     
         if($stat -match 'A|M'){  } # CS-8450    CS-8412 
         svn commit $file -m 'CS-8614 form  updates   '; 
     }      
+    
 }  
                
 function SVNUpdate 
