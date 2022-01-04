@@ -7,7 +7,7 @@ $m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_})
 git add .; git commit -m ("refactor config " + $m) ; git push;
 
 cd C:\Users\Tim\source\repos\Py\snippets; # git status;  
-git pull; git add .; git commit -m "eins gen update codegen tbls"; git push;
+git pull; git add .; git commit -m "val app init commit"; git push;
 
 cd C:\users\tim\source\repos\somuing
 git add .; git commit -m "refactor post compile replacer "; git push; 
@@ -17,10 +17,7 @@ cd C:\users\tim\source\repos\SOM-API;
 git add .; git commit -m "refactor post compile replacer"; git push; 
 cd C:\users\tim\source\repos\SOMData
 git add .; git commit -m "refactor update to 3.1";git push; 
-
-
-
-
+ 
 cd C:\users\tim\source\repos\JiraPortal;
 git add .; git commit -m "revise view module"; git push;  
 cd C:\users\tim\source\repos\JiraCore;
