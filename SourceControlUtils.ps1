@@ -40,8 +40,8 @@ function SVNAdder
         $_ -match '(.+\s{2,7})(.*)';
         $stat = $Matches[1] ;  $file = $Matches[2] ; 
         if($stat -match '\?'){  svn add $file;  }     
-        if($stat -match 'A|M'){  } # CS-8450    CS-8412 
-        svn commit $file -m 'CS-8614 form  updates   '; 
+        if($stat -match 'A|M'){  } # CS-8450    CS-8412  CS-8459 Selenium Browser Automator Refactor	 
+        svn commit $file -m 'CS-8459 unit tests updates '; 
     }      
 
 }  
