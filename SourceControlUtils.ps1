@@ -41,11 +41,19 @@ function SVNAdder
         $stat = $Matches[1] ;  $file = $Matches[2] ; 
         if($stat -match '\?'){  svn add $file;  }     
         if($stat -match 'A|M'){  } # CS-8450    CS-8412  CS-8459 Selenium Browser Automator Refactor	 
-        svn commit $file -m 'CS-8459 unit tests updates '; 
-    }      
+        svn commit $file -m 'CS-8459 unit tests/setter updates '; 
+    }  
+    
+    Start chrome https://dayman.cyber-balance.com/TeamCity/project/_Root?mode=builds    
+
+    $src = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope.Tests\';  
+    $ex = @( "app.config", ".exe", "*.csproj" ); 
+    $in = @( "Selenium", "Models", "Data", "packages.config", "Selenium.DataCall.Tests" ); 
+    Copy-Item -Path $src* -Exclude $ex -Include $in -Destination D:\repos\xUnit-Browser-Tests -Recurse -Force  
+    cd D:\repos\xUnit-Browser-Tests; git add .; git commit -m "update repo xunit tests "; git push;
 
 }  
-               
+            
 function SVNUpdate 
 { 
     [CmdletBinding()]
