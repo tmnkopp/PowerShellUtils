@@ -3,8 +3,8 @@ cd 'c:\posh'; git pull; git add .; git commit -m "refac svn update"; git push;
 cd 'C:\sql'; git add .; git commit -m "refac date calc db update  "; git push;
   
 cd C:\users\tim\source\repos\BrowseOmatic; 
-$m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_}) 
-git add .; git commit -m ("refactor config " + $m) ; git push;
+$m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_}); 
+git add .; git commit -m ("refactor unit tests " + $m) ; git push;
 
 cd C:\Users\Tim\source\repos\Py\snippets; # git status;  
 git pull; git add .; git commit -m "val app init commit"; git push;
