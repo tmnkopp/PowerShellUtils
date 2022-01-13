@@ -9,10 +9,11 @@ git add .; git commit -m ("refactor unit tests " + $m) ; git push;
 cd C:\Users\Tim\source\repos\Py\snippets; # git status;  
 git pull; git add .; git commit -m "val app init commit"; git push;
 
-cd C:\users\tim\source\repos\somuing
-git add .; git commit -m "refactor post compile replacer "; git push; 
 cd C:\users\tim\source\repos\SledgeOMatic;
 git add .; git commit -m " update unit test "; git push; 
+
+cd C:\users\tim\source\repos\somuing
+git add .; git commit -m "refactor post compile replacer "; git push;  
 cd C:\users\tim\source\repos\SOM-API; 
 git add .; git commit -m "refactor post compile replacer"; git push; 
 cd C:\users\tim\source\repos\SOMData
