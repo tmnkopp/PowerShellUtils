@@ -4,13 +4,14 @@ cd 'C:\sql'; git add .; git commit -m "refac date calc db update  "; git push;
   
 cd C:\users\tim\source\repos\BrowseOmatic; 
 $m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_}); 
-git add .; git commit -m ("refactor unit tests " + $m) ; git push;
+git add .; git commit -m ("unit tests refac" + $m) ; git push;
 
-cd C:\Users\Tim\source\repos\Py\snippets; # git status;  
-git pull; git add .; git commit -m "val app init commit"; git push;
+cd C:\Users\tim\source\repos\Py\snippets; # git status;  
+git pull; git add .; git commit -m "val app refactor commit"; git push;
 
 cd C:\users\tim\source\repos\SledgeOMatic;
-git add .; git commit -m " update unit test "; git push; 
+$m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_}); 
+git add .; git commit -m ("utest refactor "  + $m); git push; 
 
 cd C:\users\tim\source\repos\somuing
 git add .; git commit -m "refactor post compile replacer "; git push;  
