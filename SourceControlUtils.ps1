@@ -44,7 +44,7 @@ function SVNAdder
         svn commit $file -m 'CS-8459 unit tests/setter updates '; 
     }  
     
-    Start chrome https://dayman.cyber-balance.com/TeamCity/project/_Root?mode=builds    
+    start chrome https://dayman.cyber-balance.com/TeamCity/project/_Root?mode=builds    
 
     $src = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope.Tests\';  
     $ex = @( "app.config", ".exe", "*.csproj" ); 
@@ -52,7 +52,7 @@ function SVNAdder
     Copy-Item -Path $src* -Exclude $ex -Include $in -Destination D:\repos\xUnit-Browser-Tests -Recurse -Force  
     cd D:\repos\xUnit-Browser-Tests; git add .; git commit -m "update repo xunit tests "; git push;
 
-}  
+} 
             
 function SVNUpdate 
 { 
