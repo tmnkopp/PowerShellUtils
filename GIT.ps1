@@ -11,7 +11,7 @@ git pull; git add .; git commit -m "val app refactor commit"; git push;
 
 cd C:\users\tim\source\repos\SledgeOMatic;
 $m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_}); 
-git add .; git commit -m ("procedures refactor "  + $m); git push; 
+git add .; git commit -m ("compilers refactor "  + $m); git push; 
 
 cd C:\users\tim\source\repos\somuing
 git add .; git commit -m "refactor post compile replacer "; git push;  

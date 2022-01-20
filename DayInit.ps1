@@ -1,0 +1,1 @@
+cls; bom run -t timesheet -k 

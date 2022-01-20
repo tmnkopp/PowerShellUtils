@@ -1,12 +1,4 @@
-﻿function SCUnitTest(){
-
-    [CmdletBinding()]
-     param (  
-      [Parameter(Mandatory = $false, Position = 0)] 
-      [string] $pass = 'default' 
-     )
-     Write-Host $pass 
-}  
+﻿ 
 function SVNAdder
 { 
     [CmdletBinding()]
@@ -64,8 +56,7 @@ function SVNUpdate
     ) 
     $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
     cd ($config.CSDIR+':\dev\CyberBalance\trunk\projects'); svn update; 
-    cd ($config.CSDIR+':\dev\CyberScope\CyberScopeBranch\CSwebdev\database'); svn update ; 
-    $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
+    cd ($config.CSDIR+':\dev\CyberScope\CyberScopeBranch\CSwebdev\database'); svn update ;    
     cd ($config.CSDIR+':\dev\CyberScope\CyberScopeBranch\CSwebdev\code'); svn update; 
     if( $BuildCode ){
         $msbuild = 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe'
@@ -95,8 +86,7 @@ function Committer(){
             | WHERE-OBJECT{ $_.LastWriteTime -gt $fromdate } 
         Set-Content -Path 'C:\temp\svnupdates.txt' -Value $fs 
     }   
-    if( $with -match '.*commit.*'){
-
+    if( $with -match '.*commit.*'){ 
         cd $src 
         svn commit --targets 'C:\temp\svnupdates.txt' -m $commitm;
     } 
