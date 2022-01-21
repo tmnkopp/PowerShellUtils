@@ -15,7 +15,7 @@ cd C:\users\tim\source\repos\BrowseOmatic;
 $m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_}); 
 git add .; git commit -m ("unit tests refactor " + $m) ; git push;
 
-cd C:\Users\tim\source\repos\Py\snippets; # git status;  
+cd C:\Users\tim\source\repos\Py\snippets; 
 git pull; git add .; git commit -m ("unit tests refactor " + $m) ; git push;
 
 cd C:\users\tim\source\repos\SledgeOMatic;
