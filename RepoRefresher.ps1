@@ -1,6 +1,5 @@
 $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
-$m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_}); 
-
+$m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_});  
 cls;
 $src = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope.Tests\';  
 $ex = @( "app.config", ".exe", "*.csproj" ); 
