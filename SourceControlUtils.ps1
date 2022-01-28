@@ -16,30 +16,27 @@ function SVNAdder
         if($stat -match 'A|M'){ } # CS-8450    CS-8412 
         svn commit $file -m 'CS-8614 control update data grid  '; # CS-8494 EINS  CS-8614 CIO
     }  
- 
-    $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
-    cd ($config.BRANCH + '\CSwebdev\database\')
+  
+    cd (((Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json).BRANCH   + '\CSwebdev\database\')
     svn status | Out-GridView -PassThru | ForEach-Object {    
         $_ -match '(.+\s{2,7})(.*)';
         $stat = $Matches[1];  $file = $Matches[2] ; 
         if($stat -match '\?'){  svn add $file;  }      
-        svn commit $file -m 'CS-8614 update frm val logic '; 
-    } 
-    
-    $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
-    cd ($config.BRANCH + '\CSwebdev\code\')
+        svn commit $file -m 'CS-8686 updates for perms '; 
+    }   
+    cd (((Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json).BRANCH   + '\CSwebdev\code\')
     svn status | Out-GridView -PassThru | ForEach-Object {    
         $_ -match '(.+\s{2,7})(.*)';
         $stat = $Matches[1] ;  $file = $Matches[2] ; 
         if($stat -match '\?'){  svn add $file;  }     
         if($stat -match 'A|M'){  } # CS-8450    CS-8412  CS-8459 Selenium Browser Automator Refactor	 
-        svn commit $file -m 'CS-8459 unit tests/setter updates '; 
+        $m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_});  
+        svn commit $file -m ( 'CS-8686 updates for perms  ' ); 
     }  
-    
+  
     start chrome https://dayman.cyber-balance.com/TeamCity/project/_Root?mode=builds    
  
-} 
-            
+}             
 function SVNUpdate 
 { 
     [CmdletBinding()]
