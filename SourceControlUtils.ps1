@@ -1,5 +1,5 @@
 ﻿ 
-function SVNAdder
+function SVNCommitter
 { 
     [CmdletBinding()]
         param (  
@@ -15,8 +15,7 @@ function SVNAdder
         if($stat -match '\?'){  svn add $file;  }     
         if($stat -match 'A|M'){ } # CS-8450    CS-8412 
         svn commit $file -m 'CS-8614 control update data grid  '; # CS-8494 EINS  CS-8614 CIO
-    }  
-  
+    }   
     cd (((Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json).BRANCH   + '\CSwebdev\database\')
     svn status | Out-GridView -PassThru | ForEach-Object {    
         $_ -match '(.+\s{2,7})(.*)';
@@ -25,16 +24,13 @@ function SVNAdder
         svn commit $file -m 'CS-8686 updates for perms '; 
     }   
     cd (((Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json).BRANCH   + '\CSwebdev\code\')
-    svn status | Out-GridView -PassThru | ForEach-Object {    
+    svn status | where  {$_ -notmatch 'config$|user$' } | Out-GridView -PassThru | ForEach-Object | where  {$_ -notmatch 'config$|user$' }   {    
         $_ -match '(.+\s{2,7})(.*)';
-        $stat = $Matches[1] ;  $file = $Matches[2] ; 
-        if($stat -match '\?'){  svn add $file;  }     
-        if($stat -match 'A|M'){  } # CS-8450    CS-8412  CS-8459 Selenium Browser Automator Refactor	 
-        $m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_});  
+        $stat = $Matches[1] ;  $file = $Matches[2] ; svn add $file; # CS-8450    CS-8412  CS-8459 Selenium Browser Automator Refactor	
+        if($stat -match '\?'){  svn add $file;  }      
         svn commit $file -m ( 'CS-8686 updates for perms  ' ); 
-    }  
-  
-    start chrome https://dayman.cyber-balance.com/TeamCity/project/_Root?mode=builds    
+    }   
+    # start chrome https://dayman.cyber-balance.com/TeamCity/project/_Root?mode=builds    
  
 }             
 function SVNUpdate 

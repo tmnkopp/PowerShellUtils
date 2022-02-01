@@ -7,6 +7,7 @@ $in = @( "Selenium", "Models", "Data", "packages.config", "Selenium.DataCall.Tes
 Copy-Item -Path $src* -Exclude $ex -Include $in -Destination D:\repos\xUnit-Browser-Tests -Recurse -Force  
 cd D:\repos\xUnit-Browser-Tests; git add .; git commit -m ("unit tests refactor " + $m); git push;  
  
+
 cd 'c:\posh'; git pull; git add .; git commit -m ("unit tests refactor " + $m) ; git push; 
 cd 'C:\sql'; git add .; git commit -m ("unit tests refactor " + $m) ; git push;
   
