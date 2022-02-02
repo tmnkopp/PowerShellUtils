@@ -24,7 +24,7 @@ function SVNCommitter
         svn commit $file -m 'CS-8686 updates for perms '; 
     }   
     cd (((Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json).BRANCH   + '\CSwebdev\code\')
-    svn status | where  {$_ -notmatch 'config$|user$' } | Out-GridView -PassThru | ForEach-Object | where  {$_ -notmatch 'config$|user$' }   {    
+    svn status |  Out-GridView -PassThru | ForEach-Object   {    
         $_ -match '(.+\s{2,7})(.*)';
         $stat = $Matches[1] ;  $file = $Matches[2] ; svn add $file; # CS-8450    CS-8412  CS-8459 Selenium Browser Automator Refactor	
         if($stat -match '\?'){  svn add $file;  }      
