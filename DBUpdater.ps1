@@ -17,7 +17,10 @@ function DBUpdater
         [bool] $UpdateSVN = $false   ,
         [Alias("f")]
         [Parameter(Mandatory = $false, Position = 4)] 
-        [string] $FileFilter = '*.sql'                 
+        [string] $FileFilter = '*.sql'  ,
+        [Alias("m")]
+        [Parameter(Mandatory = $false, Position = 5)] 
+        [string] $OutGridMatch = '~'                 
 	)
 	begin
 	{
@@ -53,16 +56,17 @@ function DBUpdater
 	process
 	{
         $command = New-Object System.Data.SqlClient.SqlCommand
-        $command.Connection = $connection       
+        $command.Connection = $connection 
+    
 		try {    
             $files = (Get-ChildItem $SourcePath -Recurse -Filter $FileFilter) 
             $files = $files.where({$_.FullName -notmatch 'Archive\\|Utils\\|Progress\\'})
-            $files = $files.where({$_.LastWriteTime -gt (Get-Date).AddDays(-$UpdateFromDays)})
-            ($files.where({$_.FullName -match '.*DBUpdate.*|.*DB_Update.*'}) | sort $_.LastWriteTime | Out-GridView -PassThru).foreach({
+            $files = $files.where({$_.LastWriteTime -gt (Get-Date).AddDays(-$UpdateFromDays)}) 
+            ($files.where({$_.FullName -match  $OutGridMatch}) | sort $_.LastWriteTime | Out-GridView -PassThru).foreach({
                 Write-Host $_.FullName 
                 RunScript (Get-Content $_.FullName -Raw)     
             })
-            ($files.where({$_.FullName -notmatch '.*DBUpdate.*|.*DB_Update.*'}) | sort $_.LastWriteTime | Out-GridView -PassThru).foreach({
+            ($files.where({$_.FullName -notmatch  $OutGridMatch}) | sort $_.LastWriteTime).foreach({
                 Write-Host $_.FullName 
                 RunScript (Get-Content $_.FullName -Raw)  
             })  

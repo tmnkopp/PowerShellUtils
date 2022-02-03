@@ -1,43 +1,54 @@
-﻿function SCUnitTest(){
-
-    [CmdletBinding()]
-     param (  
-      [Parameter(Mandatory = $false, Position = 0)] 
-      [string] $pass = 'default' 
-     )
-     Write-Host $pass 
-}  
-function SVNAdder
+﻿ 
+function SVNCommitter
 { 
     [CmdletBinding()]
         param (  
         [Parameter(Mandatory = $false, Position = 1)] 
         [string] $With = '  ' 
-    ) 
-    $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
-    cd ($config.BRANCH + '\CSwebdev\code\CyberScope.Tests')
+    )
+
+    $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json  
+    cd ($config.BALANCE)
     svn status | Out-GridView -PassThru | ForEach-Object {    
         $_ -match '(.+\s{2,7})(.*)';
-        $stat = $Matches[1] 
-        $file = $Matches[2] 
+        $stat = $Matches[1] ;  $file = $Matches[2] ; 
         if($stat -match '\?'){  svn add $file;  }     
-        if($stat -match 'A|M'){ svn commit $file -m 'CS-8459 refactor automator unit tests';  } # CS-8450    CS-8412 
-    }        
-}
+        if($stat -match 'A|M'){ } # CS-8450    CS-8412 
+        svn commit $file -m 'CS-8614 control update data grid  '; # CS-8494 EINS  CS-8614 CIO
+    }   
+    cd (((Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json).BRANCH   + '\CSwebdev\database\')
+    svn status | Out-GridView -PassThru | ForEach-Object {    
+        $_ -match '(.+\s{2,7})(.*)';
+        $stat = $Matches[1];  $file = $Matches[2] ; 
+        if($stat -match '\?'){  svn add $file;  }      
+        svn commit $file -m 'CS-8686 updates for perms '; 
+    }   
+    cd (((Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json).BRANCH   + '\CSwebdev\code\')
+    svn status |  Out-GridView -PassThru | ForEach-Object   {    
+        $_ -match '(.+\s{2,7})(.*)';
+        $stat = $Matches[1] ;  $file = $Matches[2] ; svn add $file; # CS-8450    CS-8412  CS-8459 Selenium Browser Automator Refactor	
+        if($stat -match '\?'){  svn add $file;  }      
+        svn commit $file -m ( 'CS-8686 updates for perms  ' ); 
+    }   
+    # start chrome https://dayman.cyber-balance.com/TeamCity/project/_Root?mode=builds    
+ 
+}             
 function SVNUpdate 
 { 
     [CmdletBinding()]
         param (  
-        [Parameter(Mandatory = $false, Position = 1)] 
-        [string] $With = '  ' 
+            [Alias("b")]
+            [Parameter(Mandatory = $false, Position = 0)] 
+            [bool] $BuildCode = $false 
     ) 
     $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
     cd ($config.CSDIR+':\dev\CyberBalance\trunk\projects'); svn update; 
-    cd ($config.CSDIR+':\dev\CyberScope\CyberScopeBranch\CSwebdev\database'); svn update ; 
-    $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
+    cd ($config.CSDIR+':\dev\CyberScope\CyberScopeBranch\CSwebdev\database'); svn update ;    
     cd ($config.CSDIR+':\dev\CyberScope\CyberScopeBranch\CSwebdev\code'); svn update; 
-    $msbuild = 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe'
-    & $msbuild -v:q -p:WarningLevel=0 ; cls;    
+    if( $BuildCode ){
+        $msbuild = 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe'
+        & $msbuild -v:q  -clp:ErrorsOnly  -p:WarningLevel=0 ; cls;   
+    } 
 }
  
 function Committer(){ 
@@ -62,8 +73,7 @@ function Committer(){
             | WHERE-OBJECT{ $_.LastWriteTime -gt $fromdate } 
         Set-Content -Path 'C:\temp\svnupdates.txt' -Value $fs 
     }   
-    if( $with -match '.*commit.*'){
-
+    if( $with -match '.*commit.*'){ 
         cd $src 
         svn commit --targets 'C:\temp\svnupdates.txt' -m $commitm;
     } 
