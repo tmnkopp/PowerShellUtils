@@ -2,14 +2,15 @@
 cd 'c:\posh'; git pull; git add .; git commit -m "refac svn update"; git push; 
 cd 'C:\sql'; git add .; git commit -m "refac date calc db update  "; git push;
   
-cd C:\users\tim\source\repos\BrowseOmatic; 
+cd C:\users\tim\source\repos\BrowseOmatic; git pull; 
 $m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_}); 
 git add .; git commit -m ("unit tests refac" + $m) ; git push;
 
 cd C:\Users\tim\source\repos\Py\snippets; # git status;  
-git pull; git add .; git commit -m "val app refactor commit"; git push;
+$m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_}); 
+git pull; git add .; git commit -m ("refactor gen files "  + $m); git push;
 
-cd C:\users\tim\source\repos\SledgeOMatic;
+cd C:\users\tim\source\repos\SledgeOMatic;  git pull; 
 $m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_}); 
 git add .; git commit -m ("compilers refactor "  + $m); git push; 
 
