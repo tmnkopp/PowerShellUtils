@@ -14,21 +14,21 @@ function SVNCommitter
         $stat = $Matches[1] ;  $file = $Matches[2] ; 
         if($stat -match '\?'){  svn add $file;  }     
         if($stat -match 'A|M'){ } # CS-8450    CS-8412 
-        svn commit $file -m 'CS-8614 control update data grid  '; # CS-8494 EINS  CS-8614 CIO
+        svn commit $file -m 'CS-8740 update remove default literal tc not building  '; # CS-8494 EINS  CS-8614 CIO
     }   
     cd (((Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json).BRANCH   + '\CSwebdev\database\')
     svn status | Out-GridView -PassThru | ForEach-Object {    
         $_ -match '(.+\s{2,7})(.*)';
         $stat = $Matches[1];  $file = $Matches[2] ; 
         if($stat -match '\?'){  svn add $file;  }      
-        svn commit $file -m 'CS-8686 updates for perms '; 
+        svn commit $file -m ' CS-8740 update orgmerge - update to ensure all orgsubs are coordianted  '; 
     }   
     cd (((Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json).BRANCH   + '\CSwebdev\code\')
     svn status |  Out-GridView -PassThru | ForEach-Object   {    
         $_ -match '(.+\s{2,7})(.*)';
         $stat = $Matches[1] ;  $file = $Matches[2] ; svn add $file; # CS-8450    CS-8412  CS-8459 Selenium Browser Automator Refactor	
         if($stat -match '\?'){  svn add $file;  }      
-        svn commit $file -m ( 'CS-8686 updates for perms  ' ); 
+        svn commit $file -m ( 'CS-8741 swap files for bod rem sections ' ); 
     }   
     # start chrome https://dayman.cyber-balance.com/TeamCity/project/_Root?mode=builds    
  
