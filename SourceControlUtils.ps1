@@ -21,7 +21,7 @@ function SVNCommitter
         $_ -match '(.+\s{2,7})(.*)';
         $stat = $Matches[1];  $file = $Matches[2] ; 
         if($stat -match '\?'){  svn add $file;  }      
-        svn commit $file -m ' CS-8740 update orgmerge - update to ensure all orgsubs are coordianted  '; 
+        svn commit $file -m 'CS-8751 Update POAM views to include DeadlineDates calculations '; 
     }   
     cd (((Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json).BRANCH   + '\CSwebdev\code\')
     svn status |  Out-GridView -PassThru | ForEach-Object   {    
