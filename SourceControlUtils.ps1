@@ -26,7 +26,7 @@ function SVNCommitter
     cd (((Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json).BRANCH   + '\CSwebdev\code\')
     svn status |  Out-GridView -PassThru | ForEach-Object   {    
         $_ -match '(.+\s{2,7})(.*)';
-        $stat = $Matches[1] ;  $file = $Matches[2] ; svn add $file; # CS-8450    CS-8412  CS-8459 Selenium Browser Automator Refactor	
+        $stat = $Matches[1] ;  $file = $Matches[2] ; svn add $file; # CS-8751 Update POAM views to include DeadlineDates calculations  CS-8459 Selenium Browser Automator Refactor	
         if($stat -match '\?'){  svn add $file;  }      
         svn commit $file -m ( 'CS-8753 on-page validation for manually entering/uploading different numbers post CDM import ' ); 
     }   
