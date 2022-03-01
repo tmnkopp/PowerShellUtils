@@ -32,7 +32,7 @@ def get_size_format(b, factor=1024, suffix="B"):
 
 if __name__ == "__main__":
     import sys
-    folder_path = 'C:\\ProgramData' 
+    folder_path = 'C:\Windows' 
     directory_sizes = []
     names = [] 
     for directory in os.listdir(folder_path):
