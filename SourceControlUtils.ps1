@@ -16,14 +16,15 @@ function SVNCommitter
         if($stat -match 'A|M'){ } # CS-8450    CS-8412 
         svn commit $file -m 'CS-8740 update remove default literal tc not building  '; # CS-8494 EINS  CS-8614 CIO
     }   
-    cd (((Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json).BRANCH   + '\CSwebdev\database\')
+    cd (((Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json).BRANCH   + '\CSwebdev\') # database\
     svn status | Out-GridView -PassThru | ForEach-Object {    
         $_ -match '(.+\s{2,7})(.*)';
         $stat = $Matches[1];  $file = $Matches[2] ; 
         if($stat -match '\?'){  svn add $file;  }      
         svn commit $file -m 'CS-8753 justification field requirement update '; 
     }   
-    cd (((Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json).BRANCH   + '\CSwebdev\code\')
+    
+    cd (((Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json).BRANCH   + '\CSwebdev\code\') #  
     svn status |  Out-GridView -PassThru | ForEach-Object   {    
         $_ -match '(.+\s{2,7})(.*)';
         $stat = $Matches[1] ;  $file = $Matches[2] ; svn add $file; # CS-8751 Update POAM views to include DeadlineDates calculations  CS-8459 Selenium Browser Automator Refactor	
