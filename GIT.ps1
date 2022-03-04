@@ -13,7 +13,7 @@ git pull; git add .; git commit -m ("refactor gen files "  + $m); git push;
 cd C:\users\tim\source\repos\SledgeOMatic;  git pull; 
 $m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_}); 
 git add .; git commit -m ("compilers refactor "  + $m); git push; 
-
+WebApi.Client
 cd C:\users\tim\source\repos\somuing
 git add .; git commit -m "refactor post compile replacer "; git push;  
 cd C:\users\tim\source\repos\SOM-API; 
