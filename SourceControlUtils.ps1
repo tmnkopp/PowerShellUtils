@@ -16,13 +16,13 @@ function SVNCommitter
         if($stat -match 'A|M'){ } # CS-8450    CS-8412 
         svn commit $file -m 'CS-8740 update remove default literal tc not building  '; # CS-8494 EINS  CS-8614 CIO
     }   
-    
+
     cd (((Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json).BRANCH   + '\CSwebdev\') # database\
     svn status | Out-GridView -PassThru | ForEach-Object {    
         $_ -match '(.+\s{2,7})(.*)';
-        $stat = $Matches[1];  $file = $Matches[2] ; 
+        $stat = $Matches[1];  $file = $Matches[2] ;   #  CSHELP-3160 Adding New BOD 18-02 Remediation Plan CQ Parameter 
         if($stat -match '\?'){  svn add $file;  }      #  CS-8753 justification field requirement update
-        svn commit $file -m 'CSHELP-3160 Adding New BOD 18-02 Remediation Plan CQ Parameter '; 
+        svn commit $file -m 'CS-8757 Narr Updated'; 
     }   
     
     cd (((Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json).BRANCH   + '\CSwebdev\code\') #  
