@@ -20,9 +20,9 @@ function SVNCommitter
     cd (((Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json).BRANCH   + '\CSwebdev\') # database\
     svn status | Out-GridView -PassThru | ForEach-Object {    
         $_ -match '(.+\s{2,7})(.*)';
-        $stat = $Matches[1];  $file = $Matches[2] ;   #  CSHELP-3160 Adding New BOD 18-02 Remediation Plan CQ Parameter 
+        $stat = $Matches[1];  $file = $Matches[2] ;   # CS-8757  Update Section 2  CSHELP-3160 Adding New BOD 18-02 Remediation Plan CQ Parameter 
         if($stat -match '\?'){  svn add $file;  }      #  CS-8753 justification field requirement update
-        svn commit $file -m 'CS-8757  Update Section 2'; 
+        svn commit $file -m ' CS-8764 Generate Q2 '; 
     }   
     
     cd (((Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json).BRANCH   + '\CSwebdev\code\') #  
