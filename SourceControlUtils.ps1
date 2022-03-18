@@ -13,24 +13,24 @@ function SVNCommitter
         $_ -match '(.+\s{2,7})(.*)';
         $stat = $Matches[1] ;  $file = $Matches[2] ; 
         if($stat -match '\?'){  svn add $file;  }     
-        if($stat -match 'A|M'){ } # CS-8450    CS-8412 
-        svn commit $file -m 'CS-8740 update remove default literal tc not building  '; # CS-8494 EINS  CS-8614 CIO
+        if($stat -match 'A|M'){ } # CS-8450    CS-8412 update remove default literal tc not building 
+        svn commit $file -m 'CS-8812 2201 cisa api provider  '; # CS-8494 EINS  CS-8614 CIO
     }   
 
     cd (((Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json).BRANCH   + '\CSwebdev\') # database\
     svn status | Out-GridView -PassThru | ForEach-Object {    
         $_ -match '(.+\s{2,7})(.*)';
         $stat = $Matches[1];  $file = $Matches[2] ;   # CS-8757  Update Section 2  CSHELP-3160 Adding New BOD 18-02 Remediation Plan CQ Parameter 
-        if($stat -match '\?'){  svn add $file;  }      #  CS-8753 justification field requirement update
-        svn commit $file -m ' CS-8764 Generate Q2 '; 
+        if($stat -match '\?'){  svn add $file;  }      # CS-8764 FY22 FISMA CIO Q2 Data Call CS-8753 justification field requirement update
+        svn commit $file -m ' CS-8764  validate apprive remove EO '; 
     }   
     
     cd (((Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json).BRANCH   + '\CSwebdev\code\') #  
     svn status |  Out-GridView -PassThru | ForEach-Object   {    
         $_ -match '(.+\s{2,7})(.*)';
         $stat = $Matches[1] ;  $file = $Matches[2] ; svn add $file; # CS-8751 Update POAM views to include DeadlineDates calculations  CS-8459 Selenium Browser Automator Refactor	
-        if($stat -match '\?'){  svn add $file;  }      
-        svn commit $file -m ( 'CS-8753 on-page validation for manually entering/uploading different numbers post CDM import ' ); 
+        if($stat -match '\?'){  svn add $file;  }      # CS-8753 on-page validation for manually entering/uploading different numbers post CDM import
+        svn commit $file -m ( 'CS-8764  validate apprive remove EO  ' ); 
     }   
     # start chrome https://dayman.cyber-balance.com/TeamCity/project/_Root?mode=builds    
  
