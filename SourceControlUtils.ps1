@@ -30,10 +30,12 @@ function SVNCommitter
         $_ -match '(.+\s{2,7})(.*)';
         $stat = $Matches[1] ;  $file = $Matches[2] ; svn add $file; # CS-8751 Update POAM views to include DeadlineDates calculations  CS-8459 Selenium Browser Automator Refactor	
         if($stat -match '\?'){  svn add $file;  }      # CS-8753 on-page validation for manually entering/uploading different numbers post CDM import
-        svn commit $file -m ( 'CS-8764  validate apprive remove EO  ' ); 
+        svn commit $file -m ( ' CS-8764  validate apprive remove EO  ' ); 
     }   
     # start chrome https://dayman.cyber-balance.com/TeamCity/project/_Root?mode=builds    
- 
+    # CS-8764  validate apprive remove EO 
+    # CS-8764 FY22 FISMA CIO Q2 Data Call CS-8753 justification field requirement update
+    #CS-8812 Move upload control from agency to admin 
 }             
 function SVNUpdate 
 { 
