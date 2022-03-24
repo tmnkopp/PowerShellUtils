@@ -5,7 +5,7 @@ $src = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope.Tests\';
 $ex = @( "app.config", ".exe", "*.csproj" ); 
 $in = @( "Selenium", "Models", "Data", "packages.config", "Selenium.DataCall.Tests" ); 
 Copy-Item -Path $src* -Exclude $ex -Include $in -Destination D:\repos\xUnit-Browser-Tests -Recurse -Force  
-cd D:\repos\xUnit-Browser-Tests; git add .; git commit -m ("unit tests refactor " + $m); git push;  
+cd D:\repos\xUnit-Browser-Tests; git add .; git commit -m ("refactor automator base " + $m); git push;  
  
 $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
 $m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_});  
