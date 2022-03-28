@@ -1,39 +1,5 @@
 ﻿ 
-function SVNCommitter
-{ 
-    [CmdletBinding()]
-        param (  
-        [Parameter(Mandatory = $false, Position = 1)] 
-        [string] $With = '  ' 
-    )
-
-    $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json  
-    cd ($config.BALANCE)
-    svn status | Out-GridView -PassThru | ForEach-Object {    
-        $_ -match '(.+\s{2,7})(.*)';
-        $stat = $Matches[1] ;  $file = $Matches[2] ; 
-        if($stat -match '\?'){  svn add $file;  }     
-        if($stat -match 'A|M'){ } # CS-8450    CS-8412 update remove default literal tc not building 
-        svn commit $file -m 'CS-8812 2201 cisa api provider  '; # CS-8494 EINS  CS-8614 CIO
-    }   
-
-    cd (((Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json).BRANCH   + '\CSwebdev\') # database\
-    svn status | Out-GridView -PassThru | ForEach-Object {    
-        $_ -match '(.+\s{2,7})(.*)';
-        $stat = $Matches[1];  $file = $Matches[2] ;   #  CS-8764  validate apprive remove EO CS-8757  Update Section 2  CSHELP-3160 Adding New BOD 18-02 Remediation Plan CQ Parameter 
-        if($stat -match '\?'){  svn add $file;  }      # CS-8764 FY22 FISMA CIO Q2 Data Call CS-8753 justification field requirement update
-        svn commit $file -m ' CS-8816 Modify BOD 22-01 KEV - Section 2 Grid and Validations'; 
-    }   
-    
-   
-    # start chrome https://dayman.cyber-balance.com/TeamCity/project/_Root?mode=builds    
-    # CS-8764  validate apprive remove EO 
-    # CS-8764 FY22 FISMA CIO Q2 Data Call CS-8753 justification field requirement update
-    # CS-8812 Move upload control from agency to admin  
-    # CS-8816 Modify BOD 22-01 KEV - Section 2 Grid and Validations
-    # CS-8459	 Selenium Browser Automator Refactor  
-
-}             
+  
 function SVNUpdate 
 { 
     [CmdletBinding()]
