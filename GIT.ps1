@@ -1,6 +1,6 @@
 ﻿ 
-cd 'c:\posh'; git pull; git add .; git commit -m "refac dirs update"; git push; 
-cd 'C:\sql'; git add .; git commit -m "refac db update  "; git push;
+cd 'c:\posh'; git pull; git add .; git commit -m "refac db repo update "; git push; 
+cd 'C:\sql'; git add .; git commit -m "refac db repo update  "; git push;
   
 cd C:\users\tim\source\repos\BrowseOmatic; git pull; 
 $m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_}); 

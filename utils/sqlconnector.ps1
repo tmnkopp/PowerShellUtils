@@ -24,3 +24,13 @@ ForEach-Object {
 }   
 Compress-Archive -Path D:\Backup\CyberScopeLite.bak -Update -DestinationPath D:\Backup\CyberScopeLite.zip
  
+
+function GetConnStr(){
+    $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
+    [xml]$xml =  (Get-Content ($config.BRANCH + 'CSwebdev\code\CyberScope\Web.config')) 
+    $ns = @{ x=$xml.DocumentElement.NamespaceURI }     
+    $result = Select-Xml -Xml $xml  -XPath "//x:add[@name='CAClientConnectionString']" -Namespace $ns
+    $ConnectionString = $result.Node.connectionString
+    return $ConnectionString 
+}
+

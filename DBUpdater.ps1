@@ -32,8 +32,7 @@ function DBUpdater
             ($sql -split 'G[Oo]\s*\r|G[Oo]\s*\n').foreach({ 
                 if($_ -ne ''){ 
                     $cmd = $_ -replace '\nG[Oo]|\rG[Oo]', ''   
-                    try {
-                        # Write-Host $cmd
+                    try { 
                         $command.CommandText = $cmd
                         $command.CommandTimeout = 0
                         $null = $command.ExecuteNonQuery() 
@@ -56,8 +55,7 @@ function DBUpdater
 	process
 	{
         $command = New-Object System.Data.SqlClient.SqlCommand
-        $command.Connection = $connection 
-    
+        $command.Connection = $connection  
 		try {    
             $files = (Get-ChildItem $SourcePath -Recurse -Filter $FileFilter) 
             $files = $files.where({$_.FullName -notmatch 'Archive\\|Utils\\|Progress\\'})
@@ -78,14 +76,6 @@ function DBUpdater
         } 
 	}
 }  
-function GetConnStr(){
-    $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
-    [xml]$xml =  (Get-Content ($config.BRANCH + 'CSwebdev\code\CyberScope\Web.config')) 
-    $ns = @{ x=$xml.DocumentElement.NamespaceURI }     
-    $result = Select-Xml -Xml $xml  -XPath "//x:add[@name='CAClientConnectionString']" -Namespace $ns
-    $ConnectionString = $result.Node.connectionString
-    return $ConnectionString 
-}
 
 
 
