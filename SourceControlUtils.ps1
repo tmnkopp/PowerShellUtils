@@ -9,12 +9,21 @@ function SVNUpdate
             [bool] $BuildCode = $false 
     ) 
     $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
-    cd ($config.CSDIR+':\dev\CyberBalance\trunk\projects'); svn update; 
-    cd ($config.CSDIR+':\dev\CyberScope\CyberScopeBranch\CSwebdev\database'); svn update ;    
-    cd ($config.CSDIR+':\dev\CyberScope\CyberScopeBranch\CSwebdev\code'); svn update; 
+    cd ($config.BALANCE+''); svn update; 
+    cd ($config.BRANCH+'\CSwebdev\database'); svn update ;    
+    cd ($config.BRANCH+'\CSwebdev\code'); svn update; 
     if( $BuildCode ){
-        $msbuild = 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe'
-        & $msbuild -v:q  -clp:ErrorsOnly  -p:WarningLevel=0 ; cls;   
+        try
+        { 
+            Write-Host "Building... " 
+            Write-Host  $config.MSBUILD
+            $msbuild = $config.MSBUILD
+            & $msbuild -v:q  -clp:ErrorsOnly  -p:WarningLevel=0 ;    
+        }
+        catch
+        { 
+            Write-Host "msbuild fail " + $config.MSBUILD
+        } 
     } 
 }
  
@@ -32,7 +41,7 @@ function Committer(){
     $inc = @("*.aspx","*.vb","*.ascx","*.master", "*.css", "*.js", "*.sql", "*.vbproj") 
     $exc = @("Archive") 
     Set-Content -Path 'C:\temp\svnupdates.txt' -Value ''
-    ####### DB ###### 
+    # DB
     $src = ($config.CSDIR+':\dev\CyberScope\CyberScopeBranch\CSwebdev\database\') 
     if( $with -match '.*db.*'){ 
         cd $src  
@@ -44,7 +53,7 @@ function Committer(){
         cd $src 
         svn commit --targets 'C:\temp\svnupdates.txt' -m $commitm;
     } 
-    ####### CODE ###### 
+    # CODE
     $src = $config.CSDIR+':\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope' 
     if( $with -match '.*code.*'){ 
         $nams = Get-ChildItem -Include $inc -Recurse -path $src `
@@ -55,7 +64,7 @@ function Committer(){
         cd $src 
         svn commit --targets 'C:\temp\svnupdates.txt' -m $commitm; svn status;
     } 
-    ####### STAGE ######
+    # STAGE
     if( $with -match '.*stage.*'){
         notepad.exe 'C:\temp\svnupdates.txt'; cls; svn status ;
     }   
