@@ -20,7 +20,7 @@ function SVNCommitter
         $_ -match '(.+\s{2,7})(.*)';
         $stat = $Matches[1];  $file = $Matches[2] ;   #  CS-8764  validate apprive remove EO CS-8757  Update Section 2  CSHELP-3160 Adding New BOD 18-02 Remediation Plan CQ Parameter 
         if($stat -match '\?'){  svn add $file;  }      # CS-8764 FY22 FISMA CIO Q2 Data Call CS-8753 justification field requirement update
-        svn commit $file -m ' CS-8764 FY22 FISMA Frm val updated for multi vals'; 
+        svn commit $file -m ' CS-8459 Selenium Browser Automator Refactor '; 
     }    
     # start chrome https://dayman.cyber-balance.com/TeamCity/project/_Root?mode=builds    
     # CS-8764  validate apprive remove EO 

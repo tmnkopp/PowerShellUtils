@@ -1,20 +1,17 @@
 $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
 $m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_});  
 cls;
-$src = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope.Tests\';  
-$ex = @( "app.config", ".exe", "*.csproj" ); 
-$in = @( "Selenium", "Models", "Data", "packages.config", "Selenium.DataCall.Tests" ); 
-Copy-Item -Path $src* -Exclude $ex -Include $in -Destination D:\repos\xUnit-Browser-Tests -Recurse -Force  
-cd D:\repos\xUnit-Browser-Tests; git add .; git commit -m ("refactor automator base " + $m); git push;  
+$src = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope.Automator\';  
+$ex = @( "app.config", ".exe", "*.csproj" );  
+Copy-Item -Path $src* -Exclude $ex -Destination D:\repos\xUnit-Browser-Tests -Recurse -Force  
+cd D:\repos\xUnit-Browser-Tests; git add .; git commit -m ("refactor base automator  " + $m); git push;  
  
 $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
 $m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_});  
 $src = 'D:\dev\CyberBalance\trunk\projects\CyberBalance.CS.Core\Data\';  
 Copy-Item -Path $src* -Destination D:\repos\xUnit-Browser-Tests\Data -Recurse -Force  
 cd D:\repos\xUnit-Browser-Tests; git add .; git commit -m ("refactor repo" + $m); git push;  
-
  
-
 cd 'c:\posh'; git pull; git add .; git commit -m ("unit tests refactor " + $m) ; git push; 
 cd 'C:\sql'; git add .; git commit -m ("unit tests refactor " + $m) ; git push;
   
