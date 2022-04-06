@@ -16,10 +16,14 @@ function SVNUpdate
     
     if( $BuildCode ){
         try
-        { 
-            Write-Host "Building... " 
-            Write-Host  $config.MSBUILD
-            $msbuild = $config.MSBUILD
+        {  
+            $paths=[Environment]::GetEnvironmentVariable('PATH', 'Machine') -split ';' 
+            $msbuild = '';
+            foreach($p in $paths){
+                if($p -match 'MSBUILD'){
+                    $msbuild = ($p+'\MSBuild.exe');
+                } 
+            }
             & $msbuild -v:q  -clp:ErrorsOnly  -p:WarningLevel=0 ;    
         }
         catch
