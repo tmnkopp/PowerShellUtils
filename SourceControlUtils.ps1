@@ -7,13 +7,11 @@ function SVNUpdate
             [Alias("b")]
             [Parameter(Mandatory = $false, Position = 0)] 
             [bool] $BuildCode = $false 
-    ) 
-   
+    )  
     $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
     cd ($config.BALANCE+''); svn update; 
     cd ($config.BRANCH+'\CSwebdev\database'); svn update ;    
-    cd ($config.BRANCH+'\CSwebdev\code'); svn update; 
-    
+    cd ($config.BRANCH+'\CSwebdev\code'); svn update;  
     if( $BuildCode ){
         try
         {  

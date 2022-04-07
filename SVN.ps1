@@ -20,15 +20,17 @@ function SVNCommitter
         $_ -match '(.+\s{2,7})(.*)';
         $stat = $Matches[1];  $file = $Matches[2] ;   #  CS-8764  validate apprive remove EO CS-8757  Update Section 2  CSHELP-3160 Adding New BOD 18-02 Remediation Plan CQ Parameter 
         if($stat -match '\?'){  svn add $file;  }      # CS-8764 FY22 FISMA CIO Q2 Data Call CS-8753 justification field requirement update
-        svn commit $file -m ' CS-8459 Selenium Browser Automator Refactor '; 
+        svn commit $file -m ' CS-8826 CDM date import - remove date logic '; #  date import - remove date logic 
     }    
     # start chrome https://dayman.cyber-balance.com/TeamCity/project/_Root?mode=builds    
     # CS-8764  validate apprive remove EO 
     # CS-8764 FY22 FISMA CIO Q2 Data Call CS-8753 justification field requirement update
     # CS-8812 Move upload control from agency to admin  
     # CS-8816 Modify BOD 22-01 KEV - Section 2 Grid and Validations
-    # CS-8459	 Selenium Browser Automator Refactor  
+    # CS-8459 Selenium Browser Automator Refactor
     # CS-8816 Modify Allow Read Only Insert for batch  
+    # 
+    # CS-8826 CDM date import - remove date logic
 }   
 
 function Committer(){ 
