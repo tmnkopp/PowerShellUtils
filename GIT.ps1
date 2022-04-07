@@ -1,17 +1,11 @@
 ﻿$m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_}); 
 cd 'c:\posh'; git pull; git add .; git commit -m ("Refactor DB/SVN Updater "  + $m); git push; 
-cd 'C:\sql'; git add .; git commit -m ("Refactor DB Bak Restore "  + $m); git push;
-  
-cd C:\users\tim\source\repos\BrowseOmatic; git pull; 
-$m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_}); 
-git add .; git commit -m ("unit tests refac" + $m) ; git push;
-
-cd C:\Users\tim\source\repos\Py\snippets; # git status;  
-$m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_}); 
-git pull; git add .; git commit -m ("refactor gen files "  + $m); git push;
-
-cd C:\users\tim\source\repos\SledgeOMatic;  git pull; 
-$m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_}); 
+cd 'C:\sql'; git add .; git commit -m ("Refactor DB Bak Restore "  + $m); git push; 
+cd C:\users\tim\source\repos\BrowseOmatic; git pull;  
+git add .; git commit -m ("unit tests refac" + $m) ; git push; 
+cd C:\Users\tim\source\repos\Py\snippets; # git status;   
+git pull; git add .; git commit -m ("refactor gen files "  + $m); git push; 
+cd C:\users\tim\source\repos\SledgeOMatic;  git pull;  
 git add .; git commit -m ("compilers refactor "  + $m); git push; 
  
 cd C:\users\tim\source\repos\somuing
