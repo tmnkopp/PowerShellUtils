@@ -1,25 +1,25 @@
 ﻿$m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_}); 
 cd 'c:\posh'; git pull; git add .; git commit -m ("Refactor DB/SVN Updater "  + $m); git push; 
 cd 'C:\sql'; git add .; git commit -m ("Refactor DB Bak Restore "  + $m); git push; 
-cd C:\users\tim\source\repos\BrowseOmatic; git pull;  
+cd D:\repos\BrowseOmatic; git pull;  
 git add .; git commit -m ("unit tests refac" + $m) ; git push; 
-cd C:\Users\tim\source\repos\Py\snippets; # git status;   
+cd C:\Users\Tim\source\repos\Py\snippets; # git status;   
 git pull; git add .; git commit -m ("refactor gen files "  + $m); git push; 
-cd C:\users\tim\source\repos\SledgeOMatic;  git pull;  
-git add .; git commit -m ("compilers refactor "  + $m); git push; 
- 
-cd C:\users\tim\source\repos\somuing
+
+cd D:\repos\SledgeOMatic;  git pull;  
+git add .; git commit -m ("compilers refactor "  + $m); git push;  
+cd D:\repos\somuing
 git add .; git commit -m "refactor post compile replacer "; git push;  
-cd C:\users\tim\source\repos\SOM-API; 
+cd D:\repos\SOM-API; 
 git add .; git commit -m "refactor post compile replacer"; git push; 
-cd C:\users\tim\source\repos\SOMData
+cd D:\repos\SOMData
 git add .; git commit -m "refactor update to 3.1";git push; 
  
-cd C:\users\tim\source\repos\JiraPortal;
+cd D:\repos\JiraPortal;
 git add .; git commit -m "revise view module"; git push;  
-cd C:\users\tim\source\repos\JiraCore;
+cd D:\repos\JiraCore;
 git add .; git commit -m "revise unittests "; git push;   
-cd C:\users\tim\source\repos\JiraFormatter
+cd D:\repos\JiraFormatter; 
 git add .; git commit -m "u test revise"; git push;  
   
 cd 'c:\posh';

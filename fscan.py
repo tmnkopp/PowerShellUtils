@@ -32,15 +32,15 @@ def get_size_format(b, factor=1024, suffix="B"):
 
 if __name__ == "__main__":
     import sys
-    folder_path = 'C:\Windows' 
+    folder_path =r'C:\Users\Tim\source\repos' 
     directory_sizes = []
     names = [] 
     for directory in os.listdir(folder_path):
         directory = os.path.join(folder_path, directory) 
         directory_size = get_directory_size(directory)
-        if directory_size == 0:
+        if directory_size  < (1000000*200):
             continue
-        directory_sizes.append(directory_size)
+        directory_sizes.append(directory_size) 
         names.append(os.path.basename(directory) + ": " + get_size_format(directory_size))
     for n in names:
         print(n)
