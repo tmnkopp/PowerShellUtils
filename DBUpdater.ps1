@@ -20,7 +20,10 @@ function DBUpdater
         [string] $FileFilter = '*.sql'  ,
         [Alias("m")]
         [Parameter(Mandatory = $false, Position = 5)] 
-        [string] $OutGridMatch = '~'                 
+        [string] $OutGridMatch = '~'  ,
+        [Alias("b")]
+        [Parameter(Mandatory = $false, Position = 6)] 
+        [bool] $Backup = $false                        
 	)
 	begin
 	{
@@ -54,6 +57,12 @@ function DBUpdater
 	}
 	process
 	{
+        if($Backup){
+            $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json 
+            Write-Host 'BACKING UP'
+            Invoke-Sqlcmd  -InputFile C:\sql\Backup.sql  -Database Cyberscope123  -Password $config.CSDBPASS  -Username CSAdmin 
+        }  
+        
         $command = New-Object System.Data.SqlClient.SqlCommand
         $command.Connection = $connection  
 		try {    

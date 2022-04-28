@@ -54,10 +54,14 @@ function Invoke-ExtractObjectFromScript {
 }   
 
 function Invoke-DBBak{
-    [CmdletBinding()] 
-    param(   
-        [string] $Path = ''
-    )
-    $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json 
-    Invoke-Sqlcmd  -InputFile C:\sql\Backup.sql -Database Cyberscope123  -Password $config.CSDBPASS  -Username CSAdmin 
+    [CmdletBinding()]
+        param (  
+            [Alias("b")]
+            [Parameter(Mandatory = $false, Position = 0)] 
+            [bool] $Backup = $false 
+    ) 
+    if($Backup){
+        $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json 
+        Invoke-Sqlcmd  -InputFile C:\sql\Backup.sql -Database Cyberscope123  -Password $config.CSDBPASS  -Username CSAdmin 
+    } 
 }

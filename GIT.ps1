@@ -4,10 +4,11 @@ cd 'C:\sql'; git add .; git commit -m ("Refactor DB Bak Restore "  + $m); git pu
 cd D:\repos\BrowseOmatic; git pull;  
 git add .; git commit -m ("unit tests refac" + $m) ; git push; 
 cd C:\Users\Tim\source\repos\Py\snippets; # git status;   
-git pull; git add .; git commit -m ("refactor codegen files "  + $m); git push; 
-
+git pull; git add .; git commit -m ("refactor codegen files "  + $m); git push;  
 cd D:\repos\SledgeOMatic;  git pull;  
 git add .; git commit -m ("compilers refactor "  + $m); git push;  
+
+
 cd D:\repos\somuing
 git add .; git commit -m "refactor post compile replacer "; git push;  
 cd D:\repos\SOM-API; 
