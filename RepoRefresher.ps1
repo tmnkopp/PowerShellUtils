@@ -28,4 +28,4 @@ $src = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope\Scripts\dash
 $dest = 'D:\dev\CyberScope\CsLab\CSwebdev\code\CyberScope\CyberScope\Scripts\dashboard\';
 $dt = (Get-date).AddDays(-25) 
 Get-ChildItem "${src}*.*" -File |? { ($_.LastWriteTime -gt $dt)  } |% { Copy-Item $_ $dest} 
-cd 'D:\dev\CyberScope\CsLab\CSwebdev\code\CyberScope'; git add .; git commit -m ("unit tests refactor " + $m); git push; 
+cd 'D:\dev\CyberScope\CsLab\CSwebdev\code\CyberScope'; git add .; git commit -m ("service refactor " + $m); git push; 

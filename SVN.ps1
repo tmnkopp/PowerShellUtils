@@ -26,7 +26,7 @@ function SVNCommitter
         # svn commit $file -m ' CS-8836 create 2022 IG show hide '; #  date import - remove date logic 
     }   
     Set-Content -Path 'C:\temp\svnupdates.txt' -Value $nams;  
-    svn commit --targets 'C:\temp\svnupdates.txt' -m ' CS-8865 show optional toggle on page open  '; notepad.exe 'C:\temp\svnupdates.txt';
+    svn commit --targets 'C:\temp\svnupdates.txt' -m ' CS-8816 Modify BOD 22-01 KEV - Section 2 Grid Update '; notepad.exe 'C:\temp\svnupdates.txt';
     # start chrome https://dayman.cyber-balance.com/TeamCity/project/_Root?mode=builds      
     # CS-8865 Create Toggle to Show/Hide Optional Metrics: FY22 FISMA Annual IG
     # CS-8883 Update IPv4 Validations - EINSTEIN Config 
@@ -35,4 +35,6 @@ function SVNCommitter
     # CS-8816 Modify Allow Read Only Insert for batch   
     # CS-8826 CDM date import - remove date logic
     # CS-8459 Browser Automator config attribute targets
+    # CS-8882
+    # CS-8459 Browser Automator 2201 Config
 }
