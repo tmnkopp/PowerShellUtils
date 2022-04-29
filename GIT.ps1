@@ -2,7 +2,7 @@
 cd 'c:\posh'; git pull; git add .; git commit -m ("Refactor DB Updater fixes #"  + $m); git push; 
 cd 'C:\sql'; git add .; git commit -m ("Refactor DB Bak Restore fixes #"  + $m); git push; 
 cd D:\repos\BrowseOmatic; git pull;  
-git add .; git commit -m ("refactor console unit tests fixes #" + $m) ; git push; 
+git add .; git commit -m ("refactor proj unit tests fixes #" + $m) ; git push; 
 cd C:\Users\Tim\source\repos\Py\snippets; # git status;   
 git pull; git add .; git commit -m ("refactor codegen files fixes #"  + $m); git push;  
 cd D:\repos\SledgeOMatic;  git pull;  
