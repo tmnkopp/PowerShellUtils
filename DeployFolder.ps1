@@ -1,4 +1,18 @@
-﻿ 
+﻿
+$rex = '\.ps1'
+$movefrom = 'D:\dev\CyberScope\trunk\CSwebdev\database\Utils\'
+$moveto = 'D:\temp\cs'    
+Get-ChildItem $moveto | 
+    Where {$_.FullName -notmatch $rex} |   
+    Remove-item -Recurse -Force
+Get-ChildItem $movefrom |  
+    Where {$_.FullName -notmatch $rex} | 
+    Copy-Item -Destination $moveto -Recurse -Force
+ 
+
+
+
+
 cls;
 $dest = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\Utils\';
 $src = 'C:\posh\';  
