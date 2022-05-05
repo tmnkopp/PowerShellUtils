@@ -30,6 +30,7 @@ function SVNCommitter
     svn commit --targets 'C:\temp\svnupdates.txt' -m 'CS-8459 Browser Automator IG Config';  
     svn commit --targets 'C:\temp\svnupdates.txt' -m ' CS-8890 default toggle to hide optional ';  
     svn commit --targets 'C:\temp\svnupdates.txt' -m 'CS-8889 Add Additional Guidance Notes to Each Section: FY22 Annual IG';  
+    svn commit --targets 'C:\temp\svnupdates.txt' -m 'CSHELP-3211 update section 4 validation';  
     # start chrome https://dayman.cyber-balance.com/TeamCity/project/_Root?mode=builds      
     # CS-8889 Add Additional Guidance Notes to Each Section: FY22 Annual IG
     # CS-8865 Create Toggle to Show/Hide Optional Metrics: FY22 FISMA Annual IG
@@ -40,4 +41,5 @@ function SVNCommitter
     # CS-8826 CDM date import - remove date logic
     # CS-8459 Browser Automator config attribute targets 
     # CS-8459 Browser Automator 2201 Config
+    # CSHELP-3211 update section 4 validation
 }
