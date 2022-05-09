@@ -13,7 +13,7 @@ function SVNCommitter
         $stat = $Matches[1] ;  $file = $Matches[2] ; 
         if($stat -match '\?'){  svn add $file;  }     
         if($stat -match 'A|M'){ } # CS-8450    CS-8412 update remove default literal tc not building 
-        svn commit $file -m ' CS-8885 add server html encode response service '; # CS-8494 EINS  CS-8614 CIO
+        svn commit $file -m ' CS-8885 add CBModelValidate for request/response service '; # CS-8494 EINS  CS-8614 CIO
     }    
     $nams = ''; Set-Content -Path 'C:\temp\svnupdates.txt' -Value ''; 
     $base = (((Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json).BRANCH   + '\CSwebdev\')
@@ -29,9 +29,10 @@ function SVNCommitter
  
     svn commit --targets 'C:\temp\svnupdates.txt' -m 'CS-8459 Browser Automator IG Config';  
     svn commit --targets 'C:\temp\svnupdates.txt' -m ' CS-8890 default toggle to hide optional ';  
-    svn commit --targets 'C:\temp\svnupdates.txt' -m 'CS-8889 Add Additional Guidance Notes to Each Section: FY22 Annual IG';  
-    svn commit --targets 'C:\temp\svnupdates.txt' -m 'CSHELP-3211 update section 4 validation';  
-    # start chrome https://dayman.cyber-balance.com/TeamCity/project/_Root?mode=builds      
+    svn commit --targets 'C:\temp\svnupdates.txt' -m 'CS-8889 bold Add Additional Guidance Notes ';  
+    svn commit --targets 'C:\temp\svnupdates.txt' -m ' CS-8885	  create data request/response service ';  
+    # start chrome https://dayman.cyber-balance.com/TeamCity/project/_Root?mode=builds     
+   
     # CS-8889 Add Additional Guidance Notes to Each Section: FY22 Annual IG
     # CS-8865 Create Toggle to Show/Hide Optional Metrics: FY22 FISMA Annual IG
     # CS-8883 Update IPv4 Validations - EINSTEIN Config 
