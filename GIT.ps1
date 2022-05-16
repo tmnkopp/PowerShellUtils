@@ -1,5 +1,5 @@
 ﻿$m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_}); 
-cd 'c:\posh'; git pull; git add .; git commit -m ("Refactor DB Updater fixes #"  + $m); git push; 
+cd 'c:\posh'; git pull; git add .; git commit -m ("Refactor release fixes #"  + $m); git push; 
 cd 'C:\sql'; git add .; git commit -m ("Refactor DB Bak Restore fixes #"  + $m); git push; 
 cd D:\repos\BrowseOmatic; git pull;  
 git add .; git commit -m ("refactor proj unit tests fixes #" + $m) ; git push; 
