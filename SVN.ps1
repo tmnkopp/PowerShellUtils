@@ -26,7 +26,7 @@ function SVNCommitter
     }   
     Set-Content -Path 'C:\temp\svnupdates.txt' -Value $nams;  notepad.exe 'C:\temp\svnupdates.txt';
     
-    svn commit --targets 'C:\temp\svnupdates.txt' -m 'CS-8894 1802  ';  
+    svn commit --targets 'C:\temp\svnupdates.txt' -m 'CS-8894 1802 dependancy update ';  
 
     svn commit --targets 'C:\temp\svnupdates.txt' -m ' # CS-8895 HVA Prepop Orgsubs';  
     svn commit --targets 'C:\temp\svnupdates.txt' -m ' CS-8890 default toggle to hide optional ';   
