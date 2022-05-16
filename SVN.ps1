@@ -22,19 +22,19 @@ function SVNCommitter
         $_ -match '(.+\s{2,7})(.*)';
         $stat = $Matches[1];  $file = $Matches[2] ; 
         if($stat -match '\?'){  svn add $file; }  
-        $nams = ($nams + $base + $file + [Environment]::NewLine);
-        # svn commit $file -m ' CS-8836 create 2022 IG show hide '; #  date import - remove date logic 
+        $nams = ($nams + $base + $file + [Environment]::NewLine); 
     }   
     Set-Content -Path 'C:\temp\svnupdates.txt' -Value $nams;  notepad.exe 'C:\temp\svnupdates.txt';
- 
-    svn commit --targets 'C:\temp\svnupdates.txt' -m ' # CS-8895 HVA Section 1 DB UPDATE';  
-    svn commit --targets 'C:\temp\svnupdates.txt' -m ' CS-8890 default toggle to hide optional ';  
-    svn commit --targets 'C:\temp\svnupdates.txt' -m 'CS-8889 bold Add Additional Guidance Notes ';  
-    svn commit --targets 'C:\temp\svnupdates.txt' -m ' CS-8885	  create data request/response service ';  
     
+    svn commit --targets 'C:\temp\svnupdates.txt' -m 'CS-8894 1802  ';  
+
+    svn commit --targets 'C:\temp\svnupdates.txt' -m ' # CS-8895 HVA Prepop Orgsubs';  
+    svn commit --targets 'C:\temp\svnupdates.txt' -m ' CS-8890 default toggle to hide optional ';   
+    svn commit --targets 'C:\temp\svnupdates.txt' -m ' CS-8885	  create data request/response service ';  
+    # CS-8894 1802  
     # CS-8895 HVA Section 1 DB UPDATE
     # start chrome https://dayman.cyber-balance.com/TeamCity/project/_Root?mode=builds     
-    
+    # CS-8901 BOD1802 Annual 1A Db Dependancy Update- 
     # CS-8889 Add Additional Guidance Notes to Each Section: FY22 Annual IG
     # CS-8865 Create Toggle to Show/Hide Optional Metrics: FY22 FISMA Annual IG
     # CS-8883 Update IPv4 Validations - EINSTEIN Config 
