@@ -26,11 +26,17 @@ function SVNCommitter
     }   
     Set-Content -Path 'C:\temp\svnupdates.txt' -Value $nams;  notepad.exe 'C:\temp\svnupdates.txt';
     
-    svn commit --targets 'C:\temp\svnupdates.txt' -m 'CS-8901 BOD1802 Update Sections 4,5 ';   #  CS-8894 1802 frmval update 
+    svn commit --targets 'C:\temp\svnupdates.txt' -m '';   #  CS-8894 1802 frmval update CS-8901 BOD1802 Update Sections 4,5
 
-    svn commit --targets 'C:\temp\svnupdates.txt' -m ' # CS-8895 HVA Prepop Orgsubs';  
+    svn commit --targets 'C:\temp\svnupdates.txt' -m ' CS-8895 HVA Prepop Orgsubs';  
     svn commit --targets 'C:\temp\svnupdates.txt' -m ' CS-8890 default toggle to hide optional ';   
     svn commit --targets 'C:\temp\svnupdates.txt' -m ' CS-8885 create data request/response service ';  
+
+    # CS-8933 Update 'Show/Hide' Metric Display When Edit/Save is Clicked: FY22 Annual IG
+    # CS-8934 Update Show/Hide Metric Toggle Format: FY22 Annual IG
+    # CS-8932 Update Validation Logic/Text- FY22 Annual IG 
+    #
+    #
     # CS-8894 1802  
     # CS-8895 HVA Section 1 DB UPDATE
     # start chrome https://dayman.cyber-balance.com/TeamCity/project/_Root?mode=builds     
