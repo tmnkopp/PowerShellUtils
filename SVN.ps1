@@ -26,7 +26,7 @@ function SVNCommitter
     }   
     Set-Content -Path 'C:\temp\svnupdates.txt' -Value $nams;  notepad.exe 'C:\temp\svnupdates.txt';
     
-    svn commit --targets 'C:\temp\svnupdates.txt' -m 'CS-8958 Upload Validatie Agency ';   #  CS-8894 1802 frmval update CS-8901 BOD1802 Update Sections 4,5 CS-8895 1b prefix update
+    svn commit --targets 'C:\temp\svnupdates.txt' -m 'CS-8958 reafactor data validatinos  ';   #  CS-8894 1802 frmval update CS-8901 BOD1802 Update Sections 4,5 CS-8895 1b prefix update
     #  CS-8892 batch Query outputs spreadsheet sheets name limit
     # CS-8892 add meta data to batch query
     # CS-8895 1b prefix update dependancy multi js update 
