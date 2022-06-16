@@ -26,7 +26,7 @@ function SVNCommitter
     }   
     Set-Content -Path 'C:\temp\svnupdates.txt' -Value $nams;  notepad.exe 'C:\temp\svnupdates.txt';
     # CS-8958 2201 add alias updates to batch 7.44 Checkmarx JavaScript Finding  CS-9008 HtmlEncode
-    svn commit --targets 'C:\temp\svnupdates.txt' -m 'S-8958	 Update Upload Validations   ';   #  CS-8894 1802 frmval update CS-8901 BOD1802 Update Sections 4,5 CS-8895 1b prefix update
+    svn commit --targets 'C:\temp\svnupdates.txt' -m 'S-8958 Update export columns ';   #  CS-8894 1802 frmval update CS-8901 BOD1802 Update Sections 4,5 CS-8895 1b prefix update
     # CS-8951 CIOq3 prevent rerun of the post question add form  
     # CS-8892 HVA1802 batch query  
     # CS-8895 HVA Section 1 prefix update dependancy multi js update 
