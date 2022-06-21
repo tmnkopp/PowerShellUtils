@@ -13,7 +13,7 @@ function SVNCommitter
         $stat = $Matches[1] ;  $file = $Matches[2] ; 
         if($stat -match '\?'){  svn add $file;  }     
         if($stat -match 'A|M'){ } # CS-8450    CS-8412 update remove default literal tc not building 
-        svn commit $file -m '  CS-8892 batch Query outputs spreadsheet sheets name limit '; # CS-8494 EINS  CS-8614 CIO
+        svn commit $file -m ' CS-9019 null sub in integer '; # CS-8494 EINS  CS-8614 CIO
     }    
     $nams = ''; Set-Content -Path 'C:\temp\svnupdates.txt' -Value ''; 
     $base = (((Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json).BRANCH   + '\CSwebdev\')
@@ -27,7 +27,7 @@ function SVNCommitter
     Set-Content -Path 'C:\temp\svnupdates.txt' -Value $nams;  notepad.exe 'C:\temp\svnupdates.txt';
     # CS-8958 2201 add alias updates to batch 7.44 Checkmarx JavaScript Finding  CS-9008 HtmlEncode
     # CS-8958 Update export columns  CS-8988 7c Update
-    svn commit --targets 'C:\temp\svnupdates.txt' -m 'CS-9015 q text update ';   #  CS-8894 1802 frmval update CS-8901 BOD1802 Update Sections 4,5 CS-8895 1b prefix update
+    svn commit --targets 'C:\temp\svnupdates.txt' -m 'CS-9019 null sub in integer ';   #  CS-8894 1802 frmval update CS-8901 BOD1802 Update Sections 4,5 CS-8895 1b prefix update
     # CS-8951 CIOq3 prevent rerun of the post question add form  
     # CS-8892 HVA1802 batch query  
     # CS-8895 HVA Section 1 prefix update dependancy multi js update 
