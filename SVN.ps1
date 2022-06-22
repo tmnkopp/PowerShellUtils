@@ -24,10 +24,9 @@ function SVNCommitter
         if($stat -match '\?'){  svn add $file; }  
         $nams = ($nams + $base + $file + [Environment]::NewLine); 
     }   
-    Set-Content -Path 'C:\temp\svnupdates.txt' -Value $nams;  notepad.exe 'C:\temp\svnupdates.txt';
-    # CS-8958 2201 add alias updates to batch 7.44 Checkmarx JavaScript Finding  CS-9008 HtmlEncode
-    # CS-8958 Update export columns  CS-8988 7c Update
-    svn commit --targets 'C:\temp\svnupdates.txt' -m 'CS-9019 null sub in integer ';   #  CS-8894 1802 frmval update CS-8901 BOD1802 Update Sections 4,5 CS-8895 1b prefix update
+    Set-Content -Path 'C:\temp\svnupdates.txt' -Value $nams;  notepad.exe 'C:\temp\svnupdates.txt'; 
+    # CS-8958 Update export columns  CS-8988 7c Update CS-9019 null sub in integer
+    svn commit --targets 'C:\temp\svnupdates.txt' -m 'CS-9022 Text update section 1 ';   #  CS-8894 1802 frmval update CS-8901 BOD1802 Update Sections 4,5 CS-8895 1b prefix update
     # CS-8951 CIOq3 prevent rerun of the post question add form  
     # CS-8892 HVA1802 batch query  
     # CS-8895 HVA Section 1 prefix update dependancy multi js update 
