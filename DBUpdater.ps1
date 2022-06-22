@@ -37,10 +37,9 @@ function DBUpdater
         $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json 
         if($SourcePath -eq ''){ $SourcePath=($config.BRANCH + '\CSwebdev\database')}      
         cd $SourcePath; svn update;
-       
-        $ConnectionString=$config.CONNSTR
+        
         $connection = New-Object System.Data.SqlClient.SqlConnection
-        $connection.ConnectionString = $ConnectionString
+        $connection.ConnectionString = $config.CONNSTR
         $connection.Open()  
 	}
 	process
@@ -58,8 +57,7 @@ function DBUpdater
 		} catch {
 		    Write-Error $_.Exception.Message 
 		} finally {
-            $connection.close()
-            Write-Host 'END'
+            $connection.close() 
         } 
 	}
 }     
