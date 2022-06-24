@@ -12,3 +12,7 @@ Get-ChildItem -Path "D:\dev\CyberScope\CsLab_Release" -Recurse |
 robocopy /S /E D:\dev\CyberScope\temp D:\dev\CyberScope\CsLab_Release
  
 explorer.exe "D:\dev\CyberScope\temp"
+
+
+  
+
