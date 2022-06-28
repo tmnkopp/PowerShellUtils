@@ -16,7 +16,7 @@ Get-ChildItem $movefrom |
 cls;
 $dest = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\Utils\';
 $src = 'C:\posh\';  
-$inc = @( "DBUpdater.ps1", "SourceControlUtils.ps1" ); 
+$inc = @( "DBUpdater.ps1", "SourceControlUtils.ps1", "ReleaseBuild.ps1" ); 
 Copy-Item -Path $src* -Include $inc -Destination $dest -Recurse -Force  
  
 $src = 'C:\sql\';  
