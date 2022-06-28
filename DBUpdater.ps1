@@ -33,7 +33,7 @@ function DBUpdater
                 if($_ -ne ''){ 
                     $cmd = $_ -replace '\nG[Oo]|\rG[Oo]', ''   
                     try { 
-                        $command.CommandText = $cmd
+                        $command.CommandText = $cmd # Write-Debug $cmd
                         $command.CommandTimeout = 0
                         $null = $command.ExecuteNonQuery() 
                     }
