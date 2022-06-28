@@ -42,8 +42,7 @@ function DBUpdater
                     } 
                 }  
             })  
-        } 
- 
+        }  
         $connection = New-Object System.Data.SqlClient.SqlConnection
         $connection.ConnectionString = $CONNSTR
         $connection.Open()  
