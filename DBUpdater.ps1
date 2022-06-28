@@ -8,7 +8,7 @@ function DBUpdater
         [int] $UpdateFromDays = 30,  
         [Alias("p")] 
         [Parameter(Mandatory = $false, Position = 1)] 
-        [string] $SourcePath = '' , 
+        [string] $SourcePath = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database' , 
         [Alias("e")] 
         [Parameter(Mandatory = $false, Position = 2)] 
         [string] $Exclude = '~', 
@@ -17,12 +17,9 @@ function DBUpdater
         [string] $CONNSTR = '' 
 	)
 	begin
-	{
-        if($SourcePath -eq ''){
-            $SourcePath='D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database';
-        } 
+	{ 
         Write-Verbose (' -p ' + $SourcePath);
-        Write-Verbose (' -c ' + $CONNSTR);
+        Write-Verbose (' -c ' + $CONNSTR); 
         
         function RunScript {
             [CmdletBinding()] 
