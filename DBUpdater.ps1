@@ -23,7 +23,7 @@ function DBUpdater
         } 
         Write-Verbose (' -p ' + $SourcePath);
         Write-Verbose (' -c ' + $CONNSTR);
- 
+        
         function RunScript {
             [CmdletBinding()] 
             param(    
