@@ -11,10 +11,19 @@ function DBUpdater
         [string] $SourcePath = '' , 
         [Alias("e")] 
         [Parameter(Mandatory = $false, Position = 2)] 
-        [string] $Exclude = '~'                       
+        [string] $Exclude = '~', 
+        [Alias("c")] 
+        [Parameter(Mandatory = $false, Position = 3)] 
+        [string] $CONNSTR = '' 
 	)
 	begin
 	{
+        if($SourcePath -eq ''){
+            $SourcePath='D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database';
+        } 
+        Write-Verbose (' -p ' + $SourcePath);
+        Write-Verbose (' -c ' + $CONNSTR);
+ 
         function RunScript {
             [CmdletBinding()] 
             param(    
@@ -34,12 +43,9 @@ function DBUpdater
                 }  
             })  
         } 
-        $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json 
-        if($SourcePath -eq ''){ $SourcePath=($config.BRANCH + '\CSwebdev\database')}      
-        cd $SourcePath; svn update;
-        
+ 
         $connection = New-Object System.Data.SqlClient.SqlConnection
-        $connection.ConnectionString = $config.CONNSTR
+        $connection.ConnectionString = $CONNSTR
         $connection.Open()  
 	}
 	process
