@@ -13,7 +13,7 @@ function SVNCommitter
         $stat = $Matches[1] ;  $file = $Matches[2] ; 
         if($stat -match '\?'){  svn add $file;  }     
         if($stat -match 'A|M'){ } # CS-8450    CS-8412 update remove default literal tc not building 
-        svn commit $file -m ' CS-9019 null sub in integer '; # CS-8494 EINS  CS-8614 CIO
+        svn commit $file -m ' CS-9042 add loading for radio control'; # CS-8494 EINS  CS-8614 CIO
     }    
     $nams = ''; Set-Content -Path 'C:\temp\svnupdates.txt' -Value ''; 
     $base = (((Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json).BRANCH   + '\CSwebdev\')
