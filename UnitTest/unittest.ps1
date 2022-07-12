@@ -1,6 +1,11 @@
-$Path =  'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\Functions\iter_stringlist_to_tbl.sql'
-$content = (Get-Content $Path).Replace("[dbo].", "").Replace("dbo.", "").Replace("[", "").Replace("]", "");
-$match = select-string ".*DROP\s{1,}(\w{2,255})\s{1,}([A-Za-z0-9\\_]{3,})" -inputobject  $content;
-$obj = $match.Matches.groups[2].value
-cls
-$obj
+Get-ChildItem  -Path 'D:\dev\CyberScope\trunk\CSwebdev\database' -Recurse -Filter *sql  | `
+Where-Object { ($_.LastWriteTime -gt  (Get-date).AddDays(-2)) } | ` 
+Where-Object { ($_.FullName -notmatch '(\\Utils|\\InProgress|\\Archive)') } | `    
+Sort-Object -Property $_.LastWriteTime -de |ForEach-Object  { #   Out-GridView -PassThru  |  
+    $ff = $_.FullName -replace 'G:\\inetpub\\wwwroot\\database', '' 
+    $o =  ($o + '|' + $_.Name) 
+    # Copy-Item -LiteralPath $_.FullName -Destination ($to + 'scripts\' + $ff)  -Recurse -Force 
+} 
+Write-Output $o 
+
+ 
