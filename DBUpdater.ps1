@@ -50,7 +50,7 @@ function DBUpdater
         $command.Connection = $connection  
 		try {    
             $files = ( Get-ChildItem $SourcePath -Recurse -Filter '*.sql' ) 
-            $files = $files.where({$_.FullName -notmatch 'Archive\\|Utils\\|Progress\\'})
+            $files = $files.where({$_.FullName -notmatch 'Archive\\|Utils\\|InProgress\\'})
             $files = $files.where({$_.LastWriteTime -gt (Get-Date).AddDays(-$UpdateFromDays)})  
             ($files.where({$_.FullName -notmatch  $Exclude}) | sort $_.LastWriteTime).foreach({
                 Write-Host $_.FullName 
