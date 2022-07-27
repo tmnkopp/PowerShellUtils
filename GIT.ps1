@@ -9,12 +9,12 @@ cd D:\repos\SledgeOMatic;  git pull;
 git add .; git commit -m ("compilers refactor "  + $m); git push;  
 
 
-cd D:\repos\somuing
-git add .; git commit -m "refactor post compile replacer "; git push;  
+cd D:\repos\somuing;
+git add .; git commit -m "refactor post compile   "; git push;  
 cd D:\repos\SOM-API; 
-git add .; git commit -m "refactor post compile replacer"; git push; 
-cd D:\repos\SOMData
-git add .; git commit -m "refactor update to 3.1";git push; 
+git add .; git commit -m "refactor post compile  "; git push; 
+cd D:\repos\SOMData;
+git add .; git commit -m "refactor update to 4.1"; git push; 
  
 cd D:\repos\JiraPortal;
 git add .; git commit -m "revise view module"; git push;  
