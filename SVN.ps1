@@ -26,7 +26,7 @@ function SVNCommitter
     }   
     Set-Content -Path 'C:\temp\svnupdates.txt' -Value $nams;  notepad.exe 'C:\temp\svnupdates.txt'; 
     # https://dayman.cyber-balance.com/jira/browse/CS-9089 
-    svn commit --targets 'C:\temp\svnupdates.txt' -m 'CS-9105 update checkboxlist script ';   #  CS-8894 1802 frmval update CS-8901 BOD1802 Update Sections 4,5 CS-8895 1b prefix update
+    svn commit --targets 'C:\temp\svnupdates.txt' -m 'CSHELP-3330 external control add db field ';   #  CS-8894 1802 frmval update CS-8901 BOD1802 Update Sections 4,5 CS-8895 1b prefix update
     # CS-8951 CIOq3 prevent rerun of the post question add form  
     # CS-8892 HVA1802 batch query     
     # CS-8901 BOD1802 Annual 1A Db Dependancy Update-   
