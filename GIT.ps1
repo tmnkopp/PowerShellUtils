@@ -9,6 +9,7 @@ cd D:\repos\SledgeOMatic;  git pull;
 git add .; git commit -m ("compilers refactor "  + $m); git push;  
 
 
+
 cd D:\repos\somuing;
 git add .; git commit -m "refactor post compile   "; git push;  
 cd D:\repos\SOM-API; 
