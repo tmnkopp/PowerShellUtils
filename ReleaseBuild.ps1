@@ -19,7 +19,7 @@ function ReleaseBuild
     Write-Verbose $Source 
     Write-Verbose $Dest 
     Write-Verbose $Temp  
-
+    
     Write-Debug 'Copy source to temp?'  
     Get-ChildItem -Path  $Temp | Remove-Item -Recurse -Force   
     robocopy /S /E  $Source  $Temp 

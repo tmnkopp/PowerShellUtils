@@ -29,7 +29,7 @@ function SVNCommitter
     svn commit --targets 'C:\temp\svnupdates.txt' -m ' CS-8459 Browser Automator CIO Config   ';   #  CS-8894 1802 frmval update CS-8901 BOD1802 Update Sections 4,5 CS-8895 1b prefix update
     # https://dayman.cyber-balance.com/jira/browse/CS-9109
     # CS-9029 update checkbox none-above logic
-    # CS-8951 CIOq3 prevent rerun of the post question add form  
+    # CS-8951 CIOQ3 prevent rerun of the post question add form  
     # CS-8892 HVA1802 batch query     
     # CS-8901 BOD1802 Annual 1A Db Dependancy Update-   
     # CS-8459 Browser Automator IG Config       
