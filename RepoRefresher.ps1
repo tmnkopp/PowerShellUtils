@@ -26,6 +26,6 @@ git add .; git commit -m ("compilers refactor "  + $m); git push;
  
 $src = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope\scripts\';cls;  
 $dest = 'D:\dev\CyberScope\CsLab\CSwebdev\code\CyberScope\CyberScope\scripts\';
-$dt = (Get-date).AddDays(-25) 
+$dt = (Get-date).AddDays(-5) 
 Get-ChildItem "${src}*.*" -File |? { ($_.LastWriteTime -gt $dt)  } |% { Copy-Item $_ $dest} 
 cd 'D:\dev\CyberScope\CsLab\CSwebdev\code\CyberScope'; git add .; git commit -m ("service refactor " + $m); git push; 
