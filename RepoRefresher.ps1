@@ -24,8 +24,12 @@ git pull; git add .; git commit -m ("unit tests refactor " + $m) ; git push;
 cd C:\users\tim\source\repos\SledgeOMatic; 
 git add .; git commit -m ("compilers refactor "  + $m); git push; 
  
-$src = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope\scripts\';cls;  
-$dest = 'D:\dev\CyberScope\CsLab\CSwebdev\code\CyberScope\CyberScope\scripts\';
-$dt = (Get-date).AddDays(-5) 
-Get-ChildItem "${src}*.*" -File |? { ($_.LastWriteTime -gt $dt)  } |% { Copy-Item $_ $dest} 
+$src = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope\scripts\'; 
+$dest = 'D:\dev\CyberScope\CsLab\CSwebdev\code\CyberScope\CyberScope\scripts\';  
+$dt = (Get-date).AddDays(-4)  
+Get-ChildItem "${src}*.*" -File -Recurse |? { ($_.LastWriteTime -gt $dt)  } |% { Copy-Item $_ $_.FullName.Replace($src, $dest)  } 
+ 
+
+robocopy /S /E  ($src+'core/') ($dest+'core/')
+Write-Host -replace $src $dest 
 cd 'D:\dev\CyberScope\CsLab\CSwebdev\code\CyberScope'; git add .; git commit -m ("service refactor " + $m); git push; 
