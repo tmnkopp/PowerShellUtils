@@ -13,7 +13,7 @@ function SVNCommitter
         $stat = $Matches[1] ;  $file = $Matches[2] ; 
         if($stat -match '\?'){  svn add $file;  }     
         if($stat -match 'A|M'){ } # CS-8450    CS-8412 update remove default literal tc not building 
-        svn commit $file -m ' CS-9042 add loading for radio control'; # CS-8494 EINS  CS-8614 CIO
+        svn commit $file -m '  CS-9157 move srs '; # CS-8494 EINS  CS-8614 CIO
     }    
     $nams = ''; Set-Content -Path 'C:\temp\svnupdates.txt' -Value ''; 
     $base = (((Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json).BRANCH   + '\CSwebdev\')
@@ -26,11 +26,10 @@ function SVNCommitter
     }   
     Set-Content -Path 'C:\temp\svnupdates.txt' -Value $nams;  notepad.exe 'C:\temp\svnupdates.txt'; 
     # https://dayman.cyber-balance.com/jira/browse/CS-9089 CS-9109 add 0   
-    svn commit --targets 'C:\temp\svnupdates.txt' -m ' CS-9157 automate cve update cdm import  ';   #  CS-8894 1802 frmval update CS-8901 BOD1802 Update Sections 4,5 CS-8895 1b prefix update
+    svn commit --targets 'C:\temp\svnupdates.txt' -m ' CS-9157 remove http folder  ';   #  CS-8894 1802 frmval update CS-8901 BOD1802 Update Sections 4,5 CS-8895 1b prefix update
+    # CS-9157 remove http folder  
     # https://dayman.cyber-balance.com/jira/browse/CS-9109
-    # CS-9029 update checkbox none-above logic
-    # CS-8951 CIOQ3 prevent rerun of the post question add form  
-    # CS-8892 HVA1802 batch query     
+    # CS-9029 update checkbox none-above logic  
     # CS-8901 BOD1802 Annual 1A Db Dependancy Update-   
     # CS-8459 Browser Automator IG Config       
 }
