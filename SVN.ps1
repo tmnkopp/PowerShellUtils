@@ -26,10 +26,8 @@ function SVNCommitter
     }   
     Set-Content -Path 'C:\temp\svnupdates.txt' -Value $nams;  notepad.exe 'C:\temp\svnupdates.txt'; 
     # https://dayman.cyber-balance.com/jira/browse/CS-9089 CS-9109 add 0   
-    svn commit --targets 'C:\temp\svnupdates.txt' -m ' CS-9157 remove http folder  ';   #  CS-8894 1802 frmval update CS-8901 BOD1802 Update Sections 4,5 CS-8895 1b prefix update
-    # CS-9157 remove http folder  
-    # https://dayman.cyber-balance.com/jira/browse/CS-9109
-    # CS-9029 update checkbox none-above logic  
-    # CS-8901 BOD1802 Annual 1A Db Dependancy Update-   
+    svn commit --targets 'C:\temp\svnupdates.txt' -m ' CS-9198	update submit date    ';   #  CS-8894 1802 frmval update CS-8901 BOD1802 Update Sections 4,5 CS-8895 1b prefix update
+    # CS-9157 request response service 
+    # CS-9208 Create BOD 18-02 HVA Agency Reporting Status Custom Query
     # CS-8459 Browser Automator IG Config       
 }
