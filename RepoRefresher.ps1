@@ -28,10 +28,9 @@ $src = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope\scripts\';
 $dest = 'D:\dev\CyberScope\CsLab\CSwebdev\code\CyberScope\CyberScope\scripts\';  
 $dt = (Get-date).AddDays(-4)  
 Get-ChildItem "${src}*.*" -File -Recurse |? { ($_.LastWriteTime -gt $dt)  } |% { Copy-Item $_ $_.FullName.Replace($src, $dest)  } 
-
-
+ 
 $src = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope\scripts\';   
-$dt = (Get-date).AddDays(-12)  
+$dt = (Get-date).AddDays(-24)  
 Get-ChildItem "${src}*.*" -File -Recurse |? { ($_.CreationTime -gt $dt)  } |% { Write-Host $_.FullName } 
 
 
