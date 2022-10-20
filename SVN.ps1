@@ -26,7 +26,7 @@ function SVNCommitter
     }   
     Set-Content -Path 'C:\temp\svnupdates.txt' -Value $nams;  notepad.exe 'C:\temp\svnupdates.txt'; 
     # CSHELP-3404 
-    svn commit --targets 'C:\temp\svnupdates.txt' -m ' CS-9157 request response service   ';   #  CS-8894 1802 frmval update CS-8901 BOD1802 Update Sections 4,5 CS-8895 1b prefix update
+    svn commit --targets 'C:\temp\svnupdates.txt' -m ' CS-9157 seperate dash files ';   #  CS-8894 1802 frmval update CS-8901 BOD1802 Update Sections 4,5 CS-8895 1b prefix update
     # CS-9157 request response service 
     # CS-9208 Create BOD 18-02 HVA Agency Reporting Status Custom Query
     # CS-8459 Browser Automator IG Config       
