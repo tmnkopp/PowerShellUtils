@@ -19,21 +19,38 @@ cd C:\users\tim\source\repos\BrowseOmatic;
 git add .; git commit -m ("unit tests refactor " + $m) ; git push;
 
 cd C:\Users\tim\source\repos\Py\snippets; 
+git status
+git remote set-url origin https://github.com/tmnkopp/PythonBoiler.git
+git push -u origin main
+git push origin --delete master
+
+https://github.com/tmnkopp/PythonBoiler.git
+
 git pull; git add .; git commit -m ("unit tests refactor " + $m) ; git push;
 
 cd C:\users\tim\source\repos\SledgeOMatic; 
 git add .; git commit -m ("compilers refactor "  + $m); git push; 
  
-$src = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope\scripts\core\'; 
-$dest = 'D:\dev\CyberScope\CsLab\CSwebdev\code\CyberScope\CyberScope\scripts\core\';  
-$dt = (Get-date).AddDays(-12)  
+$src = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope\scripts\'; 
+$dest = 'D:\dev\CyberScope\CsLab\CSwebdev\code\CyberScope\CyberScope\scripts\';  
+$dt = (Get-date).AddDays(-4)  
 Get-ChildItem "${src}*.*" -File -Recurse |? { ($_.LastWriteTime -gt $dt)  } |% { Copy-Item $_ $_.FullName.Replace($src, $dest)  } 
+cd 'D:\dev\CyberScope\CsLab\CSwebdev\code\CyberScope'; git add .; git commit -m ("service refactor " + $m); git push; 
  
-$src = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope\scripts\';   
+$src = 'c:\posh'; 
+$dest = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\Utils\posh\';
+$reg = "DBUpdater|"
+Get-ChildItem $src -File -Recurse |? { ($_.FullName -match $reg)  } |% {Copy-Item $_.FullName ($dest+$_.Name)} 
+ 
+ 
+$_.FullName.Replace($src, $dest) 
+
 $dt = (Get-date).AddDays(-24)  
 Get-ChildItem "${src}*.*" -File -Recurse |? { ($_.CreationTime -gt $dt)  } |% { Write-Host $_.FullName } 
-
+ 
 
 robocopy /S /E  ($src+'core/') ($dest+'core/')
 Write-Host -replace $src $dest 
-cd 'D:\dev\CyberScope\CsLab\CSwebdev\code\CyberScope'; git add .; git commit -m ("script refactor " + $m); git push; 
+
+
+D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\Utils\posh

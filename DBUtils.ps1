@@ -1,4 +1,17 @@
-﻿function DBUpdate 
+﻿<#
+Import-Module  ( 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\Utils\posh\DBUpdater.ps1'); DBUpdater -d 7  `
+-p 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\' `
+-c ';Initial Catalog=CS101122;Data Source=DESKTOP-OM9UKAC;User ID=CSadmin;Password=P@ssword1;Max Pool Size=200' `
+-v ;   
+
+-d = SCRIPTS FROM 7 DAYS AGO
+-p = PATH TO SCRIPTS
+-c = CONNECTION STRING
+-v = VERBOSE
+
+#>
+
+function DBUpdate 
 {  
   [CmdletBinding()]
    param ( 
