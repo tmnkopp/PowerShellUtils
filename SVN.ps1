@@ -10,14 +10,17 @@ function SVNCommitter
     Write-Verbose ( $commit ); 
     $nams = ''; Set-Content -Path 'C:\temp\svnupdates.txt' -Value '';  
 
-    Write-Verbose ($Path  );  
+    Write-Verbose ($Path);  
     cd $Path 
     
     svn status | Out-GridView -PassThru | ForEach-Object {    
         $_ -match '(.+\s{2,7})(.*)';
-        $stat = $Matches[1];  $file = $Matches[2] ; 
-        if($stat -match '\?'){  svn add $file; }  
-        $nams = ($nams + $Path + $file + [Environment]::NewLine); 
+        $stat = $Matches[1];  $file = $Matches[2] ;  
+        if($file -notmatch '\.config|\.csv|\.user|\.local'){
+            if($stat -match '\?'){  svn add $file; }  
+            $nams = ($nams + $Path + $file + [Environment]::NewLine);
+            Write-Verbose ($file);  
+        } 
     }   
     Set-Content -Path 'C:\temp\svnupdates.txt' -Value $nams; 
     $updates = Get-Content -Path 'C:\temp\svnupdates.txt';
