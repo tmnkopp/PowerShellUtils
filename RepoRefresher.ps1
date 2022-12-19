@@ -17,12 +17,7 @@ cd 'C:\sql'; git add .; git commit -m ("unit tests refactor " + $m) ; git push;
   
 cd C:\users\tim\source\repos\BrowseOmatic;  
 git add .; git commit -m ("unit tests refactor " + $m) ; git push;
-
-cd C:\Users\tim\source\repos\Py\snippets; 
-git status 
   
-git pull; git add .; git commit -m ("unit tests refactor " + $m) ; git push;
- 
 $src = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope\scripts\'; 
 $dest = 'D:\dev\CyberScope\CsLab\CSwebdev\code\CyberScope\CyberScope\scripts\';  
 $dt = (Get-date).AddDays(-4)  
