@@ -59,6 +59,9 @@ function DBUpdater
 	}
 	process
 	{ 
+        $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json     
+        cd ($config.BRANCH+'\database'); svn update ; 
+
         $command = New-Object System.Data.SqlClient.SqlCommand
         $command.Connection = $connection  
 		try {    
