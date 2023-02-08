@@ -57,7 +57,7 @@ function SVNUpdate
         { 
             Write-Host "msbuild fail " + $config.MSBUILD
         } 
-        bom run -h -t cyber_init;  taskkill /IM chromedriver.exe /T /F ; taskkill /IM chrome.exe /T /F ;   
+        bom run -h -t cyber_init;   
     } 
 }
 
