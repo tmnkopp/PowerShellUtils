@@ -2,8 +2,9 @@
 cd 'c:\posh'; git pull; git add .; git commit -m ("Refactor debug fixes #"  + $m); git push; 
 
 cd C:\Users\timko\source\repos\PythonBoiler;
-git add .; git commit -m "revise unit tests"; git push;   
+git add .; git commit -m ("refactor struct : " + $m); git push;   
   
+
  
 cd 'C:\sql'; git add .; git commit -m ("Refactor DB Bak fixes #"  + $m); git push; 
 cd c:\repos\BrowseOmatic; git pull;  
