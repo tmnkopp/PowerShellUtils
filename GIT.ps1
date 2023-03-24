@@ -1,6 +1,5 @@
 ﻿$m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_}); 
-cd 'c:\posh'; git pull; git add .; git commit -m ("Refactor debug fixes #"  + $m); git push; 
-
+cd 'c:\posh'; git pull; git add .; git commit -m ("Refactor debug fixes #"  + $m); git push;  
 cd C:\Users\timko\source\repos\PythonBoiler;
 git add .; git commit -m ("refactor struct : " + $m); git push;   
   
