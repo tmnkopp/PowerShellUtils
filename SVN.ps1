@@ -45,19 +45,21 @@ function SVNUpdate
         try
         {  
             $paths=[Environment]::GetEnvironmentVariable('PATH', 'Machine') -split ';' 
-            $msbuild = '';
+            $msbuild = $config.MSBUILD;
             foreach($p in $paths){
                 if($p -match 'MSBUILD'){
-                    $msbuild = ($p+'\MSBuild.exe');
+                    $msbuild = ($p);
                 } 
-            }
+            } 
+            $msbuild = ($msbuild+'\MSBuild.exe');
             & $msbuild -v:q  -clp:ErrorsOnly  -p:WarningLevel=0 ;    
         }
         catch
         { 
-            Write-Host "msbuild fail " + $config.MSBUILD
+            Write-Host "msbuild fail " + $msbuild
+            # Write-Host  $Error[0].Exception.GetType().FullName
         } 
-        bom run -h -t cyber_init;   
+        # bom run -h -t cyber_init;   
     } 
 }
 
