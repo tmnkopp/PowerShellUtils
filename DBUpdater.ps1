@@ -5,9 +5,10 @@ Import-Module  ( 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\Utils\pos
 -c ';Initial Catalog=CS101122;Data Source=DESKTOP-OM9UKAC;User ID=CSadmin;Password=P@ssword1;Max Pool Size=200' `
 -v ;   
 
--d = SCRIPTS FROM 7 DAYS AGO
--p = PATH TO SCRIPTS
 -c = CONNECTION STRING
+-d = SCRIPTS FROM 7 DAYS AGO 
+-p = PATH TO SCRIPTS
+-e = EXCLUDE REGEX 
 -v = VERBOSE
 
 #>
