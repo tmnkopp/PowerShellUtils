@@ -1,16 +1,16 @@
 $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
 $m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_});  
 cls;
-$src = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope.Automator\';  
+$src = 'c:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope.Automator\';  
 $ex = @( "app.config", ".exe", "*.csproj" );  
-Copy-Item -Path $src* -Exclude $ex -Destination D:\repos\xUnit-Browser-Tests -Recurse -Force  
-cd D:\repos\xUnit-Browser-Tests; git add .; git commit -m ("refactor test automator  " + $m); git push;  
+Copy-Item -Path $src* -Exclude $ex -Destination c:\repos\xUnit-Browser-Tests -Recurse -Force  
+cd c:\repos\xUnit-Browser-Tests; git add .; git commit -m ("refactor test automator  " + $m); git push;  
  
 $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
 $m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_});  
-$src = 'D:\dev\CyberBalance\trunk\projects\CyberBalance.CS.Core\Data\';  
-Copy-Item -Path $src* -Destination D:\repos\xUnit-Browser-Tests\Data -Recurse -Force  
-cd D:\repos\xUnit-Browser-Tests; git add .; git commit -m ("refactor repo" + $m); git push;  
+$src = 'c:\dev\CyberBalance\trunk\projects\CyberBalance.CS.Core\Data\';  
+Copy-Item -Path $src* -Destination c:\repos\xUnit-Browser-Tests\Data -Recurse -Force  
+cd c:\repos\xUnit-Browser-Tests; git add .; git commit -m ("refactor repo" + $m); git push;  
  
 cd 'c:\posh'; git pull; git add .; git commit -m ("unit tests refactor " + $m) ; git push; 
 cd 'C:\sql'; git add .; git commit -m ("unit tests refactor " + $m) ; git push;
@@ -25,7 +25,7 @@ Get-ChildItem "${src}*.*" -File -Recurse |? { ($_.LastWriteTime -gt $dt)  } |% {
 cd 'D:\dev\CyberScope\CsLab\CSwebdev\code\CyberScope'; git add .; git commit -m ("component refactor " + $m); git push; 
  
 $src = 'c:\posh'; 
-$dest = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\Utils\posh\';
+$dest = 'c:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\Utils\posh\';
 $reg = "DBUpdater|SVN"
 Get-ChildItem $src -File -Recurse |? { ($_.FullName -match $reg)  } |% {Copy-Item $_.FullName ($dest+$_.Name)} 
   
