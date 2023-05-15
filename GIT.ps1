@@ -3,10 +3,10 @@ cd 'c:\posh'; git pull; git add .; git commit -m ("Refactor debug fixes #"  + $m
 cd C:\Users\timko\source\repos\PythonBoiler;
 git add .; git commit -m ("refactor struct : " + $m); git push;   
    
-cd 'C:\sql'; git add .; git commit -m ("Refactor DB Bak fixes #"  + $m); git push; 
-cd c:\repos\BrowseOmatic; git pull;  
+ 
+cd C:\Users\timko\source\repos\BrowseOmatic; git pull;  
 git add .; git commit -m ("Compile proj unit test fixes #" + $m) ; git push;  
-cd c:\repos\SledgeOMatic;  git pull;  
+cd C:\Users\timko\source\repos\SledgeOMatic;  git pull;  
 git add .; git commit -m ("compilers refactor "  + $m); git push;  
 cd C:\Users\Tim\source\repos\Py\snippets; # git status;   
 git pull; git add .; git commit -m ("Compile codegen fixes #"  + $m); git push;  
@@ -29,4 +29,5 @@ cd 'c:\posh';
 git status; 
 git rm --cached Deploy.*
  
- 
+  
+
