@@ -34,4 +34,8 @@ cd C:\dev\CyberScope\trunk\; svn status;
 svn add --force * --auto-props --parents --depth infinity -q
 # svn ci -m 'CS-8754 Merge Trunk'; 
 svn status; 
+
+
+
+ 
  

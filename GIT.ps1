@@ -2,7 +2,15 @@
 cd 'c:\posh'; git pull; git add .; git commit -m ("Refactor debug fixes #"  + $m); git push;  
 cd C:\Users\timko\source\repos\PythonBoiler;
 git add .; git commit -m ("refactor issue provider : " + $m); git push;   
-   
+
+robocopy /S /E C:\Users\timko\source\repos\PythonBoiler\CodeGenerators C:\dev\CodeGen\pom
+cd C:\dev\CodeGen\pom
+Remove-Item * -Recurse -Include config.*
+Remove-Item  cache\*  -Recurse -Force
+Remove-Item  out\*  -Recurse -Force 
+svn add --force * --auto-props --parents --depth infinity -q
+svn commit -m ' ' 
+
  
 cd C:\Users\timko\source\repos\BrowseOmatic; git pull;  
 git add .; git commit -m ("Compile proj unit test fixes #" + $m) ; git push;  
@@ -17,14 +25,6 @@ git pull;
 cd D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code
 msbuild CyberScope.sln
  
-cd D:\repos\somuing;
-git add .; git commit -m "refactor post compile   "; git push;  
-cd D:\repos\SOM-API; 
-git add .; git commit -m "refactor post compile  "; git push; 
-cd D:\repos\SOMData;
-git add .; git commit -m "refactor update to 4.1"; git push; 
- 
-
 cd 'c:\posh';
 git status; 
 git rm --cached Deploy.*
