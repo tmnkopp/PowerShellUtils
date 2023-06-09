@@ -6,3 +6,5 @@ local*
 Deploy.*
 deploy.*
 deploy/
+_move_release
+_move_release.ps1
