@@ -22,7 +22,7 @@ function DBUpdater
         [int] $UpdateFromDays = 30,  
         [Alias("p")] 
         [Parameter(Mandatory = $false, Position = 1)] 
-        [string] $SourcePath = 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database' , 
+        [string] $SourcePath = '' , 
         [Alias("e")] 
         [Parameter(Mandatory = $false, Position = 2)] 
         [string] $Exclude = '~', 
@@ -65,7 +65,7 @@ function DBUpdater
         } catch {
             Write-Error $_.Exception.Message 
         }    
-        
+
         $command = New-Object System.Data.SqlClient.SqlCommand
         $command.Connection = $connection  
 		try {    
