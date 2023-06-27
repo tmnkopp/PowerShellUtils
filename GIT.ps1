@@ -28,6 +28,38 @@ msbuild CyberScope.sln
 cd 'c:\posh';
 git status; 
 git rm --cached Deploy.*
+
+
+
+$config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
+$m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_});  
+cls;
+$src = 'c:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope.Automator\';  
+$ex = @( "app.config", ".exe", "*.csproj" );  
+Copy-Item -Path $src* -Exclude $ex -Destination c:\repos\xUnit-Browser-Tests -Recurse -Force  
+cd c:\repos\xUnit-Browser-Tests; git add .; git commit -m ("refactor test automator  " + $m); git push;  
+ 
+$config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
+$m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_});  
+$src = 'c:\dev\CyberBalance\trunk\projects\CyberBalance.CS.Core\Data\';  
+Copy-Item -Path $src* -Destination c:\repos\xUnit-Browser-Tests\Data -Recurse -Force  
+cd c:\repos\xUnit-Browser-Tests; git add .; git commit -m ("refactor repo" + $m); git push;  
+ 
+cd 'c:\posh'; git pull; git add .; git commit -m ("unit tests refactor " + $m) ; git push; 
+cd 'C:\sql'; git add .; git commit -m ("unit tests refactor " + $m) ; git push;
+  
+cd C:\users\tim\source\repos\BrowseOmatic;  
+git add .; git commit -m ("unit tests refactor " + $m) ; git push;
+  
+ 
+$src = 'c:\posh\'; 
+$dest = 'y:\posh\';
+$reg = "DBUpdater|ReleaseBuild|_move_release"
+Get-ChildItem $src -File -Recurse |? { ($_.FullName -match $reg)  } |% {Copy-Item $_.FullName ($dest+$_.Name)} 
+  
+cd y:\posh
+dir
+ 
  
   
 

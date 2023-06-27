@@ -2,7 +2,7 @@
 <#
 Import-Module  ( 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\Utils\posh\DBUpdater.ps1'); DBUpdater -d 7  `
 -p 'D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\' `
--c ';Initial Catalog=CS101122;Data Source=DESKTOP-OM9UKAC;User ID=CSadmin;Password=P@ssword1;Max Pool Size=200' `
+-c ';Initial Catalog=CS101122;Data Source=DESKTOP-OM9UKAC;User ID=CSadmin;Password=**********;Max Pool Size=200' `
 -v ;   
 
 -c = CONNECTION STRING
@@ -83,3 +83,16 @@ function DBUpdater
         } 
 	}
 }     
+
+function getconnstr(){
+
+	[CmdletBinding()]
+	param
+	(   
+        [Alias("w")][Parameter(Mandatory = $true, Position = 1)] [string] $webconfig_path = '' 
+	)
+    [XML]$xmlfile = ((Get-Content "$($webconfig_path )\Web.config") ) 
+    $connectionString =$xmlfile.configuration.connectionStrings.add[1].connectionString
+    Write-Verbose ($connectionString)
+    return $connectionString
+} 

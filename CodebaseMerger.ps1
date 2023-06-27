@@ -26,13 +26,12 @@ svn rm --keep-local C:\dev\CyberScope\trunk\CSwebdev\code\CyberScope.Tests.VB\bi
 svn rm --keep-local C:\dev\CyberScope\trunk\CSwebdev\code\CyberScope.Tests.VB\obj;
 
 cd C:\dev\CyberScope\trunk\CSwebdev\code\CyberScope\; 
-svn ci -m "CS-9500 merge prod 7.52"
+svn ci -m "CS-9500 merge prod 7.54"
 
 explorer.exe "C:\dev\CyberScope\trunk"
 
 cd C:\dev\CyberScope\trunk\; svn status; 
-svn add --force * --auto-props --parents --depth infinity -q
-# svn ci -m 'CS-8754 Merge Trunk'; 
+svn add --force * --auto-props --parents --depth infinity -q 
 svn status; 
 
 
