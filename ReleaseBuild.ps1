@@ -3,15 +3,9 @@ function ReleaseBuild
 	[CmdletBinding()]
 	param
 	(   
-        [Alias("s")] 
-        [Parameter(Mandatory = $true, Position = 1)] 
-        [string] $Source = 'C:\inetpub\wwwroot\CyberScopeBranch_Release' , 
-        [Alias("d")] 
-        [Parameter(Mandatory = $true, Position = 2)] 
-        [string] $Dest = 'C:\inetpub\wwwroot\CyberScopeBranch',
-        [Alias("t")] 
-        [Parameter(Mandatory = $false, Position = 3)] 
-        [string] $Temp = 'C:\temp\cs\'  
+        [Alias("s")][Parameter(Mandatory = $true, Position = 1)][string] $Source = 'C:\inetpub\wwwroot\CyberScopeBranch_Release' , 
+        [Alias("d")][Parameter(Mandatory = $true, Position = 2)][string] $Dest = 'C:\inetpub\wwwroot\CyberScopeBranch',
+        [Alias("t")][Parameter(Mandatory = $false,Position = 3)][string] $Temp = 'C:\temp\cs\'  
 	) 
     Write-Verbose $Source 
     Write-Verbose $Dest 

@@ -17,24 +17,15 @@ function DBUpdater
 	[CmdletBinding()]
 	param
 	(  
-        [Alias("d")] 
-        [Parameter(Mandatory = $false, Position = 0)] 
-        [int] $UpdateFromDays = 30,  
-        [Alias("p")] 
-        [Parameter(Mandatory = $false, Position = 1)] 
-        [string] $SourcePath = '' , 
-        [Alias("e")] 
-        [Parameter(Mandatory = $false, Position = 2)] 
-        [string] $Exclude = '~', 
-        [Alias("c")] 
-        [Parameter(Mandatory = $false, Position = 3)] 
-        [string] $CONNSTR = '' 
+        [Alias("d")] [Parameter(Mandatory = $false, Position = 0)] [int] $UpdateFromDays = 30,  
+        [Alias("p")] [Parameter(Mandatory = $false, Position = 1)] [string] $SourcePath = '' , 
+        [Alias("e")] [Parameter(Mandatory = $false, Position = 2)] [string] $Exclude = '~', 
+        [Alias("c")] [Parameter(Mandatory = $false, Position = 3)] [string] $CONNSTR = '' 
 	)
 	begin
 	{ 
         Write-Verbose (' -p ' + $SourcePath);
-        Write-Verbose (' -c ' + $CONNSTR); 
-        
+        Write-Verbose (' -c ' + $CONNSTR);  
         function RunScript {
             [CmdletBinding()] 
             param(    
@@ -84,8 +75,7 @@ function DBUpdater
 	}
 }     
 
-function getconnstr(){
-
+function getconnstr(){ 
 	[CmdletBinding()]
 	param
 	(   
@@ -96,3 +86,8 @@ function getconnstr(){
     Write-Verbose ($connectionString)
     return $connectionString
 } 
+
+####     
+#     $conn = getconnstr -w  G:\inetpub\wwwroot\CyberScopeBranch 
+#     DBUpdater -d 7  -p 'C:\Users\Public\Desktop\databaserepos\CyberScopeBranch\database\SA' -c $conn -v ;   
+

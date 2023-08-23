@@ -56,7 +56,9 @@ $src = 'c:\posh\';
 $dest = 'y:\posh\';
 $reg = "DBUpdater|ReleaseBuild|_move_release"
 Get-ChildItem $src -File -Recurse |? { ($_.FullName -match $reg)  } |% {Copy-Item $_.FullName ($dest+$_.Name)} 
-  
+Get-ChildItem $src -File -Recurse |? { ($_.FullName -match $reg)  } |% {Copy-Item $_.FullName ('C:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\Utils\posh\'+$_.Name)}   
+cd C:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\Utils\posh;  
+svn commit -m "CS updated db utils "
 cd y:\posh
 dir
  
