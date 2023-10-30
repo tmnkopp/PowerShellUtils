@@ -67,6 +67,9 @@ function DBUpdater
                 Write-Host $_.FullName 
                 RunScript (Get-Content $_.FullName -Raw)  
             })  
+
+            $day = [Int] (Get-Date).DayOfWeek.value__ 
+        
 		} catch {
 		    Write-Error $_.Exception.Message 
 		} finally {
