@@ -60,12 +60,16 @@ git add .; git commit -m ("unit tests refactor " + $m) ; git push;
  
 $src = 'c:\posh\';  
 $reg = "DBUpdater|ReleaseBuild|_move_release" 
-Get-ChildItem $src -File -Recurse |? { ($_.FullName -match $reg)  } |% {Copy-Item $_.FullName ('C:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\Utils\posh\'+$_.Name)}   
-cd C:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\Utils\posh;  
+    Get-ChildItem $src -File -Recurse |? { ($_.FullName -match $reg)  } |% {Copy-Item $_.FullName ('C:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\Utils\posh\'+$_.Name)}   
+    cd C:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\Utils\posh;  
 svn commit -m "CS updated db utils "
 cd y:\posh
 dir
  
  
   
+cd c:/dev/CyberScopeNextGen 
+git status 
+git rm -r --cached .vs/
+
 
