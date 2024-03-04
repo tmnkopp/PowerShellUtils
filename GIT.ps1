@@ -68,8 +68,8 @@ dir
  
  
   
-cd c:/dev/CyberScopeNextGen 
-git status 
+cd C:\Users\timko\source\repos\PythonBoiler\ 
+git status ; git add .; git commit -m 'add jira'; git push; 
 git rm -r --cached .vs/
 
 
