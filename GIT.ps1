@@ -24,9 +24,9 @@ svn add --force * --auto-props --parents --depth infinity -q
 svn commit -m ' ' 
 
 $m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_});  
-cd C:\Users\timko\source\repos\BrowseOmatic; git pull;  
+cd D:\repos\BrowseOmatic; git pull;  
 git add .; git commit -m ("Compile proj unit test fixes #" + $m) ; git push;  
-cd C:\Users\timko\source\repos\SledgeOMatic;  git pull;  
+cd D:\repos\SledgeOMatic;  git pull;  
 git add .; git commit -m ("compilers refactor "  + $m); git push;  
 cd C:\Users\Tim\source\repos\Py\snippets; # git status;   
 git pull; git add .; git commit -m ("Compile codegen fixes #"  + $m); git push;  
@@ -71,5 +71,18 @@ dir
 cd C:\Users\timko\source\repos\PythonBoiler\ 
 git status ; git add .; git commit -m 'add jira'; git push; 
 git rm -r --cached .vs/
+
+
+cd D:\dev\CyberScopeNextGen; git pull; 
+git add . ; git commit -m' update unit 1161 unit tests ' ; git push;
+
+cd D:\dev\CyberScopeNextGen\;  dir
+git rm -r --cached .vs/
+
+git add *
+git stash
+git pull
+
+git status
 
 
