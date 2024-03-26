@@ -76,13 +76,16 @@ git rm -r --cached .vs/
 cd D:\dev\CyberScopeNextGen; git pull; 
 git add . ; git commit -m' update unit 1161 unit tests ' ; git push;
 
-cd D:\dev\CyberScopeNextGen\;  dir
+cd D:\dev\CyberScopeNextGen\;  
 git rm -r --cached .vs/
 
-git add *
+git add . 
 git stash
 git pull
 
 git status
 
 
+https://cyber-balance.visualstudio.com/_git/CyberScopeNextGen
+
+ 
