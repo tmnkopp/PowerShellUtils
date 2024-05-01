@@ -11,25 +11,29 @@ Remove-Item  out\*  -Recurse -Force
 svn add --force * --auto-props --parents --depth infinity -q
 svn commit -m ' ' 
 
-robocopy /S /E C:\Users\timko\source\repos\SledgeOmatic C:\dev\CodeGen\som
-cd C:\dev\CodeGen\som ;  
-Remove-Item  SledgeOmatic\appsettings.json  -Recurse -Force 
-Remove-Item  SledgeOmatic\som.cache  -Recurse -Force   
+robocopy /S /E D:\repos\SledgeOMatic D:\dev\CodeGen\som
+cd D:\dev\CodeGen\som ;  
+Remove-Item  SledgeOmatic\appsettings.json  -Recurse -Force   
 Remove-Item  SledgeOMatic\bin  -Recurse -Force  
-Remove-Item  SledgeOMatic\obj  -Recurse -Force  
-Remove-Item  C:\dev\CodeGen\som\.vs  -Recurse -Force   
-Remove-Item  C:\dev\CodeGen\som\.git -Recurse -Force 
-cd C:\dev\CodeGen\som ; svn cleanup; 
+Remove-Item  SledgeOMatic\obj  -Recurse -Force    
+Remove-Item  SledgeOMatic\TestResults  -Recurse -Force  
+Remove-Item  D:\dev\CodeGen\som\.vs  -Recurse -Force   
+Remove-Item  D:\dev\CodeGen\som\.git -Recurse -Force 
+cd D:\dev\CodeGen\som ; svn cleanup; 
 svn add --force * --auto-props --parents --depth infinity -q 
 svn commit -m ' ' 
 
+Remove-Item  SledgeOMatic\CoreTests\bin  -Recurse -Force 
+
+
 $m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_});  
-cd D:\repos\BrowseOmatic; git pull;  
-git add .; git commit -m ("Compile proj unit test fixes #" + $m) ; git push;  
-cd D:\repos\SledgeOMatic;  git pull;  
-git add .; git commit -m ("compilers refactor "  + $m); git push;  
+cd D:\repos\SledgeOMatic;  
+git add .; git commit -m ("refactor compilers  "  + $m); git push;  
 cd C:\Users\Tim\source\repos\Py\snippets; # git status;   
 git pull; git add .; git commit -m ("Compile codegen fixes #"  + $m); git push;  
+cd D:\repos\BrowseOmatic; git pull;  
+git add .; git commit -m ("Compile proj unit test fixes #" + $m) ; git push;  
+
 
 code D:\dev\CyberScope\CsLab\CSwebdev\code\CyberScope\CyberScope\scripts\;
 git pull;
@@ -68,9 +72,9 @@ dir
  
  
   
-cd C:\Users\timko\source\repos\PythonBoiler\ 
+cd D:\repos\SledgeOMatic\
 git status ; git add .; git commit -m 'add jira'; git push; 
-git rm -r --cached .vs/
+git rm -r --cached SledgeOMatic/Tasks
 
 
 cd D:\dev\CyberScopeNextGen; git pull; 
@@ -86,6 +90,6 @@ git pull
 git status
 
 
-https://cyber-balance.visualstudio.com/_git/CyberScopeNextGen
+git clone https://cyber-balance.visualstudio.com/_git/CyberScopeNextGen
 
  
