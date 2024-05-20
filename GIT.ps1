@@ -1,6 +1,7 @@
 ﻿$m = -join ((5..90) + (97..122) | Get-Random -Count 2 | % {$_});  
 cd 'c:\posh'; git pull; git add .; git commit -m ("Refactor debug fixes #"  + $m); git push;  
 cd C:\Users\timko\source\repos\PythonBoiler;
+cd C:\Users\Tim\source\repos\Py\snippets
 git add .; git commit -m ("refactor jra provider : " + $m); git push;   
 
 robocopy /S /E C:\Users\timko\source\repos\PythonBoiler\CodeGenerators C:\dev\CodeGen\pom
@@ -34,6 +35,8 @@ git pull; git add .; git commit -m ("Compile codegen fixes #"  + $m); git push;
 cd D:\repos\BrowseOmatic; git pull;  
 git add .; git commit -m ("Compile proj unit test fixes #" + $m) ; git push;  
 
+cd D:\dev\CyberScope\CsLab\CSwebdev\code\CyberScope\CyberScope;  
+git add .; git commit -m ("refactor   provider : " ); git push;   
 
 code D:\dev\CyberScope\CsLab\CSwebdev\code\CyberScope\CyberScope\scripts\;
 git pull;
