@@ -92,7 +92,7 @@ git pull
 
 git status
 
-
+CD D:\dev\ 
 git clone https://cyber-balance.visualstudio.com/_git/CyberScopeNextGen
 
  
