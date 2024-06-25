@@ -1,6 +1,6 @@
 ﻿$m = -join ((5..90) + (97..122) | Get-Random -Count 2 | % {$_});  
 cd 'c:\posh'; git pull; git add .; git commit -m ("Refactor debug fixes #"  + $m); git push;  
-cd C:\Users\timko\source\repos\PythonBoiler;
+#cd C:\Users\timko\source\repos\PythonBoiler;
 cd C:\Users\Tim\source\repos\Py\snippets
 git add .; git commit -m ("refactor jra provider : " + $m); git push;   
 
