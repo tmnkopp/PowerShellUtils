@@ -12,23 +12,23 @@ Remove-Item  out\*  -Recurse -Force
 svn add --force * --auto-props --parents --depth infinity -q
 svn commit -m ' ' 
 
-robocopy /S /E D:\repos\SledgeOMatic D:\dev\CodeGen\som
+robocopy /S /E D:\temp\cs\1 D:\temp\cs\2  /XD "D:\temp\cs\1\x" 
+ 
+
+robocopy /S /E D:\repos\SledgeOMatic D:\dev\CodeGen\som  /XD ".git" /XD ".vs" /XD "bin" /XD "obj" /XD "packages" /XD "TestResults"  
 cd D:\dev\CodeGen\som ;  
-Remove-Item  SledgeOmatic\appsettings.json  -Recurse -Force   
-Remove-Item  SledgeOMatic\bin  -Recurse -Force  
-Remove-Item  SledgeOMatic\obj  -Recurse -Force    
-Remove-Item  SledgeOMatic\TestResults  -Recurse -Force  
+Remove-Item  SledgeOmatic\appsettings.json  -Recurse -Force     
 Remove-Item  D:\dev\CodeGen\som\.vs  -Recurse -Force   
 Remove-Item  D:\dev\CodeGen\som\.git -Recurse -Force 
 cd D:\dev\CodeGen\som ; svn cleanup; 
 svn add --force * --auto-props --parents --depth infinity -q 
-svn commit -m ' ' 
+svn commit -m ' add saop ' 
 
 Remove-Item  SledgeOMatic\CoreTests\bin  -Recurse -Force 
 
 
 $m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_});  
-cd D:\repos\SledgeOMatic;  
+cd D:\repos\SledgeOMatic;  git status
 git add .; git commit -m ("refactor compilers  "  + $m); git push;  
 cd C:\Users\Tim\source\repos\Py\snippets; # git status;   
 git pull; git add .; git commit -m ("Compile codegen fixes #"  + $m); git push;  
