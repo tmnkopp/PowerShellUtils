@@ -14,6 +14,9 @@ svn commit -m ' '
 
 robocopy /S /E D:\temp\cs\1 D:\temp\cs\2  /XD "D:\temp\cs\1\x" 
  
+svn delete "D:\dev\CodeGen\som\CoreTests\obj"
+svn commit
+
 
 robocopy /S /E D:\repos\SledgeOMatic D:\dev\CodeGen\som  /XD ".git" /XD ".vs" /XD "bin" /XD "obj" /XD "packages" /XD "TestResults"  
 cd D:\dev\CodeGen\som ;  
