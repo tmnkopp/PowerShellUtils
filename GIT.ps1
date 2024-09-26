@@ -68,8 +68,10 @@ dir
  
  
   
-cd C:\Users\timko\source\repos\PythonBoiler\ 
+cd C:\Users\timko\source\repos\PythonBoiler\ ; git pull; 
 git status ; git add .; git commit -m 'add jira'; git push; 
-git rm -r --cached .vs/
+cd C:\dev\CyberScopeNextGen\CyberBalance.Scheduler.Server.Tests\  ; dir;  git status;
+git rm -r --cached C:\dev\CyberScopeNextGen\CyberBalance.Scheduler.Server.Tests\appsettings.local.json
+
 
 
