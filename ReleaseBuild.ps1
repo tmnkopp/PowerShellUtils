@@ -26,6 +26,6 @@ function ReleaseBuild
         /XD "$($Source)\bin" "$($Source)\TempDown" "$($Source)\TempUp" 
     } 
 }     
-# ReleaseBuild -s "C:\temp\CyberScopeBranch_Release" -d "C:\temp\CyberScopeBranch" -v
+ReleaseBuild -s "D:\temp\CyberScopeBranch_Release" -d "D:\temp\CyberScopeBranch" -v
 
  
