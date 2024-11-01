@@ -40,10 +40,7 @@ git add .; git commit -m ("Compile proj unit test fixes #" + $m) ; git push;
 
 cd D:\dev\CyberScope\CsLab\CSwebdev\code\CyberScope\CyberScope;  
 git add .; git commit -m ("refactor   provider : " ); git push;   
-
-code D:\dev\CyberScope\CsLab\CSwebdev\code\CyberScope\CyberScope\scripts\;
-git pull;
-
+ 
 cd D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code
 msbuild CyberScope.sln
  
@@ -70,25 +67,18 @@ git add .; git commit -m ("unit tests refactor " + $m) ; git push;
  
 $src = 'c:\posh\';  
 $reg = "DBUpdater|ReleaseBuild|_move_release" 
-    Get-ChildItem $src -File -Recurse |? { ($_.FullName -match $reg)  } |% {Copy-Item $_.FullName ('D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\Utils\posh'+$_.Name)}   
-    cd D:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\Utils\posh;  
+    Get-ChildItem $src -File -Recurse |? { ($_.FullName -match $reg)  } |% {Copy-Item $_.FullName ('c:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\Utils\posh\'+$_.Name)}   
+    cd c:\dev\CyberScope\CyberScopeBranch\CSwebdev\database\Utils\posh\;  
 svn commit -m "CS updated db utils "
-cd y:\posh
-dir
  
- 
-  
 cd C:\Users\timko\source\repos\PythonBoiler\ 
 git status ; git add .; git commit -m 'add jira'; git push; 
 git rm -r --cached .vs/
-
-git add . 
-git stash
-git pull
-
-git status
+ 
 
 CD D:\dev\ 
 git clone https://cyber-balance.visualstudio.com/_git/CyberScopeNextGen
 
+CD C:\dev\CyberScopeNextGen\
+git pull; 
  
