@@ -17,7 +17,6 @@ robocopy /S /E D:\temp\cs\1 D:\temp\cs\2  /XD "D:\temp\cs\1\x"
 svn delete "D:\dev\CodeGen\som\CoreTests\obj"
 svn commit
 
-
 robocopy /S /E D:\repos\SledgeOMatic D:\dev\CodeGen\som  /XD ".git" /XD ".vs" /XD "bin" /XD "obj" /XD "packages" /XD "TestResults"  
 cd D:\dev\CodeGen\som ;  
 Remove-Item  SledgeOmatic\appsettings.json  -Recurse -Force     
@@ -28,7 +27,6 @@ svn add --force * --auto-props --parents --depth infinity -q
 svn commit -m ' add saop ' 
 
 Remove-Item  SledgeOMatic\CoreTests\bin  -Recurse -Force 
-
 
 $m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_});  
 cd D:\repos\SledgeOMatic;  git status
@@ -44,10 +42,9 @@ git add .; git commit -m ("refactor   provider : " ); git push;
 cd D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code
 msbuild CyberScope.sln
  
-cd 'c:\posh';
-git status; 
+cd 'c:\posh' ;
+git status ; 
 git rm --cached Deploy.*
- 
  
 $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
 $m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_});  
@@ -56,7 +53,6 @@ $src = 'c:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope.Automator\';
 $ex = @( "app.config", ".exe", "*.csproj" );  
 Copy-Item -Path $src* -Exclude $ex -Destination C:\Users\timko\source\repos\SeleniumTestAutomator -Recurse -Force  
 cd C:\Users\timko\source\repos\SeleniumTestAutomator; git add .; git commit -m ("refactor test automator  " + $m); git push;  
- 
  
 cd 'c:\posh'; git pull; git add .; git commit -m ("unit tests refactor " + $m) ; git push; 
 cd 'C:\sql'; git add .; git commit -m ("unit tests refactor " + $m) ; git push;
@@ -75,7 +71,6 @@ cd C:\Users\timko\source\repos\PythonBoiler\
 git status ; git add .; git commit -m 'add jira'; git push; 
 git rm -r --cached .vs/
  
-
 CD D:\dev\ 
 git clone https://cyber-balance.visualstudio.com/_git/CyberScopeNextGen
 
