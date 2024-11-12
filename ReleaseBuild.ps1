@@ -31,5 +31,10 @@ ReleaseBuild -s "C:\temp\CyberScopeBranch_Release" `
  -d "C:\temp\CyberScopeBranch" `
  -b "c:\temp\backup\"  -v 
 
+$dir = "C:\temp\CyberScopeBranch_Release"
+$latest = Get-ChildItem -Path $dir | Sort-Object LastAccessTime -Descending | Select-Object -First 1
+$latest.name
+
+
 
  
