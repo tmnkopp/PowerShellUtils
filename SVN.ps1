@@ -52,6 +52,7 @@ function SVNUpdate
                 } 
             } 
             $msbuild = ($msbuild+'\MSBuild.exe');
+            Write-Verbose ( $msbuild );  
             & $msbuild -v:q  -clp:ErrorsOnly  -p:WarningLevel=0 ;    
         }
         catch

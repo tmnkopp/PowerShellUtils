@@ -7,9 +7,12 @@ function ReleaseBuild
         [Alias("d")][Parameter(Mandatory = $true, Position = 2)][string] $Dest = 'C:\inetpub\wwwroot\CyberScopeBranch',
         [Alias("b")][Parameter(Mandatory = $false,Position = 3)][string] $BackupDir = 'C:\temp\backup'  
 	)  
+    $windir = [Environment]::GetFolderPath("Desktop") + '\'
     $vpc = $VerbosePreference -ne [System.Management.Automation.ActionPreference]::SilentlyContinue
     if(Test-Path "$($BackupDir)"){ 
-        Compress-Archive -Path ($Dest + '\*') -DestinationPath ($BackupDir + '\'+(Get-Date -format "yyyy-MM-dd HH.mm.ss")+'.zip')
+        $destpath = ($BackupDir + '\'+(Get-Date -format "yyyy-MM-dd HH.mm.ss")+'.zip')
+        Compress-Archive -Path ($Dest + '\*') -DestinationPath ($destpath)
+        Expand-Archive -LiteralPath $destpath -DestinationPath ($BackupDir + '')
     } 
     if(Test-Path "$($Dest)"){
         Get-ChildItem -Path  "$($Dest)"  -Recurse |
@@ -34,6 +37,8 @@ ReleaseBuild -s "C:\temp\CyberScopeBranch_Release" `
 $dir = "C:\temp\CyberScopeBranch_Release"
 $latest = Get-ChildItem -Path $dir | Sort-Object LastAccessTime -Descending | Select-Object -First 1
 $latest.name
+
+ 
 
 
 

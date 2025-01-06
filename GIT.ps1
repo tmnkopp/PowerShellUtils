@@ -12,19 +12,16 @@ Remove-Item  out\*  -Recurse -Force
 svn add --force * --auto-props --parents --depth infinity -q
 svn commit -m ' ' 
 
-robocopy /S /E D:\temp\cs\1 D:\temp\cs\2  /XD "D:\temp\cs\1\x" 
  
-svn delete "D:\dev\CodeGen\som\CoreTests\obj"
-svn commit
 
-robocopy /S /E D:\repos\SledgeOMatic D:\dev\CodeGen\som  /XD ".git" /XD ".vs" /XD "bin" /XD "obj" /XD "packages" /XD "TestResults"  
-cd D:\dev\CodeGen\som ;  
+robocopy /S /E C:\Users\timko\source\repos\SledgeOmatic\ C:\dev\CodeGen\som  /XD ".git" /XD ".vs" /XD "bin" /XD "obj" /XD "packages" /XD "TestResults"  
+cd C:\dev\CodeGen\som ;  
 Remove-Item  SledgeOmatic\appsettings.json  -Recurse -Force     
-Remove-Item  D:\dev\CodeGen\som\.vs  -Recurse -Force   
-Remove-Item  D:\dev\CodeGen\som\.git -Recurse -Force 
-cd D:\dev\CodeGen\som ; svn cleanup; 
+# Remove-Item  C:\dev\CodeGen\som\.vs  -Recurse -Force   
+# Remove-Item  C:\dev\CodeGen\som\.git -Recurse -Force 
+cd C:\dev\CodeGen\som ; svn cleanup; 
 svn add --force * --auto-props --parents --depth infinity -q 
-svn commit -m ' add saop ' 
+svn commit -m ' add cio ' 
 
 Remove-Item  SledgeOMatic\CoreTests\bin  -Recurse -Force 
 
@@ -71,9 +68,23 @@ cd C:\Users\timko\source\repos\PythonBoiler\
 git status ; git add .; git commit -m 'add jira'; git push; 
 git rm -r --cached .vs/
  
-CD D:\dev\ 
+CD C:\dev\ 
 git clone https://cyber-balance.visualstudio.com/_git/CyberScopeNextGen
+
+
+CD C:\dev\CyberBalanceNextGen\ 
+git clone https://cyber-balance.visualstudio.com/CyberScopeNextGen/_git/CyberBalanceNextGen
+
+CD C:\dev\CyberScopeNextGen\
+git clone https://cyber-balance.visualstudio.com/CyberScopeNextGen/_git/CyberScopeNextGen
+
+
+CD C:\dev\CyberBalanceNextGen\
+git pull;  
+& "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe"  -v:q  -clp:ErrorsOnly  -p:WarningLevel=0 ; 
 
 CD C:\dev\CyberScopeNextGen\
 git pull; 
+& "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe"  -v:q  -clp:ErrorsOnly  -p:WarningLevel=0 ; 
+
  
