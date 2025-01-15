@@ -21,7 +21,7 @@ Remove-Item  SledgeOmatic\appsettings.json  -Recurse -Force
 # Remove-Item  C:\dev\CodeGen\som\.git -Recurse -Force 
 cd C:\dev\CodeGen\som ; svn cleanup; 
 svn add --force * --auto-props --parents --depth infinity -q 
-svn commit -m ' add cio ' 
+svn commit -m ' add mfa ' 
 
 Remove-Item  SledgeOMatic\CoreTests\bin  -Recurse -Force 
 
