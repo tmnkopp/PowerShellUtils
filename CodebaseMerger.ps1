@@ -37,6 +37,24 @@ svn update
 svn resolved D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope
 svn commit -m "CS-9500 merge prod 7.56"
 
+cd c:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope
+$files = svn log -qv -r '{2025-01-01}:{2099-01-01}'    
+$sqlFiles  = New-Object System.Collections.ArrayList
+foreach ($f in $files)
+{
+    if($f -match  '.*database/(.*sql$)'  ){  
+        [void] $sqlFiles.Add($Matches[1])
+    } 
+}
+$sqlFiles = $sqlFiles | Select -Unique
+$sqlFiles 
+
+foreach($f in $sqlFiles){
+    $source = ('C:\\Users\\Public\\Desktop\\databaserepos\\CyberScopeBranch\\database\\' + $f)   
+    Copy-Item -LiteralPath $source -Destination ($to + 'scripts\' + $f)  -Recurse -Force 
+}
+
+
   
 
 

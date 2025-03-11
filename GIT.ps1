@@ -17,7 +17,7 @@ svn commit -m ' '
 robocopy /S /E C:\Users\timko\source\repos\SledgeOmatic\ C:\dev\CodeGen\som  /XD ".git" /XD ".vs" /XD "bin" /XD "obj" /XD "packages" /XD "TestResults"  
 cd C:\dev\CodeGen\som ;  
 Remove-Item  SledgeOmatic\appsettings.json  -Recurse -Force     
-# Remove-Item  C:\dev\CodeGen\som\.vs  -Recurse -Force   
+# Remove-Item  C:\dev\CodeGen\som\.vs  -Recurse -Force 
 # Remove-Item  C:\dev\CodeGen\som\.git -Recurse -Force 
 cd C:\dev\CodeGen\som ; svn cleanup; 
 svn add --force * --auto-props --parents --depth infinity -q 
@@ -26,22 +26,22 @@ svn commit -m ' add mfa '
 Remove-Item  SledgeOMatic\CoreTests\bin  -Recurse -Force 
 
 $m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_});  
-cd D:\repos\SledgeOMatic;  git status
+C:\Users\timko\source\repos\SledgeOmatic\ git status
 git add .; git commit -m ("refactor compilers  "  + $m); git push;  
 cd C:\Users\Tim\source\repos\Py\snippets; # git status;   
 git pull; git add .; git commit -m ("Compile codegen fixes #"  + $m); git push;  
-cd D:\repos\BrowseOmatic; git pull;  
+cd c:\repos\BrowseOmatic; git pull;  
 git add .; git commit -m ("Compile proj unit test fixes #" + $m) ; git push;  
 
 cd D:\dev\CyberScope\CsLab\CSwebdev\code\CyberScope\CyberScope;  
 git add .; git commit -m ("refactor   provider : " ); git push;   
- 
+
 cd D:\dev\CyberScope\CyberScopeBranch\CSwebdev\code
 msbuild CyberScope.sln
  
-cd 'c:\posh' ;
+cd 'c:\posh' ; 
 git status ; 
-git rm --cached Deploy.*
+git rm --cached Deploy.* 
  
 $config = (Get-Content "c:\posh\config.json" -Raw) | ConvertFrom-Json    
 $m = -join ((65..90) + (97..122) | Get-Random -Count 2 | % {$_});  
@@ -56,7 +56,9 @@ cd 'C:\sql'; git add .; git commit -m ("unit tests refactor " + $m) ; git push;
   
 cd C:\users\tim\source\repos\BrowseOmatic;  
 git add .; git commit -m ("unit tests refactor " + $m) ; git push;
-  
+ 
+cd  C:\Users\timko\source\repos\SledgeOmatic\
+git add .; git commit -m ("unit tests refactor " + $m) ; git push;
  
 $src = 'c:\posh\';  
 $reg = "DBUpdater|ReleaseBuild|_move_release" 

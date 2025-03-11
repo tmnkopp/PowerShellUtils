@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../Users/timko/source/repos/PythonBoiler"
+		},
+		{
+			"path": "../bom"
+		},
+		{
+			"path": "../_som"
+		}
+	],
+	"settings": {
+		"powershell.cwd": "posh"
+	}
+}
