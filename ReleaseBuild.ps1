@@ -30,6 +30,14 @@ function ReleaseBuild
         ii $BackupDir  
     } 
 }     
+
+RETURN ; 
+
+xcopy C:\dev\CyberScope\CyberScopeBranch\CSwebdev\code\CyberScope\Web.config  C:\temp\CyberScopeBranch\Web.config 
+CD C:\temp\CyberScopeBranch
+DIR
+
+
 ReleaseBuild -s "C:\temp\CyberScopeBranch_Release" `
  -d "C:\temp\CyberScopeBranch" `
  -b "c:\temp\backup\"  -v 
@@ -37,6 +45,7 @@ ReleaseBuild -s "C:\temp\CyberScopeBranch_Release" `
 $dir = "C:\temp\CyberScopeBranch_Release"
 $latest = Get-ChildItem -Path $dir | Sort-Object LastAccessTime -Descending | Select-Object -First 1
 $latest.name
+
 
  
 
