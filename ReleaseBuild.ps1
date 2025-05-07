@@ -20,7 +20,7 @@ function ReleaseBuild
         Remove-Item -Recurse  -Force; 
          
         robocopy "$($Source)" "$($Dest)" /E  /XF *.config `
-        /XD "$($Source)\bin" "$($Source)\TempDown" "$($Source)\TempUp" 
+        /XD  "$($Source)\TempDown" "$($Source)\TempUp" 
     } 
     
     Write-Verbose $Source 
